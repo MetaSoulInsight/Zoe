@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>心靈療癒師 | 遇見真實的自己</title>
+    
+    <!-- 引入優雅的襯線字體 -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400&family=Noto+Serif+TC:wght@300;500&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- 全局設定 --- */
+        :root {
+            /* 乾燥玫瑰色系定義 */
+            --bg-color: #FDFCFB;     /* 極淡的暖白，像高級水彩紙 */
+            --text-main: #5C5050;    /* 帶紅感的深灰，比純黑溫柔 */
+            --text-light: #968888;   /* 淺灰藕色 */
+            --accent-rose: #B07D7D;  /* 乾燥玫瑰主色 */
+            --accent-light: #E8D3D3; /* 淺粉裝飾色 */
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Noto Serif TC", "Songti TC", serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.9;
+            overflow-x: hidden; /* 防止裝飾圖案超出邊界 */
+        }
+
+        /* --- 裝飾圖案 (SVG 玫瑰) --- */
+        /* 這是背景的裝飾，設定為絕對定位 */
+        .deco-rose {
+            position: absolute;
+            z-index: -1; /* 放在文字後面 */
+            opacity: 0.8; /* 稍微透明，不搶戲 */
+            pointer-events: none; /* 讓滑鼠可以穿透它點擊按鈕 */
+        }
+
+        .rose-top-right {
+            top: -50px;
+            right: -50px;
+            width: 300px;
+            height: 300px;
+            transform: rotate(15deg);
+        }
+
+        .rose-bottom-left {
+            bottom: 0;
+            left: -60px;
+            width: 400px;
+            height: 400px;
+            opacity: 0.5;
+            transform: rotate(-20deg);
+        }
+
+        /* --- 版面容器 --- */
+        .container {
+            max-width: 760px; /*稍微縮窄一點，更顯精緻 */
+            margin: 0 auto;
+            padding: 60px 25px;
+            position: relative; /* 為了讓背景圖案定位 */
+        }
+
+        /* --- Header --- */
+        header {
+            text-align: center;
+            padding: 100px 0 60px;
+        }
+
+        .subtitle {
+            font-family: "Noto Sans TC", sans-serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.25em;
+            color: var(--accent-rose);
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            color: #4A3B3B;
+            margin: 0 0 20px 0;
+        }
+
+        .intro-text {
+            font-size: 1.05rem;
+            color: var(--text-light);
+            max-width: 500px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        /* 小小的裝飾線 */
+        .intro-text::after {
+            content: "";
+            display: block;
+            width: 50px;
+            height: 1px;
+            background: linear-gradient(90deg, var(--accent-rose), transparent);
+            margin: 30px auto 0;
+        }
+
+        /* --- 關於我 Section --- */
+        .profile-section {
+            text-align: center;
+            margin: 80px 0;
+        }
+
+        .profile-img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            background-color: #F2E6E6; /* 淺粉色佔位符 */
+            margin: 0 auto 30px;
+            /* 這裡加上雙圈線條效果 */
+            border: 3px solid #fff;
+            box-shadow: 0 0 0 1px var(--accent-light); 
+            object-fit: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-rose);
+            font-size: 0.9rem;
+        }
+
+        h2 {
+            font-size: 1.6rem;
+            font-weight: normal;
+            color: #4A3B3B;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        p {
+            margin-bottom: 20px;
+            text-align: justify; /* 文字左右對齊，更有書本感 */
+            text-justify: inter-ideograph;
+        }
+
+        /* 證照標籤 - 改為極簡風格 */
+        .credentials {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .badge {
+            font-family: "Noto Sans TC", sans-serif;
+            font-size: 0.85rem;
+            color: var(--accent-rose);
+            border: 1px solid var(--accent-light);
+            padding: 8px 20px;
+            border-radius: 50px;
+            background: rgba(255,255,255,0.8);
+        }
+
+        /* --- 服務項目 --- */
+        .services-list {
+            display: grid;
+            gap: 25px;
+        }
+
+        .service-item {
+            background: #fff;
+            padding: 35px;
+            border-radius: 4px; /* 直角帶一點點圓，比較俐落 */
+            border: 1px solid #F7EEEE;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* 滑鼠移過去的優雅效果 */
+        .service-item:hover {
+            border-color: var(--accent-light);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(176, 125, 125, 0.08);
+        }
+
+        .service-item h3 {
+            font-size: 1.25rem;
+            color: var(--text-main);
+            margin: 0 0 10px 0;
+        }
+
+        .service-item span {
+            display: block;
+            font-size: 0.85rem;
+            color: var(--accent-rose);
+            margin-bottom: 15px;
+            font-family: "Noto Sans TC", sans-serif;
+        }
+
+        .service-item p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin: 0;
+            text-align: left;
+        }
+
+        /* --- 按鈕 --- */
+        .btn-container {
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            /* 漸層背景按鈕 */
+            background: linear-gradient(135deg, #C59090 0%, #B07D7D 100%);
+            color: #fff;
+            padding: 16px 50px;
+            border-radius: 2px; /* 日式風格通常不喜歡太圓的按鈕 */
+            text-decoration: none;
+            font-family: "Noto Sans TC", sans-serif;
+            letter-spacing: 0.15em;
+            font-size: 0.95rem;
+            transition: opacity 0.3s;
+            box-shadow: 0 5px 15px rgba(176, 125, 125, 0.2);
+        }
+
+        .cta-button:hover {
+            opacity: 0.9;
+        }
+
+        /* --- Footer --- */
+        footer {
+            text-align: center;
+            margin-top: 80px;
+            padding-top: 30px;
+            border-top: 1px solid #F0E6E6;
+            font-size: 0.8rem;
+            color: #C4BABA;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- 
+        SVG 定義區：這裡畫出了玫瑰花的線條 
+        使用了 gradient (漸層) 技術
+    -->
+    <svg style="display: none;">
+        <defs>
+            <linearGradient id="roseGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#D4A5A5;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#E6C2C2;stop-opacity:0.6" />
+            </linearGradient>
+        </defs>
+        <symbol id="rose-outline" viewBox="0 0 100 100">
+            <!-- 抽象的玫瑰線條 -->
+            <path fill="none" stroke="url(#roseGradient)" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"
+                d="M50,50 C55,45 60,55 50,60 C40,65 35,50 45,40 C55,30 70,35 75,50 C80,65 60,80 40,75 C20,70 25,40 45,30 C65,20 85,40 80,60 C75,80 45,90 30,70" />
+            <path fill="none" stroke="url(#roseGradient)" stroke-width="0.5" stroke-linecap="round" 
+                d="M50,50 C48,48 52,48 50,50 M30,30 Q40,10 60,20" opacity="0.6"/>
+        </symbol>
+    </svg>
+
+    <!-- 右上角的玫瑰裝飾 -->
+    <svg class="deco-rose rose-top-right">
+        <use href="#rose-outline" />
+    </svg>
+
+    <!-- 左下角的玫瑰裝飾 -->
+    <svg class="deco-rose rose-bottom-left">
+        <use href="#rose-outline" />
+    </svg>
+
+    <div class="container">
+        
+        <!-- Header -->
+        <header>
+            <span class="subtitle">Hypnosis & MBTI Practitioner</span>
+            <h1>內在花園的修剪師</h1>
+            <div class="intro-text">
+                安靜地梳理，真實地接納。<br>
+                在喧囂之外，為你的心靈留一盞暖光。
+            </div>
+        </header>
+
+        <!-- About Me -->
+        <div class="profile-section">
+            <!-- 照片區塊：請替換圖片 -->
+             <img src="https://i.postimg.cc/WbLDZYmM/C36483DE-0744-4AC0-957F-57E0157E45CB.jpg" alt="療癒師照片" class="profile-img">
+            
+            <p>你好，我是 Zoe ，也可以叫我 柔伊。</p>
+            <p>我相信，每個人的潛意識裡都有一座花園。有時雜草叢生，有時迷霧瀰漫，但那朵最真實的玫瑰始終在那裡，等待被看見。</p>
+            <p>作為一名結合科學與靈性的引導者，我運用 MBTI 的理性架構來理解你的天賦，並透過深層引導的感性流動來療癒你的內在小孩。這不是一場嚴肅的討論，而是一次跟自己溫柔的對話。</p>
+           <p>這裡沒有標準答案，但我會陪你一起溫柔的撥開迷霧，看見那個本就完整、且充滿活力的自己</p>
+            
+            <div class="credentials">
+                <div class="badge">IACT 國際催眠師證照</div>
+                <div class="badge"> NGH 國際催眠師證照</div>
+                <div class="badge">MBTI® Step I & II 施測師</div>
+            </div>
+        </div>
+
+        <!-- Services -->
+        <div class="profile-section" style="text-align: left;">
+            <h2>療癒方案</h2>
+            <div class="services-list">
+                <div class="service-item">
+                    <h3>MBTI 性格深度解析</h3>
+                    <span>60 min · 自我覺察</span>
+                    <p>使用官方正版題本，不僅是測出四個字母，更深入探討你的認知功能發展，理解你在壓力下的反應模式。</p>
+                </div>
+                <div class="service-item">
+                    <h3>深層內在引導</h3>
+                    <span>90-120 min · 潛意識重塑</span>
+                    <p>在極度放鬆的狀態下，釋放積累的焦慮與恐懼，撰寫新的內在正面劇本。</p>
+                  </div>  
+                  <div class="service-item">
+                    <h3>心靈花園引導</h3>
+                    <span>90-120 min · 內在花園重塑</span>
+                    <p>在放鬆的狀態下，透過進入自己內心的世界當自己的修剪師，重新整理自己內心的世界。</p>
+                </div>
+                <div class="service-item">
+                    <h3>整合式心靈諮詢</h3>
+                    <span>客製化 · 綜合療癒</span>
+                    <p>結合性格分析的理性建議，與情緒引導的感性支持，為迷惘的你提供一個清晰且溫暖的方向。</p>
+                </div>
+            </div>
+            
+            <div class="btn-container">
+               <!-- 如果是 LINE，請填入: https://line.me/ti/p/你的ID -->
+                <!-- 如果是 IG，請填入: https://www.instagram.com/你的帳號 -->
+                <a href="https://line.me/ti/p/你的ID" class="cta-button" target="_blank">預約靜心時光</a>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            &copy; 2025  Hi There療癒工作室. All rights reserved.
+        </footer>
+
+    </div>
+
+</body>
+</html>
