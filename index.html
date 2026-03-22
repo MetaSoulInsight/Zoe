@@ -4,278 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>心靈療癒師 | 遇見真實的自己</title>
-    
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400&family=Noto+Serif+TC:wght@300;500&display=swap" rel="stylesheet">
-
     <style>
-        /* --- 全局設定 --- */
-        /* 加上這行，讓點擊按鈕往下滾動時會有滑順的視覺效果 */
-        html {
-            scroll-behavior: smooth; 
-        }
-
-        :root {
-            /* 乾燥玫瑰色系定義 */
-            --bg-color: #FDFCFB;     /* 極淡的暖白，像高級水彩紙 */
-            --text-main: #5C5050;    /* 帶紅感的深灰，比純黑溫柔 */
-            --text-light: #968888;   /* 淺灰藕色 */
-            --accent-rose: #B07D7D;  /* 乾燥玫瑰主色 */
-            --accent-light: #E8D3D3; /* 淺粉裝飾色 */
-        }
-
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: "Noto Serif TC", "Songti TC", serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            line-height: 1.9;
-            overflow-x: hidden; 
-        }
-
-        /* --- 裝飾圖案 (SVG 玫瑰) --- */
-        .deco-rose {
-            position: absolute;
-            z-index: -1; 
-            opacity: 0.8; 
-            pointer-events: none; 
-        }
-
-        .rose-top-right {
-            top: -50px;
-            right: -50px;
-            width: 300px;
-            height: 300px;
-            transform: rotate(15deg);
-        }
-
-        .rose-bottom-left {
-            bottom: 0;
-            left: -60px;
-            width: 400px;
-            height: 400px;
-            opacity: 0.5;
-            transform: rotate(-20deg);
-        }
-
-        /* --- 版面容器 --- */
-        .container {
-            max-width: 760px; 
-            margin: 0 auto;
-            padding: 60px 25px;
-            position: relative; 
-        }
-
-        /* --- Header --- */
-        header {
-            text-align: center;
-            padding: 100px 0 60px;
-        }
-
-        .subtitle {
-            font-family: "Noto Sans TC", sans-serif;
-            font-size: 0.85rem;
-            letter-spacing: 0.25em;
-            color: var(--accent-rose);
-            text-transform: uppercase;
-            margin-bottom: 20px;
-            display: block;
-        }
-
-        h1 {
-            font-size: 2.8rem;
-            font-weight: 500;
-            letter-spacing: 0.05em;
-            color: #4A3B3B;
-            margin: 0 0 20px 0;
-        }
-
-        .intro-text {
-            font-size: 1.05rem;
-            color: var(--text-light);
-            max-width: 500px;
-            margin: 0 auto;
-            position: relative;
-        }
-        
-        .intro-text::after {
-            content: "";
-            display: block;
-            width: 50px;
-            height: 1px;
-            background: linear-gradient(90deg, var(--accent-rose), transparent);
-            margin: 30px auto 0;
-        }
-
-        /* --- 關於我 Section --- */
-        .profile-section {
-            text-align: center;
-            margin: 80px 0;
-        }
-
-        .profile-img {
-            width: 140px;
-            height: 140px;
-            border-radius: 50%;
-            background-color: #F2E6E6; 
-            margin: 0 auto 30px;
-            border: 3px solid #fff;
-            box-shadow: 0 0 0 1px var(--accent-light); 
-            object-fit: cover;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        h2 {
-            font-size: 1.6rem;
-            font-weight: normal;
-            color: #4A3B3B;
-            margin-bottom: 40px;
-            text-align: center;
-        }
-
-        h4 {
-            font-size: 1.3rem;
-            color: #4A3B3B;
-            margin: 30px 0 10px 0;
-            font-weight: 500;
-        }
-
-        p {
-            margin-bottom: 20px;
-            text-align: justify; 
-            text-justify: inter-ideograph;
-        }
-
-        .highlight-text {
-            color: var(--accent-rose);
-            font-weight: 500;
-            margin-bottom: 20px;
-            text-align: justify;
-        }
-
-        /* 證照標籤 */
-        .credentials {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-            margin-top: 40px;
-        }
-
-        .badge {
-            font-family: "Noto Sans TC", sans-serif;
-            font-size: 0.85rem;
-            color: var(--accent-rose);
-            border: 1px solid var(--accent-light);
-            padding: 8px 20px;
-            border-radius: 50px;
-            background: rgba(255,255,255,0.8);
-        }
-
-        /* --- 服務項目 --- */
-        .services-list {
-            display: grid;
-            gap: 25px;
-        }
-
-        .service-item {
-            background: #fff;
-            padding: 35px;
-            border-radius: 4px; 
-            border: 1px solid #F7EEEE;
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .service-item:hover {
-            border-color: var(--accent-light);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(176, 125, 125, 0.08);
-        }
-
-        .service-item h3 {
-            font-size: 1.25rem;
-            color: var(--text-main);
-            margin: 0 0 10px 0;
-        }
-
-        .service-item span {
-            display: block;
-            font-size: 0.85rem;
-            color: var(--accent-rose);
-            margin-bottom: 15px;
-            font-family: "Noto Sans TC", sans-serif;
-        }
-
-        .service-item p {
-            color: var(--text-light);
-            font-size: 0.95rem;
-            margin: 0;
-            text-align: left;
-        }
-
-        /* --- 按鈕 --- */
-        .btn-container {
-            text-align: center;
-            margin-top: 60px;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background: linear-gradient(135deg, #C59090 0%, #B07D7D 100%);
-            color: #fff;
-            padding: 16px 50px;
-            border-radius: 2px; 
-            text-decoration: none;
-            font-family: "Noto Sans TC", sans-serif;
-            letter-spacing: 0.15em;
-            font-size: 0.95rem;
-            transition: opacity 0.3s;
-            box-shadow: 0 5px 15px rgba(176, 125, 125, 0.2);
-            cursor: pointer;
-        }
-
-        .cta-button:hover {
-            opacity: 0.9;
-        }
-
-        /* --- 預約區塊 --- */
-        .booking-section {
-            margin-top: 80px;
-            padding-top: 60px;
-            border-top: 1px dashed var(--accent-light);
-            text-align: center;
-        }
-        
-        .booking-title {
-            font-size: 1.6rem;
-            color: #4A3B3B;
-            margin-bottom: 10px;
-        }
-        
-        .booking-desc {
-            color: var(--text-light);
-            font-size: 0.95rem;
-            margin-bottom: 30px;
-        }
-
-        /* --- Footer --- */
-        footer {
-            text-align: center;
-            margin-top: 80px;
-            padding-top: 30px;
-            border-top: 1px solid #F0E6E6;
-            font-size: 0.8rem;
-            color: #C4BABA;
-        }
-
+        /* (為了節省篇幅，這裡保留與你原本完全相同的漂亮乾燥玫瑰色 CSS，我沒有更動風格) */
+        html { scroll-behavior: smooth; }
+        :root { --bg-color: #FDFCFB; --text-main: #5C5050; --text-light: #968888; --accent-rose: #B07D7D; --accent-light: #E8D3D3; }
+        body { margin: 0; padding: 0; font-family: "Noto Serif TC", "Songti TC", serif; background-color: var(--bg-color); color: var(--text-main); line-height: 1.9; overflow-x: hidden; }
+        .deco-rose { position: absolute; z-index: -1; opacity: 0.8; pointer-events: none; }
+        .rose-top-right { top: -50px; right: -50px; width: 300px; height: 300px; transform: rotate(15deg); }
+        .rose-bottom-left { bottom: 0; left: -60px; width: 400px; height: 400px; opacity: 0.5; transform: rotate(-20deg); }
+        .container { max-width: 760px; margin: 0 auto; padding: 60px 25px; position: relative; }
+        header { text-align: center; padding: 100px 0 60px; }
+        .subtitle { font-family: "Noto Sans TC", sans-serif; font-size: 0.85rem; letter-spacing: 0.25em; color: var(--accent-rose); text-transform: uppercase; margin-bottom: 20px; display: block; }
+        h1 { font-size: 2.8rem; font-weight: 500; letter-spacing: 0.05em; color: #4A3B3B; margin: 0 0 20px 0; }
+        .intro-text { font-size: 1.05rem; color: var(--text-light); max-width: 500px; margin: 0 auto; position: relative; }
+        .intro-text::after { content: ""; display: block; width: 50px; height: 1px; background: linear-gradient(90deg, var(--accent-rose), transparent); margin: 30px auto 0; }
+        .profile-section { text-align: center; margin: 80px 0; }
+        .profile-img { width: 140px; height: 140px; border-radius: 50%; background-color: #F2E6E6; margin: 0 auto 30px; border: 3px solid #fff; box-shadow: 0 0 0 1px var(--accent-light); object-fit: cover; display: flex; align-items: center; justify-content: center; }
+        h2 { font-size: 1.6rem; font-weight: normal; color: #4A3B3B; margin-bottom: 40px; text-align: center; }
+        h4 { font-size: 1.3rem; color: #4A3B3B; margin: 30px 0 10px 0; font-weight: 500; }
+        p { margin-bottom: 20px; text-align: justify; text-justify: inter-ideograph; }
+        .highlight-text { color: var(--accent-rose); font-weight: 500; margin-bottom: 20px; text-align: justify; }
+        .credentials { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-top: 40px; }
+        .badge { font-family: "Noto Sans TC", sans-serif; font-size: 0.85rem; color: var(--accent-rose); border: 1px solid var(--accent-light); padding: 8px 20px; border-radius: 50px; background: rgba(255,255,255,0.8); }
+        .services-list { display: grid; gap: 25px; }
+        .service-item { background: #fff; padding: 35px; border-radius: 4px; border: 1px solid #F7EEEE; transition: all 0.4s ease; position: relative; overflow: hidden; }
+        .service-item:hover { border-color: var(--accent-light); transform: translateY(-3px); box-shadow: 0 10px 30px rgba(176, 125, 125, 0.08); }
+        .service-item h3 { font-size: 1.25rem; color: var(--text-main); margin: 0 0 10px 0; }
+        .service-item span { display: block; font-size: 0.85rem; color: var(--accent-rose); margin-bottom: 15px; font-family: "Noto Sans TC", sans-serif; }
+        .service-item p { color: var(--text-light); font-size: 0.95rem; margin: 0; text-align: left; }
+        .btn-container { text-align: center; margin-top: 60px; }
+        .cta-button { display: inline-block; background: linear-gradient(135deg, #C59090 0%, #B07D7D 100%); color: #fff; padding: 16px 50px; border-radius: 2px; text-decoration: none; font-family: "Noto Sans TC", sans-serif; letter-spacing: 0.15em; font-size: 0.95rem; transition: opacity 0.3s; box-shadow: 0 5px 15px rgba(176, 125, 125, 0.2); cursor: pointer; }
+        .cta-button:hover { opacity: 0.9; }
+        footer { text-align: center; margin-top: 80px; padding-top: 30px; border-top: 1px solid #F0E6E6; font-size: 0.8rem; color: #C4BABA; }
     </style>
 </head>
 <body>
-
     <svg style="display: none;">
         <defs>
             <linearGradient id="roseGradient" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -284,23 +48,14 @@
             </linearGradient>
         </defs>
         <symbol id="rose-outline" viewBox="0 0 100 100">
-            <path fill="none" stroke="url(#roseGradient)" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"
-                d="M50,50 C55,45 60,55 50,60 C40,65 35,50 45,40 C55,30 70,35 75,50 C80,65 60,80 40,75 C20,70 25,40 45,30 C65,20 85,40 80,60 C75,80 45,90 30,70" />
-            <path fill="none" stroke="url(#roseGradient)" stroke-width="0.5" stroke-linecap="round" 
-                d="M50,50 C48,48 52,48 50,50 M30,30 Q40,10 60,20" opacity="0.6"/>
+            <path fill="none" stroke="url(#roseGradient)" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round" d="M50,50 C55,45 60,55 50,60 C40,65 35,50 45,40 C55,30 70,35 75,50 C80,65 60,80 40,75 C20,70 25,40 45,30 C65,20 85,40 80,60 C75,80 45,90 30,70" />
+            <path fill="none" stroke="url(#roseGradient)" stroke-width="0.5" stroke-linecap="round" d="M50,50 C48,48 52,48 50,50 M30,30 Q40,10 60,20" opacity="0.6"/>
         </symbol>
     </svg>
-
-    <svg class="deco-rose rose-top-right">
-        <use href="#rose-outline" />
-    </svg>
-
-    <svg class="deco-rose rose-bottom-left">
-        <use href="#rose-outline" />
-    </svg>
+    <svg class="deco-rose rose-top-right"><use href="#rose-outline" /></svg>
+    <svg class="deco-rose rose-bottom-left"><use href="#rose-outline" /></svg>
 
     <div class="container">
-        
         <header>
             <span class="subtitle">Hypnosis & MBTI Practitioner</span>
             <h1>在暮色中靜默的陪伴者</h1>
@@ -311,25 +66,17 @@
         </header>
 
         <div class="profile-section">
-            
              <img src="https://i.postimg.cc/WbLDZYmM/C36483DE-0744-4AC0-957F-57E0157E45CB.jpg" alt="療癒師照片" class="profile-img">
-             
-             <div class="intro-text" style="margin-bottom: 40px;">
-                你好，我是 Zoe ，也可以叫我 柔伊。<br>
-            </div>
-            
+             <div class="intro-text" style="margin-bottom: 40px;">你好，我是 Zoe ，也可以叫我 柔伊。<br></div>
             <p>在情感或關係的世界中，我們常常會因為不懂彼此，所以想找出一個最好的方式來處理關係中的矛盾或摩擦。</p>
             <p>很多時候沒有誰對誰錯，只是理解不同。我們會找不到答案，只是因為我們都還在摸索。</p>
             <p class="highlight-text">那像是一種獨特的拉扯 —— 渴望愛，卻習慣了先縮小自己。想說不，卻已經太習慣配合。</p>  
-    
             <p>在關係裡給出太多，慢慢地，連自己的輪廓也說不清楚了。</p> 
             <p class="highlight-text">那些委屈不是脆弱，那些掙扎，是成長留下來的真實痕跡。</p>
-            
             <div style="margin: 60px 0;">
                 <h4>我們把這個光與暗的地方稱為 暮色。</h4> 
                 <span class="subtitle">不是黑暗，也還不是天光。剛好夠暗，也剛好夠靜—— <br>靜到你終於可以聽見一點自己的聲音。</span>
             </div>
-
             <div style="margin: 60px 0;">
                 <h4>這裡不催你往前走，也不要你假裝自己沒事。</h4>
                 <p class="highlight-text" style="text-align: center;">你可以知道某件事，卻暫時還做不到。</p>  
@@ -338,15 +85,11 @@
                 <p>我們不急著帶你朝向黎明， 只是想提著一盞燈，陪你待在暮色與黎明交界的那個地方。</p>
                 <p>用人與人之間真實的共感傾聽你， 也用心理學的視角，輕輕幫你梳理那些說不清楚的部分。讓那個過度付出、卻還渴望找回自己的你，可以慢慢來。</p>
             </div>
-
             <div style="margin: 60px 0;">
-                <div class="intro-text" style="margin-bottom: 30px;">
-                    我知道那種『知道卻暫時做不到』的拉扯與疲憊。
-                </div>
+                <div class="intro-text" style="margin-bottom: 30px;">我知道那種『知道卻暫時做不到』的拉扯與疲憊。</div>
                 <p>所以作為一名提供穩定支持的陪伴者，我想運用 MBTI 的理性架構來協助你、理解你，並透過深度療育的感性流動來察覺自己。</p>
                 <p>在這裡，你不必急著證明自己已經好起來。我提供一個客觀、無評判的傾聽空間，結合我對人性的共感，以及心理學工具的理性梳理，看見自己與情緒的關係。我不會強迫推著你前進，而是提著燈，陪你一起看清那些隱藏在暮色與黎明交界處的真實輪廓。</p>
             </div>
-          
             <div class="credentials">
                 <div class="badge">IACT 國際催眠師證照</div>
                 <div class="badge"> NGH 國際催眠師證照</div>
@@ -367,8 +110,8 @@
                     <h3>深層療癒引導</h3>
                     <span>90-120 min · 潛意識重塑</span>
                     <p>在深層放鬆的狀態下，透過引導去看見與梳理自我情緒的原因，試著撰寫新自己的內在劇本。</p>
-                  </div>  
-                  <div class="service-item">
+                </div>  
+                <div class="service-item">
                     <h3>心靈花園引導</h3>
                     <span>90-120 min · 內在花園重塑</span>
                     <p>在放鬆的狀態下，透過進入自己內心的世界當自己的修剪師，重新整理自己內心世界。</p>
@@ -386,23 +129,13 @@
             </div>
 
             <div class="btn-container">
-                <a href="#booking-area" class="cta-button">預約靜心時光</a>
+                <a href="intro.html" class="cta-button">預約前先了解</a>
             </div>
         </div>
-
-        <div id="booking-area" class="booking-section">
-            <div class="booking-title">預約靜心時光</div>
-            <div class="booking-desc">請直接在下方選擇您適合的服務與時間，期待與您相見。</div>
-            
-            <div class="calendly-inline-widget" data-url="https://calendly.com/jude32831" style="min-width:320px;height:700px;"></div>
-            <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-            </div>
 
         <footer>
             &copy; 2026 Hi There療癒工作室. All rights reserved.
         </footer>
-
     </div>
-
 </body>
 </html>
