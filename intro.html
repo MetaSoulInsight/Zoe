@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>預約須知 | 遇見真實的自己</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400&family=Noto+Serif+TC:wght@300;500&display=swap" rel="stylesheet">
+    <style>
+        /* 共用的漂亮風格設定 */
+        :root { --bg-color: #FDFCFB; --text-main: #5C5050; --text-light: #968888; --accent-rose: #B07D7D; --accent-light: #E8D3D3; }
+        body { margin: 0; padding: 0; font-family: "Noto Serif TC", "Songti TC", serif; background-color: var(--bg-color); color: var(--text-main); line-height: 1.9; }
+        .container { max-width: 760px; margin: 0 auto; padding: 60px 25px; }
+        header { text-align: center; padding: 60px 0 40px; }
+        .subtitle { font-family: "Noto Sans TC", sans-serif; font-size: 0.85rem; letter-spacing: 0.25em; color: var(--accent-rose); text-transform: uppercase; margin-bottom: 20px; display: block; }
+        h1 { font-size: 2.2rem; font-weight: 500; letter-spacing: 0.05em; color: #4A3B3B; margin: 0 0 20px 0; }
+        
+        /* 溫柔提醒區塊的特殊排版 */
+        .notice-box { background: #fff; padding: 40px; border-radius: 4px; border: 1px solid #F7EEEE; margin-bottom: 50px; text-align: justify; text-justify: inter-ideograph; box-shadow: 0 10px 30px rgba(176, 125, 125, 0.05); }
+        .notice-box p { color: var(--text-main); font-size: 1rem; margin-bottom: 20px; }
+        .notice-box .highlight { color: var(--accent-rose); font-weight: 500; }
+        
+        .booking-section { margin-top: 40px; text-align: center; }
+        .back-link { display: inline-block; margin-top: 40px; color: var(--text-light); text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid transparent; transition: all 0.3s; }
+        .back-link:hover { color: var(--accent-rose); border-bottom: 1px solid var(--accent-rose); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <span class="subtitle">Before We Start</span>
+            <h1>療癒前的溫柔提醒</h1>
+        </header>
+
+        <div class="notice-box">
+            <p>很高興你願意為自己留下一段專屬的時間。在我們開始這趟向內的旅程之前，想先與你分享幾件小事：</p>
+            <p><span class="highlight">1. 這是一個安全的空間</span><br>這裡沒有標準答案，也不會對你做任何評判。你可以帶著任何情緒前來，混亂的、疲憊的、或是還說不清楚的，都沒有關係。</p>
+            <p><span class="highlight">2. 療癒是一段共同合作的過程</span><br>我會提著燈陪你梳理，但真正的修剪師始終是你自己。請帶著一份對自己敞開與好奇的心前來。</p>
+            <p><span class="highlight">3. 給自己一個安靜的時空</span><br>無論是線上或實體，請確保在我們對話的這段時間裡，你在一個不會被打擾、能讓你感到安心放鬆的環境裡。</p>
+            <p>如果準備好了，請在下方選擇適合你的服務與時間。期待在暮色中與你相見。</p>
+        </div>
+
+        <div class="booking-section">
+            <div class="calendly-inline-widget" data-url="https://calendly.com/jude32831" style="min-width:320px;height:700px;"></div>
+            <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+        </div>
+
+        <div style="text-align: center;">
+            <a href="index.html" class="back-link">← 返回首頁</a>
+        </div>
+    </div>
+</body>
+</html>
