@@ -5,11 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>心靈療癒師 | 遇見真實的自己</title>
     
-    <!-- 引入優雅的襯線字體 -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400&family=Noto+Serif+TC:wght@300;500&display=swap" rel="stylesheet">
 
     <style>
         /* --- 全局設定 --- */
+        /* 加上這行，讓點擊按鈕往下滾動時會有滑順的視覺效果 */
+        html {
+            scroll-behavior: smooth; 
+        }
+
         :root {
             /* 乾燥玫瑰色系定義 */
             --bg-color: #FDFCFB;     /* 極淡的暖白，像高級水彩紙 */
@@ -26,16 +30,15 @@
             background-color: var(--bg-color);
             color: var(--text-main);
             line-height: 1.9;
-            overflow-x: hidden; /* 防止裝飾圖案超出邊界 */
+            overflow-x: hidden; 
         }
 
         /* --- 裝飾圖案 (SVG 玫瑰) --- */
-        /* 這是背景的裝飾，設定為絕對定位 */
         .deco-rose {
             position: absolute;
-            z-index: -1; /* 放在文字後面 */
-            opacity: 0.8; /* 稍微透明，不搶戲 */
-            pointer-events: none; /* 讓滑鼠可以穿透它點擊按鈕 */
+            z-index: -1; 
+            opacity: 0.8; 
+            pointer-events: none; 
         }
 
         .rose-top-right {
@@ -57,10 +60,10 @@
 
         /* --- 版面容器 --- */
         .container {
-            max-width: 760px; /*稍微縮窄一點，更顯精緻 */
+            max-width: 760px; 
             margin: 0 auto;
             padding: 60px 25px;
-            position: relative; /* 為了讓背景圖案定位 */
+            position: relative; 
         }
 
         /* --- Header --- */
@@ -95,7 +98,6 @@
             position: relative;
         }
         
-        /* 小小的裝飾線 */
         .intro-text::after {
             content: "";
             display: block;
@@ -115,17 +117,14 @@
             width: 140px;
             height: 140px;
             border-radius: 50%;
-            background-color: #F2E6E6; /* 淺粉色佔位符 */
+            background-color: #F2E6E6; 
             margin: 0 auto 30px;
-            /* 這裡加上雙圈線條效果 */
             border: 3px solid #fff;
             box-shadow: 0 0 0 1px var(--accent-light); 
             object-fit: cover;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--accent-rose);
-            font-size: 0.9rem;
         }
 
         h2 {
@@ -136,13 +135,27 @@
             text-align: center;
         }
 
+        h4 {
+            font-size: 1.3rem;
+            color: #4A3B3B;
+            margin: 30px 0 10px 0;
+            font-weight: 500;
+        }
+
         p {
             margin-bottom: 20px;
-            text-align: justify; /* 文字左右對齊，更有書本感 */
+            text-align: justify; 
             text-justify: inter-ideograph;
         }
 
-        /* 證照標籤 - 改為極簡風格 */
+        .highlight-text {
+            color: var(--accent-rose);
+            font-weight: 500;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        /* 證照標籤 */
         .credentials {
             display: flex;
             justify-content: center;
@@ -170,14 +183,13 @@
         .service-item {
             background: #fff;
             padding: 35px;
-            border-radius: 4px; /* 直角帶一點點圓，比較俐落 */
+            border-radius: 4px; 
             border: 1px solid #F7EEEE;
             transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
         }
 
-        /* 滑鼠移過去的優雅效果 */
         .service-item:hover {
             border-color: var(--accent-light);
             transform: translateY(-3px);
@@ -213,21 +225,41 @@
 
         .cta-button {
             display: inline-block;
-            /* 漸層背景按鈕 */
             background: linear-gradient(135deg, #C59090 0%, #B07D7D 100%);
             color: #fff;
             padding: 16px 50px;
-            border-radius: 2px; /* 日式風格通常不喜歡太圓的按鈕 */
+            border-radius: 2px; 
             text-decoration: none;
             font-family: "Noto Sans TC", sans-serif;
             letter-spacing: 0.15em;
             font-size: 0.95rem;
             transition: opacity 0.3s;
             box-shadow: 0 5px 15px rgba(176, 125, 125, 0.2);
+            cursor: pointer;
         }
 
         .cta-button:hover {
             opacity: 0.9;
+        }
+
+        /* --- 預約區塊 --- */
+        .booking-section {
+            margin-top: 80px;
+            padding-top: 60px;
+            border-top: 1px dashed var(--accent-light);
+            text-align: center;
+        }
+        
+        .booking-title {
+            font-size: 1.6rem;
+            color: #4A3B3B;
+            margin-bottom: 10px;
+        }
+        
+        .booking-desc {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 30px;
         }
 
         /* --- Footer --- */
@@ -244,10 +276,6 @@
 </head>
 <body>
 
-    <!-- 
-        SVG 定義區：這裡畫出了玫瑰花的線條 
-        使用了 gradient (漸層) 技術
-    -->
     <svg style="display: none;">
         <defs>
             <linearGradient id="roseGradient" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -256,7 +284,6 @@
             </linearGradient>
         </defs>
         <symbol id="rose-outline" viewBox="0 0 100 100">
-            <!-- 抽象的玫瑰線條 -->
             <path fill="none" stroke="url(#roseGradient)" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"
                 d="M50,50 C55,45 60,55 50,60 C40,65 35,50 45,40 C55,30 70,35 75,50 C80,65 60,80 40,75 C20,70 25,40 45,30 C65,20 85,40 80,60 C75,80 45,90 30,70" />
             <path fill="none" stroke="url(#roseGradient)" stroke-width="0.5" stroke-linecap="round" 
@@ -264,19 +291,16 @@
         </symbol>
     </svg>
 
-    <!-- 右上角的玫瑰裝飾 -->
     <svg class="deco-rose rose-top-right">
         <use href="#rose-outline" />
     </svg>
 
-    <!-- 左下角的玫瑰裝飾 -->
     <svg class="deco-rose rose-bottom-left">
         <use href="#rose-outline" />
     </svg>
 
     <div class="container">
         
-        <!-- Header -->
         <header>
             <span class="subtitle">Hypnosis & MBTI Practitioner</span>
             <h1>在暮色中靜默的陪伴者</h1>
@@ -286,47 +310,43 @@
             </div>
         </header>
 
-        <!-- About Me -->
         <div class="profile-section">
-            <!-- 照片區塊：請替換圖片 -->
+            
              <img src="https://i.postimg.cc/WbLDZYmM/C36483DE-0744-4AC0-957F-57E0157E45CB.jpg" alt="療癒師照片" class="profile-img">
-             <div class="intro-text">
+             
+             <div class="intro-text" style="margin-bottom: 40px;">
                 你好，我是 Zoe ，也可以叫我 柔伊。<br>
             </div>
             
-            <p>在情感或關係的世界中，我們常常會因為不懂彼此，所以想找出一個最好的方式來處理關係中的矛盾或摩擦</p>
+            <p>在情感或關係的世界中，我們常常會因為不懂彼此，所以想找出一個最好的方式來處理關係中的矛盾或摩擦。</p>
             <p>很多時候沒有誰對誰錯，只是理解不同。我們會找不到答案，只是因為我們都還在摸索。</p>
-            <p5>那像是一種獨特的拉扯 —— 渴望愛，卻習慣了先縮小自己。想說不，卻已經太習慣配合。</p5>  
+            <p class="highlight-text">那像是一種獨特的拉扯 —— 渴望愛，卻習慣了先縮小自己。想說不，卻已經太習慣配合。</p>  
     
-           
             <p>在關係裡給出太多，慢慢地，連自己的輪廓也說不清楚了。</p> 
-            <p5>那些委屈不是脆弱，那些掙扎，是成長留下來的真實痕跡。</p5>
-            <header>
-            <h4>我們把這個光與暗的地方稱為 暮色。</h4> 
-            <span class="subtitle">不是黑暗，也還不是天光。剛好夠暗，也剛好夠靜—— <span class="subtitle">靜到你終於可以聽見一點自己的聲音。</span>
-            </header>
-
-            <h4>這裡不催你往前走，也不要你假裝自己沒事。</h4>
-            <span class="subtitle">你可以知道某件事，卻暫時還做不到。</span>  
-            <p class="subtitle">你可以清醒，也可以脆弱，也可以同時擁有某種洞察—— 這些不互相矛盾，它們都是你。</p>
-            <p class="subtitle">那些掙扎的痕跡、成長的代價，都是真實的你的一部分。</p>
-             <p class="subtitle">我們不急著帶你朝向黎明， 只是想提著一盞燈，陪你待在暮色與黎明交界的那個地方。</p>
-            <p class="subtitle">用人與人之間真實的共感傾聽你， 也用心理學的視角，輕輕幫你梳理那些說不清楚的部分。讓那個過度付出、卻還渴望找回自己的你，可以慢慢來。</p>
-
-            <header>
-           
-            <div class="intro-text">
-                
-                我知道那種『知道卻暫時做不到』的拉扯與疲憊。<br>
+            <p class="highlight-text">那些委屈不是脆弱，那些掙扎，是成長留下來的真實痕跡。</p>
+            
+            <div style="margin: 60px 0;">
+                <h4>我們把這個光與暗的地方稱為 暮色。</h4> 
+                <span class="subtitle">不是黑暗，也還不是天光。剛好夠暗，也剛好夠靜—— <br>靜到你終於可以聽見一點自己的聲音。</span>
             </div>
-           
-            <p>所以作為一名提供穩定支持的陪伴者，我想運用 MBTI 的理性架構來協助你、理解你，並透過深度療育的感性流動來察覺自己。</p>
-            
 
-            <p>在這裡，你不必急著證明自己已經好起來。我提供一個客觀、無評判的傾聽空間，結合我對人性的共感，以及心理學工具的理性梳理，看見自己與情緒的關係。我不會強迫推著你前進，而是提著燈，陪你一起看清那些隱藏在暮色與黎明交界處的真實輪廓。</p>
-              </header>
+            <div style="margin: 60px 0;">
+                <h4>這裡不催你往前走，也不要你假裝自己沒事。</h4>
+                <p class="highlight-text" style="text-align: center;">你可以知道某件事，卻暫時還做不到。</p>  
+                <p>你可以清醒，也可以脆弱，也可以同時擁有某種洞察—— 這些不互相矛盾，它們都是你。</p>
+                <p>那些掙扎的痕跡、成長的代價，都是真實的你的一部分。</p>
+                <p>我們不急著帶你朝向黎明， 只是想提著一盞燈，陪你待在暮色與黎明交界的那個地方。</p>
+                <p>用人與人之間真實的共感傾聽你， 也用心理學的視角，輕輕幫你梳理那些說不清楚的部分。讓那個過度付出、卻還渴望找回自己的你，可以慢慢來。</p>
+            </div>
+
+            <div style="margin: 60px 0;">
+                <div class="intro-text" style="margin-bottom: 30px;">
+                    我知道那種『知道卻暫時做不到』的拉扯與疲憊。
+                </div>
+                <p>所以作為一名提供穩定支持的陪伴者，我想運用 MBTI 的理性架構來協助你、理解你，並透過深度療育的感性流動來察覺自己。</p>
+                <p>在這裡，你不必急著證明自己已經好起來。我提供一個客觀、無評判的傾聽空間，結合我對人性的共感，以及心理學工具的理性梳理，看見自己與情緒的關係。我不會強迫推著你前進，而是提著燈，陪你一起看清那些隱藏在暮色與黎明交界處的真實輪廓。</p>
+            </div>
           
-            
             <div class="credentials">
                 <div class="badge">IACT 國際催眠師證照</div>
                 <div class="badge"> NGH 國際催眠師證照</div>
@@ -335,7 +355,6 @@
             </div>
         </div>
 
-        <!-- Services -->
         <div class="profile-section" style="text-align: left;">
             <h2>療癒方案</h2>
             <div class="services-list">
@@ -364,20 +383,23 @@
                     <span>客製化 · 綜合療癒</span>
                     <p>結合性格分析的理性建議，與情緒引導的感性支持，為迷惘的你提供一個清晰且溫暖的方向。</p>
                 </div>
-
             </div>
-            
+
             <div class="btn-container">
-               <!-- 如果是 LINE，請填入: https://line.me/ti/p/你的ID -->
-                <!-- 如果是 IG，請填入: https://www.instagram.com/你的帳號 -->
-                <a href="<!-- Calendly inline widget begin -->
-<div class="calendly-inline-widget" data-url="https://calendly.com/jude32831" class="cta-button" target="_blank">預約靜心時光</a>
+                <a href="#booking-area" class="cta-button">預約靜心時光</a>
             </div>
         </div>
 
-        <!-- Footer -->
+        <div id="booking-area" class="booking-section">
+            <div class="booking-title">預約靜心時光</div>
+            <div class="booking-desc">請直接在下方選擇您適合的服務與時間，期待與您相見。</div>
+            
+            <div class="calendly-inline-widget" data-url="https://calendly.com/jude32831" style="min-width:320px;height:700px;"></div>
+            <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+            </div>
+
         <footer>
-            &copy; 2026  Hi There療癒工作室. All rights reserved.
+            &copy; 2026 Hi There療癒工作室. All rights reserved.
         </footer>
 
     </div>
