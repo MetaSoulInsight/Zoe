@@ -42,7 +42,29 @@
         .intro-text::after { content: ""; display: block; width: 50px; height: 1px; background: linear-gradient(90deg, var(--accent-rose), transparent); margin: 30px auto 0; }
         
         .profile-section { text-align: center; margin: 80px 0; }
-        .profile-img { width: 140px; height: 140px; border-radius: 50%; background-color: #F2E6E6; margin: 0 auto 30px; border: 3px solid #fff; box-shadow: 0 0 0 1px var(--accent-light); object-fit: cover; display: flex; align-items: center; justify-content: center; }
+        /* ★ 調整：橫向長方形，左右兩側漸漸霧化模糊（羽化效果） ★ */
+        .profile-img { 
+            width: 360px;  /* 橫向比例：寬度加大 */
+            height: 160px; /* 橫向比例：高度縮小 */
+            margin: 0 auto 30px; 
+            object-fit: cover; /* 確保照片在拉長後不會變形 */
+            
+            /* 上下保留溫柔的細線條感 */
+            border-top: 2px solid rgba(255, 255, 255, 0.8);
+            border-bottom: 2px solid rgba(255, 255, 255, 0.8);
+            
+            /* 左右不要有線條感 */
+            border-left: none;
+            border-right: none;
+            
+            /* ★ 核心魔法：左右兩側羽化霧化效果 ★ */
+            /* 利用遮罩漸層：從透明 -> 純黑(顯示) -> 透明 */
+            -webkit-mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+            mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+            
+            /* 加上淡淡的懸浮陰影，增加層次 */
+            box-shadow: 0 10px 30px rgba(130, 106, 133, 0.1); 
+        }
         
         h2 { font-size: 1.6rem; font-weight: normal; color: var(--text-main); margin-bottom: 40px; text-align: center; }
         
