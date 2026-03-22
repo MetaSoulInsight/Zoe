@@ -15,11 +15,28 @@
         h1 { font-size: 2.2rem; font-weight: 500; letter-spacing: 0.05em; color: #4A3B3B; margin: 0 0 20px 0; }
         
         /* 溫柔提醒區塊的特殊排版 */
-        .notice-box { background: #fff; padding: 40px; border-radius: 4px; border: 1px solid #F7EEEE; margin-bottom: 50px; text-align: justify; text-justify: inter-ideograph; box-shadow: 0 10px 30px rgba(176, 125, 125, 0.05); }
+        .notice-box { background: #fff; padding: 50px 40px; border-radius: 4px; border: 1px solid #F7EEEE; margin-bottom: 30px; text-align: justify; text-justify: inter-ideograph; box-shadow: 0 10px 30px rgba(176, 125, 125, 0.05); }
         .notice-box p { color: var(--text-main); font-size: 1rem; margin-bottom: 20px; }
         .notice-box .highlight { color: var(--accent-rose); font-weight: 500; }
         
-        .booking-section { margin-top: 40px; text-align: center; }
+        .intro-lead { font-size: 1.05rem; color: var(--text-main); margin-bottom: 40px; text-align: center; border-bottom: 1px dashed var(--accent-light); padding-bottom: 30px;}
+        .intro-lead span { color: var(--accent-rose); font-weight: 500; }
+
+        .notice-section { margin-bottom: 40px; }
+        .notice-section:last-child { margin-bottom: 0; }
+        
+        /* 區塊小標題 */
+        .notice-section h3 { font-size: 1.2rem; color: var(--accent-rose); border-bottom: 1px solid var(--accent-light); padding-bottom: 10px; margin-bottom: 20px; font-weight: 500; }
+        .notice-section p { color: var(--text-main); font-size: 0.95rem; margin-bottom: 15px; }
+        
+        /* 列表排版 */
+        .notice-list { padding-left: 20px; margin-bottom: 20px; }
+        .notice-list li { margin-bottom: 12px; color: var(--text-main); font-size: 0.95rem; }
+        .notice-list li strong { color: #4A3B3B; font-weight: 500; }
+
+        .highlight-text { color: var(--accent-rose); font-weight: 500; }
+        
+        .booking-section { margin-top: 60px; text-align: center; }
         .back-link { display: inline-block; margin-top: 40px; color: var(--text-light); text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid transparent; transition: all 0.3s; }
         .back-link:hover { color: var(--accent-rose); border-bottom: 1px solid var(--accent-rose); }
     </style>
@@ -36,10 +53,130 @@
             <p><span class="highlight">1. 這是一個安全的空間</span><br>這裡沒有標準答案，也不會對你做任何評判。你可以帶著任何情緒前來，混亂的、疲憊的、或是還說不清楚的，都沒有關係。</p>
             <p><span class="highlight">2. 療癒是一段共同合作的過程</span><br>我會提著燈陪你梳理，但真正的修剪師始終是你自己。請帶著一份對自己敞開與好奇的心前來。</p>
             <p><span class="highlight">3. 給自己一個安靜的時空</span><br>無論是線上或實體，請確保在我們對話的這段時間裡，你在一個不會被打擾、能讓你感到安心放鬆的環境裡。</p>
-            <p>如果準備好了，請在下方選擇適合你的服務與時間。期待在暮色中與你相見。</p>
+            <p>請先閱讀下方的詳細說明，如果準備好了，請在最下方選擇適合你的服務與時間。期待在暮色中與你相見。</p>
+        </div>
+
+        <div class="notice-box">
+            <div class="intro-lead">
+                這份說明，是為你而寫的。<br>
+                在你決定要不要預約之前，我希望你能先清楚地知道：這裡是什麼樣的空間、我們之間會怎麼工作、你有哪些權利，以及我能做什麼、不能做什麼。<br><br>
+                不是要用條文把你嚇走，而是想讓你在跨進來之前，心裡先有個底。<br>
+                <span>有底，才能真的放鬆。</span>
+            </div>
+
+            <div class="notice-section">
+                <h3>一、保密原則｜你說的話，只留在這裡</h3>
+                <p>你在整個過程中分享的所有內容——你的感受、你的故事、你的困境——都是保密的。</p>
+                <ul class="notice-list">
+                    <li>你分享的內容，<strong>不會被告知你的家人、伴侶、朋友或任何第三方</strong>。</li>
+                    <li>你的個案記錄與相關資料，<strong>只用於陪伴與服務的目的</strong>，不會對外分享或流通。</li>
+                    <li>如果未來有教學、分享或案例討論的需要，<strong>一定會事先取得你的同意</strong>，並以完全匿名的方式處理。</li>
+                    <li>你的姓名、聯絡資訊與預約紀錄，會被妥善保管。</li>
+                </ul>
+                <p class="highlight-text">這個空間是為你建立的。你說的話，就留在這裡。</p>
+            </div>
+
+            <div class="notice-section">
+                <h3>二、例外情況｜有幾件事，我有責任說清楚</h3>
+                <p>保密是我認真對待的承諾。但有少數情況，基於你的安全與他人的安全，我可能需要採取必要行動，無法維持完全保密：</p>
+                <ul class="notice-list">
+                    <li><strong>當你有明確的自我傷害或結束生命的意圖時：</strong>我會優先關注你的安全，並視情況協助你聯繫適合的資源或陪伴你尋求進一步支持。</li>
+                    <li><strong>當你透露有傷害他人的具體計畫時：</strong>我有責任採取必要的保護行動。</li>
+                    <li><strong>若有法律規範要求揭露時：</strong>（在台灣，如涉及兒少保護等相關法令規範）。</li>
+                </ul>
+                <p>以上情況發生前，我會盡可能與你一起討論下一步，而不是單方面採取行動。我希望這件事是我們一起面對的，而不是我在你不知情的情況下做的決定。</p>
+            </div>
+
+            <div class="notice-section">
+                <h3>三、服務邊界｜我能陪你做什麼</h3>
+                <p>療癒工作室提供的，是一個<strong>以情緒陪伴、覺察引導與自我探索為核心</strong>的支持空間。你可以在這裡：</p>
+                <ul class="notice-list">
+                    <li><strong>說出那些在別處說不出口的感受</strong>，不用擔心被評判或被「教訓」。</li>
+                    <li><strong>整理長期壓著的情緒</strong>，從模糊的「不舒服」，慢慢看清楚那是什麼、從哪裡來。</li>
+                    <li><strong>透過 MBTI 了解自己的性格結構</strong>，看見為什麼某些情境特別容易觸發你。</li>
+                    <li><strong>透過感受引導</strong>，辨識情緒背後的慣性模式與核心信念。</li>
+                    <li><strong>練習為自己設立界線</strong>，從知道「應該要」，慢慢走向「我可以」。</li>
+                    <li><strong>學習帶回日常生活的自我調節方式</strong>，不只是在療癒時段才感覺好一點。</li>
+                </ul>
+                <p>這是一個<strong>靜靜陪伴你走、不替你決定</strong>的空間。我不會告訴你應該怎麼做、你的選擇對不對；但我會陪你更清楚地看見你自己。</p>
+            </div>
+
+            <div class="notice-section">
+                <h3>四、不屬於本服務的範圍｜我需要誠實告訴你的事</h3>
+                <p>我希望你找到真正適合你的資源，所以以下這些，需要誠實說明：</p>
+                <ul class="notice-list">
+                    <li><strong>本服務不是心理治療，也不是精神科醫療</strong>。療癒陪伴是一種情緒支持與覺察引導的工作，與持照心理師或精神科醫師的專業治療不同。</li>
+                    <li><strong>如果你目前正在經歷急性的情緒危機、有強烈的自傷意念、或有被評估需要藥物介入的心理健康狀況</strong>，我會建議你優先尋求心理師或身心科醫師的協助，必要時我也可以協助你找到合適的轉介資源。</li>
+                    <li><strong>本服務不提供預測未來，或任何保證特定結果的承諾</strong>。改變是一段旅程，我能陪伴你走，但不能替你保證終點。</li>
+                    <li><strong>MBTI人格施測、催眠、靈氣等任何療癒方法，是輔助覺察與放鬆的工具</strong>，並非醫療行為，也不取代任何醫療診斷或治療。</li>
+                </ul>
+                <p>如果你不確定自己的狀況適不適合這個服務，非常歡迎你直接來訊詢問，我們可以一起聊聊，再決定什麼對你最好。</p>
+            </div>
+
+            <div class="notice-section">
+                <h3>五、服務流程｜我們會怎麼一起工作</h3>
+                <p><strong>第一步 ｜ 預約與初談</strong><br>
+                你可以透過預約表單與我聯繫。初次接觸時，我會先安排一段簡短的初談（約 20–30 分鐘，免費）。初談的目的不是測試你，而是讓我們彼此認識：你可以說說最近讓你最困的是什麼、你希望從這個服務得到什麼；我也會說明我的工作方式，讓你有機會感受一下這裡是不是你感覺安全的地方。如果初談後你覺得不適合，完全沒有關係，你可以選擇不繼續，我也會尊重你的決定。</p>
+                
+                <p><strong>第二步 ｜ 正式服務</strong><br>
+                確認進入服務後，我們會一起討論最適合你的方式：</p>
+                <ul class="notice-list">
+                    <li><strong>MBTI性格解析</strong>（50–60 分鐘）：以官方正版題本施測，包含描述型、解釋型與職場領導力解釋報告（費用包含報告費，無另外抽成，可詢問評估）。</li>
+                    <li><strong>深層療癒引導</strong>（90–120 分鐘）：適合有特定困境想整理的你，協助你為自己找到屬於自己答案的過程。</li>
+                    <li><strong>心靈花園引導</strong>（90–120 分鐘）：適合想透過內心世界觀察，重新整理自己內在世界的人。</li>
+                    <li><strong>靈氣療癒</strong>（50–60 分鐘）：情緒很多時候會被身體收藏起來，適合想釋放自己身體情緒能量的人。</li>
+                    <li><strong>整合式心靈整理（情緒整理陪伴）</strong>（90–120 分鐘）：聚焦一個核心主題，探索情緒模式與慣性，提供情緒引導的感性支持，為迷惘的你提供清晰溫暖的方向。</li>
+                </ul>
+                <p>每一次開始前，我都會與你確認這次的方向；結束後，我會給你一些可以帶回生活的整理或小練習，不是作業，而是一個讓覺察繼續的邀請。</p>
+
+                <p><strong>第三步 ｜ 持續陪伴與調整</strong><br>
+                服務過程中，如果你覺得哪裡不對勁、需要調整方向，隨時可以說。這個空間的主角是你，我們走的步調，由你來決定。</p>
+
+                <p><strong>第四步 ｜ 結案與後續</strong><br>
+                當你覺得準備好了，或我們一起討論達到了原定的目標，就可以進入結案。結案不代表關係的終點——結束後約一個月，我會發個訊息確認你的狀態，讓你知道這裡還在。往後若有需要，隨時都可以再回來。</p>
+            </div>
+
+            <div class="notice-section">
+                <h3>六、雙方期待｜我對你的期待，以及你可以期待我做到的事</h3>
+                <p><strong>你可以期待我做到的：</strong></p>
+                <ul class="notice-list">
+                    <li><strong>認真在場：</strong>每一次療癒，我都會以完整的注意力與你同在，不分心、不評判。</li>
+                    <li><strong>真實陪伴：</strong>我不會給你「標準答案」，也不會假裝你說的每件事都沒問題；但我會真實地和你一起待在那個感受裡。</li>
+                    <li><strong>守住這個空間：</strong>你分享的每一件事，都會留在這裡，不會帶出去。</li>
+                    <li><strong>誠實告知邊界：</strong>如果有什麼超出我能做到的範圍，我會誠實說，並協助你找到更適合的支持。</li>
+                    <li><strong>持續學習：</strong>我會持續精進我的專業，讓我給你的陪伴能夠真正有用。</li>
+                </ul>
+                <p><strong>我對你的期待：</strong></p>
+                <ul class="notice-list">
+                    <li><strong>按時出現：</strong>你的時段是為你保留的，如果需要更改，請提前一天告知。</li>
+                    <li><strong>願意嘗試：</strong>療癒需要你一起參與，不只是我在做什麼，而是我們一起在探索什麼。</li>
+                    <li><strong>誠實說出感受：</strong>如果你覺得哪次不舒服、有哪個方向不對，請告訴我。你的回饋是這個工作能夠有效的關鍵。</li>
+                    <li><strong>在服務時段外照顧好自己：</strong>改變不只發生在療癒時段裡，你每天如何對待自己，同樣重要。</li>
+                </ul>
+            </div>
+
+            <div class="notice-section">
+                <h3>七、預約與改期取消原則｜讓我們的時間都被好好對待</h3>
+                <p>我為每一位個案保留的時段，都是我認真空出來的；你的時間，也值得被尊重。</p>
+                <ul class="notice-list">
+                    <li><strong>改期或取消，請在預約時間 24 小時前告知</strong>。我可以為你重新安排。</li>
+                    <li><strong>24 小時內取消或未出現</strong>，視情況將收取部分費用（會在初談時一起確認）。</li>
+                    <li><strong>若你有緊急狀況</strong>，請直接與我聯繫說明，我們可以一起討論如何處理。</li>
+                    <li><strong>若我需要臨時調整時段</strong>，我也會盡可能提前通知，並優先安排對你方便的時間。</li>
+                </ul>
+                <p>服務時段以外，我通常不會即時回覆訊息（我也需要有可以好好休息的時間）。若有緊急需求，請說明，我會盡快回應。如果是急性的情緒危機，請直接撥打安心專線 <strong>1925</strong>，或前往最近的身心科門診。</p>
+            </div>
+
+            <div class="notice-section">
+                <h3>八、結語｜在你走進來之前</h3>
+                <p>如果你看到這裡，謝謝你願意花時間讀完這些。我知道，決定要讓另一個人看見自己最脆弱的地方，需要勇氣。</p>
+                <p>你不需要帶著「夠好的理由」或「準備好的狀態」來，你只需要帶著你自己。這裡不是一個要求你改變的地方，而是一個讓你<strong>有空間慢慢看清楚自己</strong>的地方。你願意走進來，已經是一件值得被看見的事了。</p>
+                <p class="highlight-text" style="text-align: center; margin-top: 30px;">如果你準備好了，或者還沒準備好但有一點點好奇，都歡迎你先來聊聊。<br>我在這裡。</p>
+            </div>
         </div>
 
         <div class="booking-section">
+            <h2 style="font-size: 1.6rem; color: #4A3B3B; margin-bottom: 20px;">預約靜心時光</h2>
             <div class="calendly-inline-widget" data-url="https://calendly.com/jude32831" style="min-width:320px;height:700px;"></div>
             <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
         </div>
