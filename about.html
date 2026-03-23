@@ -9,19 +9,23 @@
         html { scroll-behavior: smooth; }
         
         :root { 
-            /* 迎向天光：清晰明朗的晨光字體色系 */
-            --text-main: #544A48;    
-            --text-light: #9B8D8B;   
-            --accent-rose: #B5847B;  
-            --accent-light: #EBDAD6; 
-            --accent-dawn: #E09E86;  
+            /* ★ 極致暮色：完全沉澱的靜謐紫系 ★ */
+            --text-main: #3D3140;    /* 深紫灰，安定心神 */
+            --text-light: #807582;   /* 靜謐的霧灰色 */
+            --accent-rose: #6C556F;  /* 沉穩的深藕紫 */
+            --accent-light: #D5C8D6; /* 柔紫白 */
+            
+            /* 在全紫背景下，將原本的暖橘強調整為微光的淺紫藕色，保持感性流動 */
+            --accent-glow: #B8A1B9;  
         }
         
         body { 
             margin: 0; 
             padding: 0; 
             font-family: "Noto Serif TC", "Songti TC", serif; 
-            background: linear-gradient(180deg, #FDF4EF 0%, #FEF9F6 50%, #FFFFFF 100%);
+            /* ★ 核心魔法：全頁靜謐紫漸變 ★ */
+            /* 從安定的淡紫，慢慢過渡到深邃的靜謐紫，不走向黎明 */
+            background: linear-gradient(180deg, #F4EDF4 0%, #EBE1EC 40%, #D5C8D6 100%);
             color: var(--text-main); 
             line-height: 2.2; 
         }
@@ -30,9 +34,9 @@
         header { text-align: center; padding: 60px 0 40px; }
         .subtitle { font-family: "Noto Sans TC", sans-serif; font-size: 0.85rem; letter-spacing: 0.25em; color: var(--accent-rose); text-transform: uppercase; margin-bottom: 20px; display: block; }
         
-        /* 晨曦漸層文字特效 */
+        /* 晨曦漸層文字特效：調整為深藕紫到微光紫的流動 */
         .dawn-text {
-            background: linear-gradient(135deg, var(--accent-rose) 0%, var(--accent-dawn) 100%);
+            background: linear-gradient(135deg, var(--accent-rose) 0%, var(--accent-glow) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             color: transparent; 
@@ -43,15 +47,18 @@
         
         /* 散文風格的半透明毛玻璃閱讀框 */
         .story-box { 
-            background: rgba(255, 255, 255, 0.5); 
-            backdrop-filter: blur(4px);
+            /* 在全紫背景下，增加一點霧面的厚度，讓它更漂浮 */
+            background: rgba(255, 255, 255, 0.35); 
+            backdrop-filter: blur(8px);
             padding: 60px 50px; 
             border-radius: 12px; 
-            border: 1px solid rgba(255,255,255,0.9); 
+            /* 邊框改成更柔和的紫白 */
+            border: 1px solid rgba(213, 200, 214, 0.5); 
             margin-bottom: 40px; 
             text-align: justify; 
             text-justify: inter-ideograph; 
-            box-shadow: 0 10px 30px rgba(181, 132, 123, 0.05); 
+            /* 陰影也跟著變成紫色調 */
+            box-shadow: 0 10px 30px rgba(108, 85, 111, 0.08); 
         }
         
         .story-box p { color: var(--text-main); font-size: 1.05rem; margin-bottom: 25px; }
@@ -60,11 +67,13 @@
         .nav-buttons { display: flex; justify-content: center; gap: 20px; margin-top: 60px; }
         .btn-outline { display: inline-block; padding: 12px 35px; border-radius: 50px; text-decoration: none; font-family: "Noto Sans TC", sans-serif; letter-spacing: 0.15em; font-size: 0.9rem; transition: all 0.3s; border: 1px solid var(--accent-rose); color: var(--accent-rose); }
         .btn-outline:hover { background: var(--accent-rose); color: #fff; }
-        .btn-solid { display: inline-block; background: linear-gradient(135deg, var(--accent-rose) 0%, var(--accent-dawn) 100%); color: #fff; padding: 12px 35px; border-radius: 50px; text-decoration: none; font-family: "Noto Sans TC", sans-serif; letter-spacing: 0.15em; font-size: 0.9rem; transition: opacity 0.3s, transform 0.3s; box-shadow: 0 5px 20px rgba(221, 167, 145, 0.3); }
+        .btn-solid { display: inline-block; background: linear-gradient(135deg, var(--accent-rose) 0%, var(--accent-glow) 100%); color: #fff; padding: 12px 35px; border-radius: 50px; text-decoration: none; font-family: "Noto Sans TC", sans-serif; letter-spacing: 0.15em; font-size: 0.9rem; transition: opacity 0.3s, transform 0.3s; box-shadow: 0 5px 20px rgba(108, 85, 111, 0.15); }
         .btn-solid:hover { opacity: 0.9; transform: translateY(-2px); }
         
+        /* 強調文字行 */
         .intro-text-line { font-size: 1.05rem; color: var(--accent-rose); text-align: center; margin: 50px auto 30px; position: relative; font-weight: 500;}
-        .intro-text-line::after { content: ""; display: block; width: 50px; height: 1px; background: linear-gradient(90deg, var(--accent-rose), transparent); margin: 20px auto 0; }
+        /* 分隔線也改成紫白 dashed */
+        .intro-text-line::after { content: ""; display: block; width: 50px; height: 1px; background: linear-gradient(90deg, var(--accent-light), transparent); margin: 20px auto 0; }
     </style>
 </head>
 <body>
