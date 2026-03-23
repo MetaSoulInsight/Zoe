@@ -74,7 +74,8 @@
         .intro-text-line { font-size: 1.05rem; color: var(--accent-rose); text-align: center; margin: 50px auto 30px; position: relative; font-weight: 500;}
         /* 分隔線也改成紫白 dashed */
         .intro-text-line::after { content: ""; display: block; width: 50px; height: 1px; background: linear-gradient(90deg, var(--accent-light), transparent); margin: 20px auto 0; }
-/* ★ 手機版專屬優化魔法 (核彈級強制置中 + 完美單行版) ★ */
+
+        /* ★ 手機版專屬優化魔法 (核彈級強制置中 + 完美單行版) ★ */
         @media (max-width: 768px) {
             .container { padding: 40px 15px; } /* 微調：把大外框的左右留白縮小一點，爭取寬度 */
             
@@ -93,7 +94,7 @@
             /* ★ 針對那三句標題的精準救援 ★ */
             /* 將這幾句話的字體縮小到 1rem (約16px)，確保手機上一行塞得下 */
             .story-box h4 {
-                font-size: 1rem !important; 
+                font-size: 0.95rem !important; 
                 margin-bottom: 20px;
                 line-height: 1.6;
             }
