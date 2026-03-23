@@ -74,44 +74,46 @@
         .intro-text-line { font-size: 1.05rem; color: var(--accent-rose); text-align: center; margin: 50px auto 30px; position: relative; font-weight: 500;}
         /* 分隔線也改成紫白 dashed */
         .intro-text-line::after { content: ""; display: block; width: 50px; height: 1px; background: linear-gradient(90deg, var(--accent-light), transparent); margin: 20px auto 0; }
-   /* ★ 手機版專屬優化魔法 (升級版) ★ */
+ /* ★ 手機版專屬優化魔法 (極致微調版) ★ */
         @media (max-width: 768px) {
             .container {
-                padding: 40px 20px; /* 縮小整體外圍留白，把空間還給文字 */
+                padding: 40px 20px; 
             }
             .profile-img {
                 width: 100%; 
                 height: auto;
             }
             
-            /* 縮小所有標題，防止文字在奇怪的地方斷行 */
-            .hero-title { font-size: 1.7rem; }
-            .hero-title span { font-size: 1.15rem; margin-top: 10px; }
-            h1, .dawn-text { font-size: 1.6rem !important; }
-            .text-wrapper h2, .services-header { font-size: 1.35rem; }
-            .concept-box h4, h4 { font-size: 1.15rem; margin-bottom: 15px; }
+            /* 標題再稍微縮小一點，確保能塞進單行或漂亮換行 */
+            .hero-title { font-size: 1.5rem; }
+            .hero-title span { font-size: 1.05rem; margin-top: 10px; }
+            h1, .dawn-text { font-size: 1.4rem !important; }
+            .text-wrapper h2, .services-header { font-size: 1.25rem; }
+            .concept-box h4, h4 { font-size: 1.1rem; margin-bottom: 12px; }
             .subtitle { font-size: 0.75rem; }
-            .intro-text-line { font-size: 0.95rem; }
+            .intro-text-line { font-size: 0.9rem; }
             
-            /* 調整所有框框內的空間，讓手機版看起來不擁擠 */
             .text-wrapper, .concept-box, .notice-box {
-                padding: 35px 25px; 
+                padding: 30px 20px; 
             }
             
-            /* 調整內文與引言的精緻度 */
+            /* ★ 內文極致微調：縮小字體、收緊行距、加上左右對齊 ★ */
             p, .intro-text, .concept-subtitle, .service-item p, .notice-box p, .notice-list li { 
-                font-size: 0.95rem; 
-                line-height: 1.9; /* 手機版行距稍微收緊，閱讀感更佳 */
-            }
-            .quote-block {
-                font-size: 0.95rem;
-                margin: 25px 0;
-                padding: 10px 0 10px 20px;
+                font-size: 0.9rem; /* 縮小到 0.9rem，約 14px，最精緻的手機閱讀尺寸 */
+                line-height: 1.75; /* 行距從 1.9 收緊到 1.75 */
+                text-align: justify; /* 讓中文字左右邊緣完美對齊 */
+                text-justify: inter-ideograph;
             }
             
-            /* 按鈕在手機版稍微調整，更好點擊 */
+            .quote-block {
+                font-size: 0.9rem;
+                line-height: 1.75;
+                margin: 20px 0;
+                padding: 10px 0 10px 15px;
+            }
+            
             .cta-button {
-                padding: 14px 35px;
+                padding: 12px 30px;
                 font-size: 0.9rem;
             }
             .btn-container { margin-top: 30px; }
