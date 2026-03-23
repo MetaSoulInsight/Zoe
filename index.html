@@ -86,13 +86,25 @@
         .credentials { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-top: 60px; margin-bottom: 80px;}
         .badge { font-family: "Noto Sans TC", sans-serif; font-size: 0.85rem; color: var(--accent-rose); border: 1px solid var(--accent-light); padding: 8px 20px; border-radius: 50px; background: rgba(255,255,255,0.7); }
         
-        .services-header { font-size: 1.6rem; font-weight: normal; color: var(--text-main); margin-bottom: 40px; text-align: center; }
+        /* ★ 核心調整：服務標題改為橘粉漸變（黎明色） ★ */
+        .services-header-wrapper { text-align: center; margin-bottom: 40px; } /* 確保內嵌區塊置中 */
+        .services-header { 
+            font-size: 1.6rem; 
+            font-weight: normal; 
+            margin: 0;
+            background: linear-gradient(135deg, var(--accent-rose) 0%, var(--accent-dawn) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent; /* Fallback */
+            display: inline-block; /* 讓漸層只應用在文字寬度 */
+        }
+        
         .services-list { display: grid; gap: 25px; }
-        .service-item { background: rgba(255, 255, 255, 0.7); padding: 35px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.9); transition: all 0.4s ease; position: relative; overflow: hidden; }
+        .service-item { background: rgba(255, 255, 255, 0.7); padding: 35px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.9); transition: all 0.4s ease; position: relative; overflow: hidden; text-align: left; }
         .service-item:hover { border-color: var(--accent-dawn); transform: translateY(-3px); box-shadow: 0 10px 30px rgba(221, 167, 145, 0.15); }
         .service-item h3 { font-size: 1.25rem; color: var(--text-main); margin: 0 0 10px 0; }
         .service-item span { display: block; font-size: 0.85rem; color: var(--accent-dawn); margin-bottom: 15px; font-family: "Noto Sans TC", sans-serif; }
-        .service-item p { color: var(--text-main); font-size: 0.95rem; margin: 0; text-align: left; line-height: 1.8; }
+        .service-item p { color: var(--text-main); font-size: 0.95rem; margin: 0; line-height: 1.8; }
         
         .btn-container { text-align: center; margin-top: 50px; }
         .cta-button { display: inline-block; background: linear-gradient(135deg, var(--accent-rose) 0%, var(--accent-dawn) 100%); color: #fff; padding: 16px 50px; border-radius: 50px; text-decoration: none; font-family: "Noto Sans TC", sans-serif; letter-spacing: 0.15em; font-size: 1rem; transition: opacity 0.3s, transform 0.3s; box-shadow: 0 5px 20px rgba(221, 167, 145, 0.3); cursor: pointer; }
@@ -113,7 +125,7 @@
             <div class="intro-text">一個讓你慢慢回到自己的地方</div>
         </header>
 
-        <div class="intro-text" style="text-align: center;">
+        <div class="intro-text">
             <h3 style="color: var(--text-main); margin-bottom: 15px; font-weight: 500;">如果你也有這樣的狀態</h3>
             <span class="concept-subtitle" style="display: block; color: var(--text-main); line-height: 2;">
                 在關係裡總是付出太多<br>
@@ -136,7 +148,7 @@
                     想說不，卻早已太習慣配合。
                 </div>
                  
-                <p>在關係裡給出太多，慢慢地，連自己的輪廓也變得模糊。那些委屈並不是脆弱，那些掙扎，其實是成長留下來的痕跡。</p>
+                <p>In relationships where you give too much, gradually, even your own contours blur. 那些委屈並不是脆弱，那些掙扎，其實是成長留下來的痕跡。</p>
             </div>
 
             <div class="concept-box">
@@ -169,8 +181,10 @@
             </div>
         </div>
 
-        <div style="text-align: left;">
-            <h2 class="services-header">在暮色中，我會這樣陪你</h2>
+        <div class="profile-section">
+            <div class="services-header-wrapper">
+                <h2 class="services-header">在暮色中，我會這樣陪你</h2>
+            </div>
             <div class="services-list">
                 <div class="service-item">
                     <h3>MBTI 性格解析</h3>
