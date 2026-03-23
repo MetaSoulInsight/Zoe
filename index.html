@@ -8,166 +8,159 @@
     <style>
         html { scroll-behavior: smooth; }
         :root { 
-            /* 色彩定義保留，但背景將改用漸層 */
-            --text-main: #4A3E4D;    /* 稍微調柔和的深灰紫 */
+            --text-main: #4A3E4D;    
             --text-light: #948996;   
             --accent-rose: #826A85;  
             --accent-light: #E8DCE8; 
-            --accent-dawn: #DDA791;  /* 黎明前的溫柔橘粉色 */
-            --bg-soft: rgba(255, 255, 255, 0.4); /* 半透明概念方塊 */
+            --accent-dawn: #DDA791;  
         }
         
-        /* ★ 核心魔法：會隨著滾動變換的漸層背景 ★ */
         body { 
             margin: 0; 
             padding: 0; 
             font-family: "Noto Serif TC", "Songti TC", serif; 
-            /* 從最上面的淡紫灰，慢慢過渡到中間的微藕紫，最後在最下方透出黎明的橘粉 */
             background: linear-gradient(180deg, #F4EDF4 0%, #F5F0F5 40%, #FDF4EF 100%);
             color: var(--text-main); 
-            line-height: 2.2; /* 加大行距讓文字有呼吸感 */
+            line-height: 2.2; 
             overflow-x: hidden; 
         }
         
-        .deco-rose { position: absolute; z-index: -1; opacity: 0.6; pointer-events: none; }
-        .rose-top-right { top: -50px; right: -50px; width: 300px; height: 300px; transform: rotate(15deg); }
-        .rose-bottom-left { bottom: 0; left: -60px; width: 400px; height: 400px; opacity: 0.4; transform: rotate(-20deg); }
+        .deco-rose { display: none; }
         .container { max-width: 760px; margin: 0 auto; padding: 60px 25px; position: relative; }
         
-        header { text-align: center; padding: 100px 0 60px; }
+        header { text-align: center; padding: 80px 0 40px; }
         .subtitle { font-family: "Noto Sans TC", sans-serif; font-size: 0.85rem; letter-spacing: 0.25em; color: var(--accent-rose); text-transform: uppercase; margin-bottom: 20px; display: block; }
-        h1 { font-size: 2.8rem; font-weight: 500; letter-spacing: 0.05em; color: var(--text-main); margin: 0 0 20px 0; }
-        
-        .intro-text { font-size: 1rem; color: var(--text-light); max-width: 500px; margin: 0 auto; position: relative; }
+        .hero-title { font-size: 2.4rem; line-height: 1.6; font-weight: 500; letter-spacing: 0.05em; color: var(--text-main); margin: 0 0 20px 0; }
+        .hero-title span { font-size: 1.8rem; display: block; margin-top: 10px; color: var(--accent-rose); }
+        .intro-text { font-size: 1.05rem; color: var(--text-light); max-width: 500px; margin: 25px auto 0; position: relative; }
         .intro-text::after { content: ""; display: block; width: 50px; height: 1px; background: linear-gradient(90deg, var(--accent-rose), transparent); margin: 30px auto 0; }
         
-        .profile-section { text-align: center; margin: 80px 0; }
-        /* ★ 調整：橫向長方形，左右兩側漸漸霧化模糊（羽化效果） ★ */
+        .profile-section { text-align: center; margin: 60px 0; }
+        
         .profile-img { 
-            width: 480px;  /* 橫向比例：寬度加大 */
-            height: 160px; /* 橫向比例：高度縮小 */
-            margin: 0 auto 30px; 
-            object-fit: cover; /* 確保照片在拉長後不會變形 */
-            
-            /* 上下保留溫柔的細線條感 */
+            width: 480px;  
+            height: 160px; 
+            margin: 0 auto 50px; 
+            object-fit: cover; 
             border-top: 2px solid rgba(255, 255, 255, 0.8);
             border-bottom: 2px solid rgba(255, 255, 255, 0.8);
-            
-            /* 左右不要有線條感 */
             border-left: none;
             border-right: none;
-            
-            /* ★ 核心魔法：左右兩側羽化霧化效果 ★ */
-            /* 利用遮罩漸層：從透明 -> 純黑(顯示) -> 透明 */
             -webkit-mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
             mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
-            
-            /* 加上淡淡的懸浮陰影，增加層次 */
             box-shadow: 0 10px 30px rgba(130, 106, 133, 0.1); 
         }
         
-        h2 { font-size: 1.6rem; font-weight: normal; color: var(--text-main); margin-bottom: 40px; text-align: center; }
-        
-        /* ★ 調整：文字區塊加上半透明底色，文字稍微縮小 ★ */
         .text-wrapper { 
             max-width: 580px; 
             margin: 0 auto; 
             text-align: justify; 
             text-justify: inter-ideograph;
-            background: rgba(255, 255, 255, 0.4); /* 半透明描圖紙效果 */
-            padding: 40px;
+            background: rgba(255, 255, 255, 0.3); 
+            padding: 40px 50px;
             border-radius: 12px;
             box-shadow: 0 10px 30px rgba(130, 106, 133, 0.03);
-            backdrop-filter: blur(2px); /* 微微模糊背後的漸層 */
+            backdrop-filter: blur(4px); 
+            margin-bottom: 40px;
         }
-        .text-wrapper p { margin-bottom: 25px; color: var(--text-main); font-size: 0.95rem; } /* 字稍微縮小，更精緻 */
+        .text-wrapper h2 { font-size: 1.6rem; font-weight: normal; color: var(--text-main); margin-bottom: 30px; text-align: center; }
+        .text-wrapper p { margin-bottom: 25px; color: var(--text-main); font-size: 1rem; } 
         
         .quote-block { position: relative; padding: 15px 0 15px 25px; margin: 35px 0; border-left: 2px solid var(--accent-rose); color: var(--accent-rose); font-weight: 500; font-size: 1.05rem; line-height: 1.8; text-align: left; }
         
-        .concept-box { background-color: var(--bg-soft); padding: 50px 40px; border-radius: 12px; margin: 60px 0; text-align: center; border: 1px solid rgba(255,255,255,0.8); }
-        .concept-box h4 { font-size: 1.3rem; color: var(--text-main); margin: 0 0 15px 0; font-weight: 500; letter-spacing: 0.05em; }
-        .concept-box .concept-subtitle { display: block; font-size: 0.95rem; color: var(--text-light); line-height: 1.8; }
+        .concept-box { 
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.1) 100%);
+            backdrop-filter: blur(8px); 
+            padding: 50px 40px; 
+            border-radius: 16px; 
+            margin: 50px auto; 
+            max-width: 580px;
+            text-align: center; 
+            border: 1px solid rgba(255, 255, 255, 0.6); 
+            box-shadow: 0 10px 30px rgba(130, 106, 133, 0.05);
+        }
+        .concept-box h4 { font-size: 1.35rem; color: var(--text-main); margin: 0 0 20px 0; font-weight: 500; letter-spacing: 0.05em; }
+        .concept-box .concept-subtitle { display: block; font-size: 1rem; color: var(--text-main); line-height: 2; }
+        .concept-box p { font-size: 0.95rem; color: var(--text-main); margin-bottom: 15px; text-align: center; }
         
-        .credentials { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-top: 50px; }
+        .credentials { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-top: 60px; margin-bottom: 80px;}
         .badge { font-family: "Noto Sans TC", sans-serif; font-size: 0.85rem; color: var(--accent-rose); border: 1px solid var(--accent-light); padding: 8px 20px; border-radius: 50px; background: rgba(255,255,255,0.7); }
         
+        .services-header { font-size: 1.6rem; font-weight: normal; color: var(--text-main); margin-bottom: 40px; text-align: center; }
         .services-list { display: grid; gap: 25px; }
         .service-item { background: rgba(255, 255, 255, 0.7); padding: 35px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.9); transition: all 0.4s ease; position: relative; overflow: hidden; }
-        .service-item:hover { border-color: var(--accent-dawn); transform: translateY(-3px); box-shadow: 0 10px 30px rgba(221, 167, 145, 0.15); /* hover 時透出黎明橘光 */ }
+        .service-item:hover { border-color: var(--accent-dawn); transform: translateY(-3px); box-shadow: 0 10px 30px rgba(221, 167, 145, 0.15); }
         .service-item h3 { font-size: 1.25rem; color: var(--text-main); margin: 0 0 10px 0; }
-        .service-item span { display: block; font-size: 0.85rem; color: var(--accent-dawn); margin-bottom: 15px; font-family: "Noto Sans TC", sans-serif; } /* 標籤改成橘色 */
-        .service-item p { color: var(--text-light); font-size: 0.95rem; margin: 0; text-align: left; line-height: 1.8; }
+        .service-item span { display: block; font-size: 0.85rem; color: var(--accent-dawn); margin-bottom: 15px; font-family: "Noto Sans TC", sans-serif; }
+        .service-item p { color: var(--text-main); font-size: 0.95rem; margin: 0; text-align: left; line-height: 1.8; }
         
-        .btn-container { text-align: center; margin-top: 60px; }
-        /* ★ 調整：按鈕融合紫色與黎明橘色 ★ */
-        .cta-button { display: inline-block; background: linear-gradient(135deg, var(--accent-rose) 0%, var(--accent-dawn) 100%); color: #fff; padding: 16px 50px; border-radius: 50px; /* 改為圓角更顯柔和 */ text-decoration: none; font-family: "Noto Sans TC", sans-serif; letter-spacing: 0.15em; font-size: 0.95rem; transition: opacity 0.3s, transform 0.3s; box-shadow: 0 5px 20px rgba(221, 167, 145, 0.3); cursor: pointer; }
+        .btn-container { text-align: center; margin-top: 50px; }
+        .cta-button { display: inline-block; background: linear-gradient(135deg, var(--accent-rose) 0%, var(--accent-dawn) 100%); color: #fff; padding: 16px 50px; border-radius: 50px; text-decoration: none; font-family: "Noto Sans TC", sans-serif; letter-spacing: 0.15em; font-size: 1rem; transition: opacity 0.3s, transform 0.3s; box-shadow: 0 5px 20px rgba(221, 167, 145, 0.3); cursor: pointer; }
         .cta-button:hover { opacity: 0.9; transform: translateY(-2px); }
+        
         footer { text-align: center; margin-top: 80px; padding-top: 30px; border-top: 1px solid rgba(232, 220, 232, 0.5); font-size: 0.8rem; color: var(--text-light); }
     </style>
 </head>
 <body>
-    <svg style="display: none;">
-        <defs>
-            <linearGradient id="roseGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="var(--accent-rose)" stop-opacity="0.8" />
-                <stop offset="100%" stop-color="var(--accent-dawn)" stop-opacity="0.4" />
-            </linearGradient>
-        </defs>
-        <symbol id="rose-outline" viewBox="0 0 100 100">
-            <path fill="none" stroke="url(#roseGradient)" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round" d="M50,50 C55,45 60,55 50,60 C40,65 35,50 45,40 C55,30 70,35 75,50 C80,65 60,80 40,75 C20,70 25,40 45,30 C65,20 85,40 80,60 C75,80 45,90 30,70" />
-            <path fill="none" stroke="url(#roseGradient)" stroke-width="0.5" stroke-linecap="round" d="M50,50 C48,48 52,48 50,50 M30,30 Q40,10 60,20" opacity="0.6"/>
-        </symbol>
-    </svg>
-    <svg class="deco-rose rose-top-right"><use href="#rose-outline" /></svg>
-    <svg class="deco-rose rose-bottom-left"><use href="#rose-outline" /></svg>
-
     <div class="container">
+        
         <header>
-            <span class="subtitle">Hypnosis & MBTI Practitioner</span>
-            <h1>在暮色中靜默的陪伴者</h1>
-            <div class="intro-text">
-                如果月亮是溫柔的照亮<br>
-                那暮色就是在還看不清的時候，也允許自己停留的地方
-            </div>
+            <span class="subtitle">Hi there 療癒工作室</span>
+            <h1 class="hero-title">
+                — 暮色空間 —
+                <h4 span>光退去之後、輪廓變軟的那個一刻。不是黑暗，是光的餘溫。</h4 span>
+            </h1>
+            <div class="intro-text">一個讓你慢慢回到自己的地方</div>
         </header>
 
+        <div>
+            <h3>如果你也有這樣的狀態</h3>
+            <span class="concept-subtitle">
+                在關係裡總是付出太多<br>
+                明明知道，卻很難做到改變<br>
+                習慣壓抑自己，卻又渴望被理解
+            </span>
+        </div>
+
         <div class="profile-section">
-             <img src="https://i.postimg.cc/WbLDZYmM/C36483DE-0744-4AC0-957F-57E0157E45CB.jpg" alt="療癒師照片" class="profile-img">
+            <img src="https://i.postimg.cc/WbLDZYmM/C36483DE-0744-4AC0-957F-57E0157E45CB.jpg" alt="療癒師照片" class="profile-img">
              
-             <div class="text-wrapper">
-                 <p style="text-align: center; margin-bottom: 40px; font-size: 1.05rem;">你好，我是 Zoe ，也可以叫我 柔伊。</p>
+            <div class="text-wrapper">
+                <p style="text-align: center; margin-bottom: 40px; font-size: 1.1rem;">Hi there，我是 Zoe，也可以叫我 柔伊。</p>
+                <h2>你可能也正在經歷這樣的拉扯</h2> 
+                <p>在情感與關係的世界裡，我們常常因為還不夠理解彼此，而試著尋找一種「最好的方式」，去面對那些矛盾與摩擦。很多時候，並不是誰對誰錯，而只是理解不同。我們之所以找不到答案，往往只是因為，彼此都還在摸索之中。</p>
                  
-                 <p>在情感或關係的世界中，我們常常會因為不懂彼此，所以想找出一個最好的方式來處理關係中的矛盾或摩擦。很多時候沒有誰對誰錯，只是理解不同。我們會找不到答案，只是因為我們都還在摸索。</p>
+                <div class="quote-block">
+                    那是一種很微妙的拉扯——<br>
+                    渴望被愛，卻習慣先縮小自己。<br>
+                    想說不，卻早已太習慣配合。
+                </div>
                  
-                 <div class="quote-block">
-                    那像是一種獨特的拉扯 ——<br>
-                    渴望愛，卻習慣了先縮小自己。<br>
-                    想說不，卻已經太習慣配合。
-                 </div>
-                 
-                 <p>在關係裡給出太多，慢慢地，連自己的輪廓也說不清楚了。那些委屈不是脆弱，那些掙扎，是成長留下來的真實痕跡。</p>
-             </div>
+                <p>在關係裡給出太多，慢慢地，連自己的輪廓也變得模糊。那些委屈並不是脆弱，那些掙扎，其實是成長留下來的痕跡。</p>
+            </div>
 
-             <div class="concept-box">
-                 <h4>我們把這個光與暗的地方稱為 暮色。</h4> 
-                 <span class="concept-subtitle">
-                    不是黑暗，也還不是天光。<br>
-                    剛好夠暗，也剛好夠靜——靜到你終於可以聽見一點自己的聲音。
-                 </span>
-             </div>
+           <div class="concept-box">
+                <h4>我會把這樣的狀態，稱為「暮色」。</h4> 
+                <span class="concept-subtitle">
+                    如果月亮是溫柔的照亮，那暮色就是在還看不清的時候，也允許自己停留的地方。
+                    它不是黑暗，也還不是陽光升起。<br>
+                    剛好夠暗，也剛好夠靜——<br>
+                    靜到你終於能夠，聽見一點自己的聲音。
+                </span>
+            </div>
 
-             <div class="text-wrapper">
-                 <h4 style="font-size: 1.2rem; color: var(--text-main); margin: 0 0 20px 0; text-align: center; font-weight: 500;">這裡不催你往前走，也不要你假裝自己沒事。</h4>
-                 <p style="text-align: center; color: var(--accent-rose); font-weight: 500; margin-bottom: 30px;">你可以知道某件事，卻暫時還做不到。</p>  
-                 
-                 <p>你可以清醒，也可以脆弱，也可以同時擁有某種洞察—— 這些不互相矛盾，它們都是你。那些掙扎的痕跡、成長的代價，都是真實的你的一部分。</p>
-                 <p>我們不急著帶你朝向黎明， 只是想提著一盞燈，陪你待在暮色與黎明交界的那個地方。用人與人之間真實的共感傾聽你， 也用心理學的視角，輕輕幫你梳理那些說不清楚的部分。讓那個過度付出、卻還渴望找回自己的你，可以慢慢來。</p>
-                 
-                 <div class="intro-text" style="margin: 50px auto 30px;">我知道那種『知道卻暫時做不到』的拉扯與疲憊。</div>
-                 
-                 <p>所以作為一名提供穩定支持的陪伴者，我想運用 MBTI 的理性架構來協助你、理解你，並透過深度療育的感性流動來察覺自己。</p>
-                 <p>在這裡，你不必急著證明自己已經好起來。我提供一個客觀、無評判的傾聽空間，結合我對人性的共感，以及心理學工具的理性梳理，看見自己與情緒的關係。我不會強迫推著你前進，而是提著燈，陪你一起看清那些隱藏在暮色與黎明交界處的真實輪廓。</p>
-             </div>
+            <div class="concept-box">
+                <h4>為什麼是 Hi there？</h4>
+                <p style="color: var(--accent-rose); font-weight: 500; font-size: 1.05rem; margin-bottom: 25px;">從「看見自己」開始的改變</p>
+                <p>「Hi there」不只是打招呼，而是一種溫柔的覺察。</p>
+                <p>正如心理學家Carl Jung 榮格所說 “One does not become enlightened by imagining figures of light, but by making the darkness conscious.”
+「人不是透過想像光明而覺醒，而是透過將黑暗帶入意識。」</p>
+                <p>在這裡，你可以先看見自己的感受，不急著評價，也不必立刻改變。只要先說一聲：「嗨，我看見你了。」</p>
+            </div>
+
+            <div class="btn-container" style="margin-top: 40px; margin-bottom: 80px;">
+                <a href="about.html" class="cta-button" style="background: transparent; border: 1px solid var(--accent-rose); color: var(--accent-rose); box-shadow: none;">閱讀關於暮色與我的完整理念</a>
+            </div>
 
             <div class="credentials">
                 <div class="badge">IACT 國際催眠師證照</div>
@@ -177,8 +170,8 @@
             </div>
         </div>
 
-        <div class="profile-section" style="text-align: left;">
-            <h2 style="margin-bottom: 50px;">療癒方案</h2>
+        <div style="text-align: left;">
+            <h2 class="services-header">在暮色中，我會這樣陪你</h2>
             <div class="services-list">
                 <div class="service-item">
                     <h3>MBTI 性格解析</h3>
@@ -207,8 +200,8 @@
                 </div>
             </div>
 
-            <div class="btn-container">
-                <a href="intro.html" class="cta-button">預約前先了解</a>
+            <div class="btn-container" style="margin-top: 80px;">
+                <a href="intro.html" class="cta-button">讓我陪你慢慢看見自己</a>
             </div>
         </div>
 
