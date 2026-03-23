@@ -74,49 +74,62 @@
         .intro-text-line { font-size: 1.05rem; color: var(--accent-rose); text-align: center; margin: 50px auto 30px; position: relative; font-weight: 500;}
         /* 分隔線也改成紫白 dashed */
         .intro-text-line::after { content: ""; display: block; width: 50px; height: 1px; background: linear-gradient(90deg, var(--accent-light), transparent); margin: 20px auto 0; }
- /* ★ 手機版專屬優化魔法 (極致微調版) ★ */
+/* ★ 手機版專屬優化魔法 (核彈級強制置中 + 完美單行版) ★ */
         @media (max-width: 768px) {
-            .container {
-                padding: 40px 20px; 
-            }
-            .profile-img {
-                width: 100%; 
-                height: auto;
-            }
+            .container { padding: 40px 15px; } /* 微調：把大外框的左右留白縮小一點，爭取寬度 */
             
-            /* 標題再稍微縮小一點，確保能塞進單行或漂亮換行 */
             .hero-title { font-size: 1.5rem; }
             .hero-title span { font-size: 1.05rem; margin-top: 10px; }
             h1, .dawn-text { font-size: 1.4rem !important; }
             .text-wrapper h2, .services-header { font-size: 1.25rem; }
-            .concept-box h4, h4 { font-size: 1.1rem; margin-bottom: 12px; }
             .subtitle { font-size: 0.75rem; }
             .intro-text-line { font-size: 0.9rem; }
             
-            .text-wrapper, .concept-box, .notice-box {
-                padding: 30px 20px; 
+            /* 微調：稍微減少框框內部的左右留白，讓這三句話有空間伸展 */
+            .text-wrapper, .concept-box, .story-box, .notice-box { 
+                padding: 30px 15px; 
+            }
+
+            /* ★ 針對那三句標題的精準救援 ★ */
+            /* 將這幾句話的字體縮小到 1rem (約16px)，確保手機上一行塞得下 */
+            .story-box h4 {
+                font-size: 1rem !important; 
+                margin-bottom: 20px;
+                line-height: 1.6;
+            }
+            .story-box p[style*="text-align: center"] {
+                font-size: 0.95rem !important; 
+                margin-bottom: 25px;
             }
             
-            /* ★ 內文極致微調：縮小字體、收緊行距、加上左右對齊 ★ */
-            p, .intro-text, .concept-subtitle, .service-item p, .notice-box p, .notice-list li { 
-                font-size: 0.9rem; /* 縮小到 0.9rem，約 14px，最精緻的手機閱讀尺寸 */
-                line-height: 1.75; /* 行距從 1.9 收緊到 1.75 */
-                text-align: justify; /* 讓中文字左右邊緣完美對齊 */
+            /* 1. 長文章：乖乖左右對齊 */
+            .story-box p:not([style*="text-align: center"]) { 
+                font-size: 0.9rem; 
+                line-height: 1.75; 
+                text-align: justify !important; 
                 text-justify: inter-ideograph;
             }
-            
-            .quote-block {
+
+            /* 2. 短句與方塊：核彈級強制置中！(!important 會打破所有舊規則) */
+            .intro-text, 
+            .intro-text h3, 
+            .concept-subtitle, 
+            .concept-box p {
                 font-size: 0.9rem;
                 line-height: 1.75;
-                margin: 20px 0;
-                padding: 10px 0 10px 15px;
+                text-align: center !important; 
             }
             
-            .cta-button {
-                padding: 12px 30px;
-                font-size: 0.9rem;
+            .nav-buttons {
+                flex-direction: column; /* 手機上按鈕變成上下排，避免太擠 */
+                gap: 15px;
             }
-            .btn-container { margin-top: 30px; }
+            .btn-outline, .btn-solid {
+                padding: 12px 20px;
+                width: 100%; /* 按鈕寬度稍微拉滿，視覺更平衡 */
+                box-sizing: border-box;
+                text-align: center;
+            }
         }
     </style>
 </head>
