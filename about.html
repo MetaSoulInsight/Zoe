@@ -74,6 +74,22 @@
         .intro-text-line { font-size: 1.05rem; color: var(--accent-rose); text-align: center; margin: 50px auto 30px; position: relative; font-weight: 500;}
         /* 分隔線也改成紫白 dashed */
         .intro-text-line::after { content: ""; display: block; width: 50px; height: 1px; background: linear-gradient(90deg, var(--accent-light), transparent); margin: 20px auto 0; }
+    /* ★ 手機版專屬優化魔法 ★ */
+        @media (max-width: 768px) {
+            .profile-img {
+                width: 100%; /* 讓照片像水一樣，最多只撐滿螢幕，不會超過 */
+                height: auto; /* 高度自動按比例縮放，照片才不會變形 */
+            }
+            .text-wrapper, .concept-box, .notice-box {
+                padding: 30px 20px; /* 把兩側的空白縮小，還給文字更多空間 */
+            }
+            .hero-title {
+                font-size: 2rem; /* 手機版標題稍微縮小一點點，才不會塞滿螢幕 */
+            }
+            .hero-title span {
+                font-size: 1.4rem;
+            }
+        }
     </style>
 </head>
 <body>
