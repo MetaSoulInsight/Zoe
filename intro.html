@@ -75,6 +75,22 @@
         .booking-section { margin-top: 60px; text-align: center; background: rgba(255, 255, 255, 0.4); padding: 40px 20px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.8); box-shadow: 0 10px 30px rgba(181, 132, 123, 0.04);}
         .back-link { display: inline-block; margin-top: 40px; color: var(--text-light); text-decoration: none; font-size: 0.95rem; border-bottom: 1px solid transparent; transition: all 0.3s; }
         .back-link:hover { color: var(--accent-dawn); border-bottom: 1px solid var(--accent-dawn); }
+    /* ★ 手機版專屬優化魔法 ★ */
+        @media (max-width: 768px) {
+            .profile-img {
+                width: 100%; /* 讓照片像水一樣，最多只撐滿螢幕，不會超過 */
+                height: auto; /* 高度自動按比例縮放，照片才不會變形 */
+            }
+            .text-wrapper, .concept-box, .notice-box {
+                padding: 30px 20px; /* 把兩側的空白縮小，還給文字更多空間 */
+            }
+            .hero-title {
+                font-size: 2rem; /* 手機版標題稍微縮小一點點，才不會塞滿螢幕 */
+            }
+            .hero-title span {
+                font-size: 1.4rem;
+            }
+        }
     </style>
 </head>
 <body>
