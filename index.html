@@ -111,7 +111,8 @@
         .cta-button:hover { opacity: 0.9; transform: translateY(-2px); }
         
         footer { text-align: center; margin-top: 80px; padding-top: 30px; border-top: 1px solid rgba(232, 220, 232, 0.5); font-size: 0.8rem; color: var(--text-light); }
- /* ★ 手機版專屬優化魔法 (極致微調版) ★ */
+
+        /* ★ 手機版專屬優化魔法 (極致微調 + 修復置中版) ★ */
         @media (max-width: 768px) {
             .container {
                 padding: 40px 20px; 
@@ -121,7 +122,7 @@
                 height: auto;
             }
             
-            /* 標題再稍微縮小一點，確保能塞進單行或漂亮換行 */
+            /* 標題縮小，確保能塞進單行或漂亮換行 */
             .hero-title { font-size: 1.5rem; }
             .hero-title span { font-size: 1.05rem; margin-top: 10px; }
             h1, .dawn-text { font-size: 1.4rem !important; }
@@ -134,12 +135,19 @@
                 padding: 30px 20px; 
             }
             
-            /* ★ 內文極致微調：縮小字體、收緊行距、加上左右對齊 ★ */
-            p, .intro-text, .concept-subtitle, .service-item p, .notice-box p, .notice-list li { 
-                font-size: 0.9rem; /* 縮小到 0.9rem，約 14px，最精緻的手機閱讀尺寸 */
-                line-height: 1.75; /* 行距從 1.9 收緊到 1.75 */
-                text-align: justify; /* 讓中文字左右邊緣完美對齊 */
+            /* 1. 針對需要「左右對齊」的長篇文章 (例如：你的自白、服務項目說明) */
+            .text-wrapper p, .service-item p { 
+                font-size: 0.9rem; 
+                line-height: 1.75; 
+                text-align: justify; 
                 text-justify: inter-ideograph;
+            }
+
+            /* 2. 針對需要「保持置中」的短句與概念方塊 (這就是修復左靠的關鍵！) */
+            .intro-text, .concept-subtitle, .concept-box p {
+                font-size: 0.9rem;
+                line-height: 1.75;
+                text-align: center; 
             }
             
             .quote-block {
