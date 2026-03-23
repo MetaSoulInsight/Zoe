@@ -111,6 +111,22 @@
         .cta-button:hover { opacity: 0.9; transform: translateY(-2px); }
         
         footer { text-align: center; margin-top: 80px; padding-top: 30px; border-top: 1px solid rgba(232, 220, 232, 0.5); font-size: 0.8rem; color: var(--text-light); }
+    /* ★ 手機版專屬優化魔法 ★ */
+        @media (max-width: 768px) {
+            .profile-img {
+                width: 100%; /* 讓照片像水一樣，最多只撐滿螢幕，不會超過 */
+                height: auto; /* 高度自動按比例縮放，照片才不會變形 */
+            }
+            .text-wrapper, .concept-box, .notice-box {
+                padding: 30px 20px; /* 把兩側的空白縮小，還給文字更多空間 */
+            }
+            .hero-title {
+                font-size: 2rem; /* 手機版標題稍微縮小一點點，才不會塞滿螢幕 */
+            }
+            .hero-title span {
+                font-size: 1.4rem;
+            }
+        }
     </style>
 </head>
 <body>
