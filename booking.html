@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>暮色之間｜事前談心委託</title>
+    <!-- 引入乾淨中規中矩的標準字體：思源黑體 -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* 溫柔奶黃與深木質配色設定 */
+        :root {
+            --bg-color: #F8F6F0;        /* 頁面底色：燕麥奶色 */
+            --paper-bg: #FFFFFF;        /* 主畫布：純白 */
+            --primary-color: #F4E2BB;   /* 柔和奶油黃 */
+            --accent-color: #D4A75A;    /* 質感金黃（用於輸入框點擊時的高光） */
+            
+            /* --- 這次更新的棕色按鈕色碼 --- */
+            --btn-color: #5C3A21;       /* 按鈕主色：深焙咖啡/深可可棕 */
+            --btn-hover: #3D2615;       /* 按鈕懸停：更深的黑咖啡棕 */
+            /* ----------------------------- */
+            
+            --text-main: #4A4238;       /* 深茶色（主要文字） */
+            --text-muted: #8E8170;      /* 淺茶色（次要文字） */
+            --divider: #F0EAD6;         /* 分隔線顏色 */
+            --input-bg: #FCFBFC;        /* 輸入框背景（極淡的灰白） */
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            /* 使用乾淨的中性字體，增加字距與行高來創造呼吸感 */
+            font-family: 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+            line-height: 2.0; 
+            letter-spacing: 0.5px;
+            padding: 50px 20px;
+        }
+
+        /* 核心畫布：加寬內距(padding)，讓文字不貼邊 */
+        .paper-container {
+            max-width: 620px;
+            margin: 0 auto;
+            background-color: var(--paper-bg);
+            border-radius: 20px;
+            padding: 60px 50px;
+            box-shadow: 0 10px 40px rgba(92, 82, 69, 0.04);
+            border: 1px solid #FCFAED;
+        }
+
+        /* 標頭區塊 */
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .avatar {
+            font-size: 38px;
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            font-size: 22px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            color: var(--text-main);
+            margin-bottom: 12px;
+        }
+
+        header p {
+            font-size: 14px;
+            color: var(--text-muted);
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        /* 說明區塊：大幅增加段落之間的 margin */
+        .info-section {
+            text-align: center;
+        }
+
+        .intro-text {
+            font-size: 15px;
+            margin-bottom: 40px;
+            font-weight: 300;
+            color: var(--text-main);
+        }
+
+        .price-highlight {
+            font-size: 16px;
+            font-weight: 500;
+            background: linear-gradient(to top, var(--primary-color) 30%, transparent 30%);
+            display: inline-block;
+            margin-bottom: 40px;
+            padding: 0 8px;
+        }
+
+        .notice-container {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        .notice-text {
+            font-size: 14.5px;
+            color: var(--text-main);
+            margin-bottom: 20px;
+            padding-left: 2em;
+            text-indent: -2em;
+            font-weight: 300;
+        }
+
+        /* 優雅的分隔線：上下留白加大 */
+        .divider {
+            height: 1px;
+            background-color: var(--divider);
+            border: none;
+            margin: 60px 0; 
+            position: relative;
+        }
+        
+        .divider::after {
+            content: '✧';
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background-color: var(--paper-bg);
+            padding: 0 20px;
+            color: #D6C4A2;
+            font-size: 14px;
+        }
+
+        /* 表單區域 */
+        .info-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--text-muted);
+            margin-bottom: 25px;
+            letter-spacing: 2px;
+        }
+
+        /* 欄位之間的距離加大，降低填寫壓力 */
+        .form-group {
+            margin-bottom: 35px;
+        }
+
+        .form-group.row-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        label {
+            display: block;
+            font-weight: 500;
+            font-size: 14px;
+            margin-bottom: 12px;
+            color: var(--text-main);
+        }
+
+        .required::after {
+            content: '*';
+            color: #C78B89;
+            margin-left: 6px;
+        }
+
+        /* 中規中矩的輸入框設計 */
+        input[type="text"],
+        input[type="email"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 15px 18px;
+            background-color: var(--input-bg);
+            border: 1px solid #EBE7E0;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 15px;
+            color: var(--text-main);
+            transition: all 0.3s ease;
+            outline: none;
+            resize: vertical;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            background-color: #FFFFFF;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 3px rgba(244, 226, 187, 0.4);
+        }
+
+        textarea {
+            min-height: 140px; 
+            line-height: 1.8;
+        }
+
+        /* 送出按鈕（使用深可可棕色） */
+        .submit-btn {
+            width: 100%;
+            background-color: var(--btn-color);
+            color: #FFFFFF;
+            border: none;
+            padding: 18px;
+            font-size: 15px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: inherit;
+            margin-top: 20px;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--btn-hover);
+        }
+
+        /* 頁尾 */
+        footer {
+            text-align: center;
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 60px;
+            letter-spacing: 1px;
+        }
+
+        /* 手機板適應 */
+        @media (max-width: 500px) {
+            body {
+                padding: 30px 15px;
+            }
+            .paper-container {
+                padding: 50px 30px;
+                border-radius: 16px;
+            }
+            .form-group.row-2 {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="paper-container">
+        
+        <header>
+            <div class="avatar">🪑</div>
+            <h1>談心委託</h1>
+            <p>暮色之間 ｜ 聊聊空間</p>
+        </header>
+
+        <div class="info-section">
+            <p class="intro-text">
+                在猶豫是否需要療癒嗎？ 歡迎先來這裡坐坐、聊聊天。<br>
+                不用有壓力，讓我們彼此先稍微熟悉。<br>
+如果你只是想找人跟你說話，也完全可以。<br>
+            </p>
+            
+            <div class="price-highlight">
+                前 30 分鐘免費 ｜ 超過時間 NT$ 300 / 小時
+            </div>
+
+            <div class="notice-container">
+                <p class="notice-text">・ 本時段不限療癒服務，主要陪伴您梳理當下的情緒、卡點或困惑。</p>
+<p class="notice-text">・ 甚至你只需要一個祕密窗口聽就好。</p>
+                <p class="notice-text">・ 初談結束後，若有您真的需要進一步做深層療育，我會再提供您專屬的正式服務預約管道，完全不強迫。</p>
+                <p class="notice-text">・ 送出表單後，我將會在 24 小時內與您聯繫確認具體日期與進行方式。</p>
+            </div>
+        </div>
+
+        <!-- 分隔線 -->
+        <hr class="divider">
+
+        <div class="form-section">
+            <form action="#" method="POST">
+                
+                <h3 class="info-title">CLIENT INFO</h3>
+
+                <div class="form-group row-2">
+                    <div>
+                        <label for="name" class="required">您的稱呼</label>
+                        <input type="text" id="name" name="name" placeholder="請輸入您希望我如何稱呼您" required>
+                    </div>
+                    <div>
+                        <label for="contact" class="required">聯絡方式 (LINE / IG)</label>
+                        <input type="text" id="contact" name="contact" placeholder="例如：LINE ID: abc1234" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email" class="required">電子信箱</label>
+                    <input type="email" id="email" name="email" placeholder="example@gmail.com" required>
+                </div>
+
+                <h3 class="info-title" style="margin-top: 50px;">TOPIC & DETAILS</h3>
+
+                <div class="form-group">
+                    <label for="topic" class="required">目前最想梳理的方向</label>
+                    <select id="topic" name="topic" required>
+                        <option value="" disabled selected>請選擇一個分類</option>
+                        <option value="relationship">情感與人際關係</option>
+                        <option value="career">工作職涯與未來迷茫</option>
+                        <option value="mind">內在情緒、壓力或莫名卡關</option>
+                        <option value="other">單純想找個溫柔的空間聊聊</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="situation" class="required">敘述一下你目前的狀況</label>
+                    <textarea id="situation" name="situation" placeholder="不用有壓力，隨心寫下你想讓我先知道的事情，好讓我能提前準備陪伴你..." required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="time">方便進行談心的時間段（選填）</label>
+                    <input type="text" id="time" name="time" placeholder="例如：平日晚上 7 點後、週末下午...">
+                </div>
+                
+                <button type="submit" class="submit-btn">送出預約表單</button>
+
+            </form>
+        </div>
+
+        <footer>
+            © 2026 Hi Threr療癒工作室. All rights reserved.
+        </footer>
+
+    </div>
+
+</body>
+</html>
