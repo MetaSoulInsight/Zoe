@@ -33,34 +33,58 @@
         .hero-title { font-size: 2.2rem; line-height: 1.6; font-weight: 500; letter-spacing: 0.05em; color: var(--text-main); margin: 0 0 20px 0; }
         .hero-title span { font-size: 1.25rem; display: block; margin-top: 15px; color: var(--accent-rose); font-weight: normal; }
         
-        /* 標題與內文共用設定 */
+        /* 標題與內文共用顏色鎖定 */
         h2 { font-size: 1.6rem; font-weight: 500; color: var(--text-main); margin-bottom: 30px; text-align: center; }
         h3 { font-size: 1.4rem; color: var(--text-main); font-weight: 500; margin-bottom: 15px; }
+        p { color: var(--text-main); }
         
-        /* 概念外框 (毛玻璃) */
+        /* ★ 核心魔法：鏤空透明底 + 細緻漸變邊線 (Ghost Style) ★ */
+        .ghost-border-box {
+            position: relative;
+            background: transparent !important; /* 徹底去白底 */
+            border: none !important; /* 移除原本的實體邊框 */
+            z-index: 1;
+        }
+        .ghost-border-box::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: inherit; /* 繼承圓角 */
+            padding: 1px; /* 決定邊線的細緻度，這裡設為 1px */
+            /* 邊線的顏色漸變：從玫瑰色到黎明色 */
+            background: linear-gradient(135deg, var(--accent-rose) 0%, var(--accent-dawn) 100%);
+            /* 利用遮罩技術把中間掏空，只留下 1px 的邊緣 */
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0.55; /* 預設邊線透明度，溫柔不刺眼 */
+            transition: opacity 0.5s ease, background 0.5s ease;
+        }
+        /* Hover 時漸變邊緣亮起，營造呼吸感 */
+        .ghost-border-box:hover::before {
+            opacity: 1;
+            background: linear-gradient(135deg, var(--accent-dawn) 0%, var(--accent-rose) 100%);
+        }
+
+        /* 概念外框 */
         .concept-box { 
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.1) 100%);
-            backdrop-filter: blur(8px); 
             padding: 50px 40px; 
             border-radius: 16px; 
             margin: 50px auto; 
             max-width: 580px;
             text-align: center; 
-            border: 1px solid rgba(255, 255, 255, 0.6); 
-            box-shadow: 0 10px 30px rgba(130, 106, 133, 0.05);
         }
         .concept-box h4 { font-size: 1.35rem; color: var(--accent-rose); margin: 0 0 15px 0; font-weight: 500; letter-spacing: 0.05em; }
-        .concept-box p { font-size: 1.05rem; color: var(--text-main); margin-bottom: 15px; }
+        .concept-box p { font-size: 1.05rem; margin-bottom: 15px; }
 
         /* 文字閱讀區塊 */
         .text-wrapper { 
             max-width: 580px; 
             margin: 0 auto 40px; 
-            background: rgba(255, 255, 255, 0.4); 
             padding: 40px 50px;
             border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(130, 106, 133, 0.03);
-            backdrop-filter: blur(4px); 
         }
         .text-wrapper p { font-size: 1.05rem; margin-bottom: 25px; text-align: justify; text-justify: inter-ideograph; } 
         
@@ -73,7 +97,7 @@
         
         /* 陪伴名單列表 */
         .target-list { list-style: none; padding: 0; margin: 0 0 25px 0; text-align: center; line-height: 2.2; font-size: 1.05rem; }
-        .target-list li { margin-bottom: 8px; }
+        .target-list li { margin-bottom: 8px; color: var(--text-main); } /* 鎖定清單字體顏色 */
 
         /* 個人簡介區塊 */
         .profile-section { text-align: center; margin: 80px 0; }
@@ -97,18 +121,14 @@
         
         .services-list { display: grid; gap: 20px; max-width: 600px; margin: 0 auto; }
         
-        /* ★ 核心修改：徹底去白底，保留精緻邊線，並強迫鎖定文字顏色 ★ */
+        /* 服務卡片基本設定 (背景透明與顏色鎖定) */
         .service-item { 
-            background: transparent; /* 完全透明 */
             padding: 30px; 
             border-radius: 12px; 
-            border: 1px solid rgba(130, 106, 133, 0.4); /* 玫瑰色的細線邊框 */
             transition: all 0.4s ease; 
             text-align: left; 
         }
-        .service-item:hover { border-color: var(--accent-dawn); transform: translateY(-3px); box-shadow: 0 10px 30px rgba(221, 167, 145, 0.15); }
-        
-        /* 鎖定框框內的文字設定，確保不會消失 */
+        .service-item:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(221, 167, 145, 0.15); }
         .service-item h3 { font-size: 1.25rem; color: var(--text-main); margin: 0 0 8px 0; }
         .service-item span { display: block; font-size: 0.85rem; color: var(--accent-dawn); margin-bottom: 15px; font-family: "Noto Sans TC", sans-serif; letter-spacing: 0.05em; }
         .service-item p { color: var(--text-main); font-size: 0.95rem; margin: 0; line-height: 1.8; text-align: justify; }
@@ -156,8 +176,8 @@
             </p>
         </div>
 
-        <!-- 品牌定位宣告 -->
-        <div class="concept-box">
+        <!-- 品牌定位宣告 (套用透明底與漸變框) -->
+        <div class="concept-box ghost-border-box">
             <h4>Hi there，</h4>
             <p style="font-weight: 500; font-size: 1.15rem; margin-bottom: 25px;">一個陪你慢慢看見自己的地方。</p>
             <p style="font-size: 1rem;">透過 MBTI、人格理解與深度陪伴，<br>協助你看見那些卡住自己的情緒模式與關係慣性。</p>
@@ -166,8 +186,8 @@
             </div>
         </div>
 
-        <!-- 痛點區塊 -->
-        <div class="text-wrapper">
+        <!-- 痛點區塊 (套用透明底與漸變框) -->
+        <div class="text-wrapper ghost-border-box">
             <h2>你可能正在經歷</h2>
             
             <div class="pain-point-item">
@@ -193,7 +213,8 @@
                 <p style="font-size: 0.95rem; text-align: center; margin: 0;">理解了很多道理，現實卻沒有改變。</p>
             </div>
             
-            <div style="background: rgba(255,255,255,0.6); padding: 25px; border-radius: 12px; text-align: center;">
+            <!-- 內嵌重點小框 (套用透明底與漸變框) -->
+            <div>
                 <span style="font-size: 1.05rem; font-weight: 500; color: var(--accent-rose);">你不是做不到，只是還沒有真正理解那些情緒從哪裡來。</span>
             </div>
         </div>
@@ -203,25 +224,26 @@
             <h2 class="services-header">我能陪你整理什麼</h2>
             
             <div class="services-list">
-                <div class="service-item" style="padding: 25px 30px;">
+                <!-- 服務卡片 (套用透明底與漸變框) -->
+                <div class="service-item ghost-border-box" style="padding: 25px 30px;">
                     <h3 style="margin-bottom: 5px;">為什麼總是放不下？</h3>
                     <p>看見情緒背後真正的需求</p>
                 </div>
                 
-                <div class="service-item" style="padding: 25px 30px;">
+                <div class="service-item ghost-border-box" style="padding: 25px 30px;">
                     <h3 style="margin-bottom: 5px;">為什麼總是吸引類似的人？</h3>
                     <p>理解反覆吸引你的關係慣性</p>
                 </div>  
                 
-                <div class="service-item" style="padding: 25px 30px;">
+                <div class="service-item ghost-border-box" style="padding: 25px 30px;">
                     <h3 style="margin-bottom: 5px;">為什麼我總是這樣反應？</h3>
                     <p>從人格結構理解你的內在運作</p>
                 </div>
             </div>
         </div>
 
-        <!-- 完整理念長文區塊 -->
-        <div class="text-wrapper" style="margin-top: 60px;">
+        <!-- 完整理念長文區塊 (套用透明底與漸變框) -->
+        <div class="text-wrapper ghost-border-box" style="margin-top: 60px;">
             
             <h3 style="text-align: center; font-weight: 500; margin-bottom: 30px; line-height: 1.8; font-size: 1.55rem; letter-spacing: 0.05em; background: linear-gradient(135deg, var(--accent-dawn) 0%, #D88B73 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; color: transparent;">
                 在這裡，不需要急著往前走<br>也不需要假裝自己沒事
@@ -242,8 +264,8 @@
             <p>在這裡，你不需要證明自己已經好起來。你只需要，慢慢地，允許自己如實地存在。我不會推著你前進。只是提著一盞燈，陪你一起，看清那些隱藏在暮色與黎明之間的真實輪廓。</p>
         </div>
 
-        <!-- 特別陪伴對象區塊 -->
-        <div class="concept-box" style="padding: 40px;">
+        <!-- 特別陪伴對象區塊 (套用透明底與漸變框) -->
+        <div class="concept-box ghost-border-box" style="padding: 40px;">
             <h4 style="margin-bottom: 25px;">我特別常陪伴的人</h4>
             <ul class="target-list">
                 <li><span style="color: var(--accent-dawn); margin-right: 8px;">⟡</span> 長期過度付出的人</li>
@@ -259,7 +281,7 @@
             <a href="about.html" class="cta-button" style="background: transparent; border: 1px solid var(--accent-rose); color: var(--accent-rose); box-shadow: none;">閱讀關於暮色與我的完整理念</a>
         </div>
 
-        <!-- 療癒師介紹 -->
+        <!-- 療癒師介紹 (此區塊純文字，不加上邊框) -->
         <div class="profile-section">
             <img src="LINE_ALBUM_Ai_260522_2.jpg" alt="療癒師照片" class="profile-img">
             
@@ -277,25 +299,26 @@
             <h2 class="services-header">在暮色中，我會這樣陪你</h2>
             
             <div class="services-list">
-                <div class="service-item">
+                <!-- 服務卡片 (套用透明底與漸變框) -->
+                <div class="service-item ghost-border-box">
                     <h3>MBTI 性格解析</h3>
                     <span>自我關係</span>
                     <p>使用官方正版題本，不僅是測出四個字母，更深入探討你的認知功能發展，在關係中會產生的反應模式。</p>
                 </div>
                 
-                <div class="service-item">
+                <div class="service-item ghost-border-box">
                     <h3>深層療癒引導</h3>
                     <span>潛意識重塑</span>
                     <p>在深層放鬆的狀態下，透過引導去看見與梳理自我情緒的原因，試著撰寫新自己的內在劇本。</p>
                 </div>  
                 
-                <div class="service-item">
+                <div class="service-item ghost-border-box">
                     <h3>靈氣療癒</h3>
                     <span>50-60 min · 身體情緒釋放</span>
                     <p>情緒不只存在於腦海中，它也會以能量的阻滯形式儲存在身體裡。透過放鬆的狀態下，繞過大腦的防衛機制，直接讓身體說話並釋放壓力。</p>
                 </div>
                 
-                <div class="service-item">
+                <div class="service-item ghost-border-box">
                     <h3>整合式心靈整理</h3>
                     <span>綜合療癒</span>
                     <p>結合上述服務找出適合你的客製化心靈陪伴與引導，為迷惘的你提供一個清晰且溫暖的方向 【看您情況安排時間，通常非一次性】。</p>
