@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>心靈療癒師 | 遇見真實的自己</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400&family=Noto+Serif+TC:wght@300;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500&family=Noto+Serif+TC:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         html { scroll-behavior: smooth; }
         :root { 
@@ -25,49 +25,19 @@
             overflow-x: hidden; 
         }
         
-        .deco-rose { display: none; }
         .container { max-width: 760px; margin: 0 auto; padding: 60px 25px; position: relative; }
         
-        header { text-align: center; padding: 80px 0 40px; }
+        /* Header 區塊 */
+        header { text-align: center; padding: 80px 0 30px; }
         .subtitle { font-family: "Noto Sans TC", sans-serif; font-size: 0.85rem; letter-spacing: 0.25em; color: var(--accent-rose); text-transform: uppercase; margin-bottom: 20px; display: block; }
-        .hero-title { font-size: 2.4rem; line-height: 1.6; font-weight: 500; letter-spacing: 0.05em; color: var(--text-main); margin: 0 0 20px 0; }
-        .hero-title span { font-size: 1.8rem; display: block; margin-top: 10px; color: var(--accent-rose); }
-        .intro-text { font-size: 1.05rem; color: var(--text-light); max-width: 500px; margin: 25px auto 0; position: relative; text-align: center; }
-        .intro-text::after { content: ""; display: block; width: 50px; height: 1px; background: linear-gradient(90deg, var(--accent-rose), transparent); margin: 30px auto 0; }
+        .hero-title { font-size: 2.2rem; line-height: 1.6; font-weight: 500; letter-spacing: 0.05em; color: var(--text-main); margin: 0 0 20px 0; }
+        .hero-title span { font-size: 1.25rem; display: block; margin-top: 15px; color: var(--accent-rose); font-weight: normal; }
         
-        .profile-section { text-align: center; margin: 60px 0; }
+        /* 標題與內文共用設定 */
+        h2 { font-size: 1.6rem; font-weight: 500; color: var(--text-main); margin-bottom: 30px; text-align: center; }
+        h3 { font-size: 1.4rem; color: var(--text-main); font-weight: 500; margin-bottom: 15px; }
         
-        .profile-img { 
-            width: 600px;  
-            height: 400px; 
-            margin: 0 auto 15px; 
-            object-fit: cover; 
-            border-top: 2px solid rgba(255, 255, 255, 0.8);
-            border-bottom: 2px solid rgba(255, 255, 255, 0.8);
-            border-left: none;
-            border-right: none;
-            -webkit-mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
-            mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
-            box-shadow: 0 10px 30px rgba(130, 106, 133, 0.1); 
-        }
-        
-        .text-wrapper { 
-            max-width: 580px; 
-            margin: 0 auto; 
-            text-align: justify; 
-            text-justify: inter-ideograph;
-            background: rgba(255, 255, 255, 0.3); 
-            padding: 40px 50px;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(130, 106, 133, 0.03);
-            backdrop-filter: blur(4px); 
-            margin-bottom: 40px;
-        }
-        .text-wrapper h2 { font-size: 1.6rem; font-weight: normal; color: var(--text-main); margin-bottom: 30px; text-align: center; }
-        .text-wrapper p { margin-bottom: 25px; color: var(--text-main); font-size: 1rem; } 
-        
-        .quote-block { position: relative; padding: 15px 0 15px 25px; margin: 35px 0; border-left: 2px solid var(--accent-rose); color: var(--accent-rose); font-weight: 500; font-size: 1.05rem; line-height: 1.8; text-align: left; }
-        
+        /* 概念外框 (毛玻璃) */
         .concept-box { 
             background: linear-gradient(135deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.1) 100%);
             backdrop-filter: blur(8px); 
@@ -79,195 +49,270 @@
             border: 1px solid rgba(255, 255, 255, 0.6); 
             box-shadow: 0 10px 30px rgba(130, 106, 133, 0.05);
         }
-        .concept-box h4 { font-size: 1.35rem; color: var(--text-main); margin: 0 0 20px 0; font-weight: 500; letter-spacing: 0.05em; }
-        .concept-box .concept-subtitle { display: block; font-size: 1rem; color: var(--text-main); line-height: 2; }
-        .concept-box p { font-size: 0.95rem; color: var(--text-main); margin-bottom: 15px; text-align: center; }
+        .concept-box h4 { font-size: 1.35rem; color: var(--accent-rose); margin: 0 0 15px 0; font-weight: 500; letter-spacing: 0.05em; }
+        .concept-box p { font-size: 1.05rem; color: var(--text-main); margin-bottom: 15px; }
+
+        /* 文字閱讀區塊 */
+        .text-wrapper { 
+            max-width: 580px; 
+            margin: 0 auto 40px; 
+            background: rgba(255, 255, 255, 0.4); 
+            padding: 40px 50px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(130, 106, 133, 0.03);
+            backdrop-filter: blur(4px); 
+        }
+        .text-wrapper p { font-size: 1.05rem; margin-bottom: 25px; text-align: justify; text-justify: inter-ideograph; } 
         
-        .credentials { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-top: 60px; margin-bottom: 80px;}
-        .badge { font-family: "Noto Sans TC", sans-serif; font-size: 0.85rem; color: var(--accent-rose); border: 1px solid var(--accent-light); padding: 8px 20px; border-radius: 50px; background: rgba(255,255,255,0.7); }
+        /* 痛點列表分隔線設定 */
+        .pain-point-item { text-align: center; margin-bottom: 25px; }
+        .pain-point-item hr { border: none; border-top: 1px solid rgba(130, 106, 133, 0.2); width: 40px; margin: 25px auto; }
+
+        /* 引言區塊 */
+        .quote-block { position: relative; padding: 15px 0 15px 25px; margin: 35px 0; border-left: 2px solid var(--accent-rose); color: var(--accent-rose); font-weight: 500; font-size: 1.1rem; line-height: 1.8; text-align: left; }
         
-        /* ★ 核心調整：服務標題改為橘粉漸變（黎明色） ★ */
-        .services-header-wrapper { text-align: center; margin-bottom: 40px; } /* 確保內嵌區塊置中 */
-        .services-header { 
-            font-size: 1.6rem; 
-            font-weight: normal; 
-            margin: 0;
-            background: linear-gradient(135deg, var(--accent-rose) 0%, var(--accent-dawn) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            color: transparent; /* Fallback */
-            display: inline-block; /* 讓漸層只應用在文字寬度 */
+        /* 陪伴名單列表 */
+        .target-list { list-style: none; padding: 0; margin: 0 0 25px 0; text-align: center; line-height: 2.2; font-size: 1.05rem; }
+        .target-list li { margin-bottom: 8px; }
+
+        /* 個人簡介區塊 */
+        .profile-section { text-align: center; margin: 80px 0; }
+        .profile-img { 
+            width: 100%; max-width: 500px; height: 350px; 
+            margin: 0 auto 30px; 
+            object-fit: cover; 
+            border-radius: 8px;
+            border-top: 2px solid rgba(255, 255, 255, 0.8);
+            border-bottom: 2px solid rgba(255, 255, 255, 0.8);
+            -webkit-mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+            mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
         }
         
-        .services-list { display: grid; gap: 25px; }
-        .service-item { background: rgba(255, 255, 255, 0.7); padding: 35px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.9); transition: all 0.4s ease; position: relative; overflow: hidden; text-align: left; }
-        .service-item:hover { border-color: var(--accent-dawn); transform: translateY(-3px); box-shadow: 0 10px 30px rgba(221, 167, 145, 0.15); }
-        .service-item h3 { font-size: 1.25rem; color: var(--text-main); margin: 0 0 10px 0; }
-        .service-item span { display: block; font-size: 0.85rem; color: var(--accent-dawn); margin-bottom: 15px; font-family: "Noto Sans TC", sans-serif; }
-        .service-item p { color: var(--text-main); font-size: 0.95rem; margin: 0; line-height: 1.8; }
+        /* 共用服務項目與漸層標題 */
+        .services-header { 
+            font-size: 1.6rem; font-weight: normal; margin: 0 0 40px; text-align: center;
+            background: linear-gradient(135deg, var(--accent-rose) 0%, var(--accent-dawn) 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; color: transparent; 
+        }
         
-        .btn-container { text-align: center; margin-top: 50px; }
-        .cta-button { display: inline-block; background: linear-gradient(135deg, var(--accent-rose) 0%, var(--accent-dawn) 100%); color: #fff; padding: 16px 50px; border-radius: 50px; text-decoration: none; font-family: "Noto Sans TC", sans-serif; letter-spacing: 0.15em; font-size: 1rem; transition: opacity 0.3s, transform 0.3s; box-shadow: 0 5px 20px rgba(221, 167, 145, 0.3); cursor: pointer; }
+        .services-list { display: grid; gap: 20px; max-width: 600px; margin: 0 auto; }
+        
+        /* ★ 核心修改：徹底去白底，保留精緻邊線，並強迫鎖定文字顏色 ★ */
+        .service-item { 
+            background: transparent; /* 完全透明 */
+            padding: 30px; 
+            border-radius: 12px; 
+            border: 1px solid rgba(130, 106, 133, 0.4); /* 玫瑰色的細線邊框 */
+            transition: all 0.4s ease; 
+            text-align: left; 
+        }
+        .service-item:hover { border-color: var(--accent-dawn); transform: translateY(-3px); box-shadow: 0 10px 30px rgba(221, 167, 145, 0.15); }
+        
+        /* 鎖定框框內的文字設定，確保不會消失 */
+        .service-item h3 { font-size: 1.25rem; color: var(--text-main); margin: 0 0 8px 0; }
+        .service-item span { display: block; font-size: 0.85rem; color: var(--accent-dawn); margin-bottom: 15px; font-family: "Noto Sans TC", sans-serif; letter-spacing: 0.05em; }
+        .service-item p { color: var(--text-main); font-size: 0.95rem; margin: 0; line-height: 1.8; text-align: justify; }
+        
+        /* 底部低調證照標籤 */
+        .credentials-bottom { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-top: 40px; margin-bottom: 10px; }
+        .badge-small { font-family: "Noto Sans TC", sans-serif; font-size: 0.75rem; color: var(--text-light); border: 1px solid rgba(232, 220, 232, 0.8); padding: 5px 14px; border-radius: 50px; background: transparent; letter-spacing: 0.05em; }
+
+        /* 按鈕 */
+        .btn-container { text-align: center; margin-top: 60px; }
+        .cta-button { display: inline-block; background: linear-gradient(135deg, var(--accent-rose) 0%, var(--accent-dawn) 100%); color: #fff; padding: 16px 45px; border-radius: 50px; text-decoration: none; font-family: "Noto Sans TC", sans-serif; letter-spacing: 0.15em; font-size: 1rem; transition: opacity 0.3s, transform 0.3s; box-shadow: 0 5px 20px rgba(221, 167, 145, 0.3); cursor: pointer; }
         .cta-button:hover { opacity: 0.9; transform: translateY(-2px); }
         
-        footer { text-align: center; margin-top: 80px; padding-top: 30px; border-top: 1px solid rgba(232, 220, 232, 0.5); font-size: 0.8rem; color: var(--text-light); }
+        footer { text-align: center; margin-top: 40px; padding-top: 30px; border-top: 1px solid rgba(232, 220, 232, 0.5); font-size: 0.8rem; color: var(--text-light); }
 
-        /* ★ 手機版專屬優化魔法 (極致微調 + 修復置中版) ★ */
+        /* 手機版優化 */
         @media (max-width: 768px) {
-            .container {
-                padding: 40px 20px; 
-            }
-            .profile-img {
-                width: 100%; 
-                height: auto;
-            }
-            
-            /* 標題縮小，確保能塞進單行或漂亮換行 */
-            .hero-title { font-size: 1.5rem; }
-            .hero-title span { font-size: 1.05rem; margin-top: 10px; }
-            h1, .dawn-text { font-size: 1.4rem !important; }
-            .text-wrapper h2, .services-header { font-size: 1.25rem; }
-            .concept-box h4, h4 { font-size: 1.1rem; margin-bottom: 12px; }
-            .subtitle { font-size: 0.75rem; }
-            .intro-text-line { font-size: 0.9rem; }
-            
-            .text-wrapper, .concept-box, .notice-box {
-                padding: 30px 20px; 
-            }
-            
-            /* 1. 針對需要「左右對齊」的長篇文章 (例如：你的自白、服務項目說明) */
-            .text-wrapper p, .service-item p { 
-                font-size: 0.9rem; 
-                line-height: 1.75; 
-                text-align: justify; 
-                text-justify: inter-ideograph;
-            }
-
-            /* 2. 針對需要「保持置中」的短句與概念方塊 (這就是修復左靠的關鍵！) */
-            .intro-text, .concept-subtitle, .concept-box p {
-                font-size: 0.9rem;
-                line-height: 1.75;
-                text-align: center; 
-            }
-            
-            .quote-block {
-                font-size: 0.9rem;
-                line-height: 1.75;
-                margin: 20px 0;
-                padding: 10px 0 10px 15px;
-            }
-            
-            .cta-button {
-                padding: 12px 30px;
-                font-size: 0.9rem;
-            }
-            .btn-container { margin-top: 30px; }
+            .container { padding: 40px 20px; }
+            .hero-title { font-size: 1.8rem; }
+            .hero-title span { font-size: 1.1rem; }
+            h2 { font-size: 1.4rem; }
+            .text-wrapper, .concept-box { padding: 30px 25px; }
+            .text-wrapper p { font-size: 1rem; line-height: 1.8; }
         }
     </style>
 </head>
 <body>
     <div class="container">
         
+        <!-- Header 區塊 -->
         <header>
             <span class="subtitle">Hi there 療癒工作室</span>
             <h1 class="hero-title">
                 — 暮色之間 —
-                <span style="font-size: 1.25rem; font-weight: normal; margin-top: 15px;">光退去之後、輪廓變軟的那個一刻。不是黑暗，是光的餘溫。</span>
+                <span>光退去之後、輪廓變軟的那個一刻。不是黑暗，是光的餘溫。</span>
             </h1>
-            <div class="intro-text">一個讓你慢慢回到自己的地方</div>
         </header>
 
-        <div class="intro-text">
-            <h3 style="color: var(--text-main); margin-bottom: 15px; font-weight: 500;">如果你也有這樣的狀態</h3>
-            <span class="concept-subtitle" style="display: block; color: var(--text-main); line-height: 2;">
-                在關係裡總是付出太多<br>
-                明明知道，卻很難做到改變<br>
-                習慣壓抑自己，卻又渴望被理解
-            </span>
+        <!-- 共鳴區塊 -->
+        <div style="text-align: center; margin-bottom: 60px;">
+            <h3>你是否也有這樣的感覺？</h3>
+            <p style="font-size: 1.1rem; line-height: 2;">
+                明明知道問題在哪裡，<br>卻總是無法真正改變。<br><br>
+                在關係裡習慣付出太多，<br>卻忘了自己真正需要什麼。
+            </p>
         </div>
 
+        <!-- 品牌定位宣告 -->
+        <div class="concept-box">
+            <h4>Hi there，</h4>
+            <p style="font-weight: 500; font-size: 1.15rem; margin-bottom: 25px;">一個陪你慢慢看見自己的地方。</p>
+            <p style="font-size: 1rem;">透過 MBTI、人格理解與深度陪伴，<br>協助你看見那些卡住自己的情緒模式與關係慣性。</p>
+            <div style="margin-top: 25px; font-family: 'Noto Sans TC'; font-size: 0.9rem; color: var(--accent-dawn); letter-spacing: 0.05em; font-weight: 500;">
+                「人格理解 × 情緒整理 × 深度陪伴」<br>整合型療育工作室
+            </div>
+        </div>
+
+        <!-- 痛點區塊 -->
+        <div class="text-wrapper">
+            <h2>你可能正在經歷</h2>
+            
+            <div class="pain-point-item">
+                <p style="font-weight: 500; color: var(--accent-rose); text-align: center; margin-bottom: 5px;">已經懂很多心理學內容，卻還是卡住</p>
+                 <p style="font-weight: 500; color: var(--accent-rose); text-align: center; margin-bottom: 5px;">常常懷疑自己的感受是不是太敏感</p>
+                <hr>
+            </div>
+            
+            <div class="pain-point-item">
+                <p style="font-weight: 500; color: var(--accent-rose); text-align: center; margin-bottom: 5px;">關係中的反覆內耗</p>
+                <p style="font-size: 0.95rem; text-align: center; margin: 0;">總是先照顧別人，卻忘了自己。</p>
+                <hr>
+            </div>
+            
+            <div class="pain-point-item">
+                <p style="font-weight: 500; color: var(--accent-rose); text-align: center; margin-bottom: 5px;">找不到真正的自己</p>
+                <p style="font-size: 0.95rem; text-align: center; margin: 0;">不知道自己的需求、界線與方向。</p>
+                <hr>
+            </div>
+            
+            <div class="pain-point-item" style="margin-bottom: 35px;">
+                <p style="font-weight: 500; color: var(--accent-rose); text-align: center; margin-bottom: 5px;">明明知道卻做不到</p>
+                <p style="font-size: 0.95rem; text-align: center; margin: 0;">理解了很多道理，現實卻沒有改變。</p>
+            </div>
+            
+            <div style="background: rgba(255,255,255,0.6); padding: 25px; border-radius: 12px; text-align: center;">
+                <span style="font-size: 1.05rem; font-weight: 500; color: var(--accent-rose);">你不是做不到，只是還沒有真正理解那些情緒從哪裡來。</span>
+            </div>
+        </div>
+
+        <!-- 我能陪你整理什麼 -->
+        <div style="margin-top: 80px; margin-bottom: 80px;">
+            <h2 class="services-header">我能陪你整理什麼</h2>
+            
+            <div class="services-list">
+                <div class="service-item" style="padding: 25px 30px;">
+                    <h3 style="margin-bottom: 5px;">為什麼總是放不下？</h3>
+                    <p>看見情緒背後真正的需求</p>
+                </div>
+                
+                <div class="service-item" style="padding: 25px 30px;">
+                    <h3 style="margin-bottom: 5px;">為什麼總是吸引類似的人？</h3>
+                    <p>理解反覆吸引你的關係慣性</p>
+                </div>  
+                
+                <div class="service-item" style="padding: 25px 30px;">
+                    <h3 style="margin-bottom: 5px;">為什麼我總是這樣反應？</h3>
+                    <p>從人格結構理解你的內在運作</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 完整理念長文區塊 -->
+        <div class="text-wrapper" style="margin-top: 60px;">
+            
+            <h3 style="text-align: center; font-weight: 500; margin-bottom: 30px; line-height: 1.8; font-size: 1.55rem; letter-spacing: 0.05em; background: linear-gradient(135deg, var(--accent-dawn) 0%, #D88B73 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; color: transparent;">
+                在這裡，不需要急著往前走<br>也不需要假裝自己沒事
+            </h3>
+            
+            <p style="text-align: center; font-weight: 500; color: var(--accent-rose); font-size: 1.15rem;">你可以知道一件事，卻暫時還做不到。</p>
+            
+            <p>你可以清醒，也可以脆弱，甚至同時擁有某種洞察。這些並不衝突，這都是你。那些掙扎的痕跡、成長的代價，也是你的一部分。</p>
+            
+            <p>我不急著帶你走向黎明。只是想提著一盞燈，陪你待在暮色與黎明交界之間。<br>用人與人彼此真實的共感，靜靜地聽你說；也透過心理學的視角，輕輕梳理那些難以言說的片段。讓那個總是過度付出、卻仍渴望找回自己的你，可以慢慢來。</p>
+            
+            <div class="quote-block">
+                我知道那種「明明知道，卻暫時做不到」的拉扯與疲憊。
+            </div>
+            
+            <p>因此，作為一名穩定陪伴的引導者，我會運用 MBTI 的理性架構，幫助你理解自己；也透過深層療癒的感性流動，陪你慢慢看見內在。</p>
+            
+            <p>在這裡，你不需要證明自己已經好起來。你只需要，慢慢地，允許自己如實地存在。我不會推著你前進。只是提著一盞燈，陪你一起，看清那些隱藏在暮色與黎明之間的真實輪廓。</p>
+        </div>
+
+        <!-- 特別陪伴對象區塊 -->
+        <div class="concept-box" style="padding: 40px;">
+            <h4 style="margin-bottom: 25px;">我特別常陪伴的人</h4>
+            <ul class="target-list">
+                <li><span style="color: var(--accent-dawn); margin-right: 8px;">⟡</span> 長期過度付出的人</li>
+                <li><span style="color: var(--accent-dawn); margin-right: 8px;">⟡</span> 高敏感與高共感的人</li>
+                <li><span style="color: var(--accent-dawn); margin-right: 8px;">⟡</span> 關係內耗的人</li>
+                <li><span style="color: var(--accent-dawn); margin-right: 8px;">⟡</span> 明明很懂自己卻改變不了的人</li>
+                <li><span style="color: var(--accent-dawn); margin-right: 8px;">⟡</span> 常陷入自我懷疑的人</li>
+            </ul>
+        </div>
+
+        <!-- 理念閱讀按鈕 -->
+        <div class="btn-container" style="margin-top: 0; margin-bottom: 80px;">
+            <a href="about.html" class="cta-button" style="background: transparent; border: 1px solid var(--accent-rose); color: var(--accent-rose); box-shadow: none;">閱讀關於暮色與我的完整理念</a>
+        </div>
+
+        <!-- 療癒師介紹 -->
         <div class="profile-section">
             <img src="LINE_ALBUM_Ai_260522_2.jpg" alt="療癒師照片" class="profile-img">
-             
-            <div class="text-wrapper">
-                <p style="text-align: center; margin-bottom: 40px; font-size: 1.1rem;">Hi there ~ 我是 Zoe，也可以叫我 柔伊</p>
-                <h2>你可能也正在經歷這樣的拉扯</h2> 
-                <p>在情感與關係的世界裡，我們常常因為還不夠理解彼此，而試著尋找一種「最好的方式」，去面對那些矛盾與摩擦。很多時候，並不是誰對誰錯，而只是理解不同。我們之所以找不到答案，往往只是因為，彼此都還在摸索之中。</p>
-                 
-                <div class="quote-block">
-                    那是一種很微妙的拉扯——<br>
-                    渴望被愛，卻習慣先縮小自己。<br>
-                    想說不，卻早已太習慣配合。
-                </div>
-                 
-                <p>In relationships where you give too much, gradually, even your own contours blur. 那些委屈並不是脆弱，那些掙扎，其實是成長留下來的痕跡。</p>
-            </div>
+            
+            <div class="text-wrapper" style="background: transparent; box-shadow: none; border: none; padding-top: 10px; margin-bottom: 0;">
+                <h3 style="color: var(--accent-rose); margin-bottom: 20px;">Hi there ~ 我是 Zoe，也可以叫我 柔伊</h3>
+                <p style="text-align: center; font-weight: 500; margin-bottom: 30px;">我陪伴那些已經知道自己卡住，<br>卻暫時走不出去的人。</p>
 
-            <div class="concept-box">
-                <h4>我會把這樣的狀態稱為「暮色」</h4> 
-                <span class="concept-subtitle">
-                    如果月亮是溫柔的照亮，那暮色就是在還看不清的時候，也允許自己停留的地方。<br>
-                    它不是黑暗，也還不是陽光升起。<br>
-                    剛好夠暗，也剛好夠靜——<br>
-                    靜到你終於能夠，聽見一點自己的聲音。
-                </span>
-            </div>
-
-            <div class="concept-box">
-                <h4>為什麼是 Hi there？</h4>
-                <p style="color: var(--accent-rose); font-weight: 500; font-size: 1.05rem; margin-bottom: 25px;">從「看見自己」開始的改變</p>
-                <p>「Hi there」不只是打招呼，而是一種溫柔的覺察。</p>
-                <p>正如心理學家 Carl Jung 榮格所說：<br>“One does not become enlightened by imagining figures of light, but by making the darkness conscious.”<br>「人不是透過想像光明而覺醒，而是透過將黑暗帶入意識。」</p>
-                <p>在這裡，你可以先看見自己的感受，不急著評價，也不必立刻改變。只要先說一聲：「嗨，我看見你了。」</p>
-            </div>
-
-            <div class="btn-container" style="margin-top: 40px; margin-bottom: 80px;">
-                <a href="about.html" class="cta-button" style="background: transparent; border: 1px solid var(--accent-rose); color: var(--accent-rose); box-shadow: none;">閱讀關於暮色與我的完整理念</a>
-            </div>
-
-            <div class="credentials">
-               
-                <div class="badge"> NGH 國際催眠師證照</div>
-                <div class="badge">MBTI® Step I & II 施測師</div>
-                <div class="badge">聖火靈氣 I & II 療癒師</div>
+                <p style="text-align: center;">我不是單純在分析人格類型。<br>MBTI 對我來說，更像是一張理解自己的地圖。</p>
+                <p style="text-align: center; font-weight: 500; color: var(--text-main);">真正重要的，是那些藏在性格背後的情緒模式、<br>關係慣性與內在拉扯。</p>
             </div>
         </div>
 
-        <div class="profile-section">
-            <div class="services-header-wrapper">
-                <h2 class="services-header">在暮色中，我會這樣陪你</h2>
-            </div>
+        <!-- 服務項目列表 -->
+        <div style="margin-bottom: 60px;">
+            <h2 class="services-header">在暮色中，我會這樣陪你</h2>
+            
             <div class="services-list">
                 <div class="service-item">
                     <h3>MBTI 性格解析</h3>
-                    <span>50-60 min · 自我覺察</span>
+                    <span>自我關係</span>
                     <p>使用官方正版題本，不僅是測出四個字母，更深入探討你的認知功能發展，在關係中會產生的反應模式。</p>
                 </div>
+                
                 <div class="service-item">
                     <h3>深層療癒引導</h3>
-                    <span>90-120 min · 潛意識重塑</span>
+                    <span>潛意識重塑</span>
                     <p>在深層放鬆的狀態下，透過引導去看見與梳理自我情緒的原因，試著撰寫新自己的內在劇本。</p>
                 </div>  
-                <div class="service-item">
-                    <h3>心靈花園引導</h3>
-                    <span>90-120 min · 內在花園重塑</span>
-                    <p>在放鬆的狀態下，透過進入自己內心的世界當自己的修剪師，重新整理自己內心世界。</p>
-                </div>
+                
                 <div class="service-item">
                     <h3>靈氣療癒</h3>
                     <span>50-60 min · 身體情緒釋放</span>
                     <p>情緒不只存在於腦海中，它也會以能量的阻滯形式儲存在身體裡。透過放鬆的狀態下，繞過大腦的防衛機制，直接讓身體說話並釋放壓力。</p>
                 </div>
+                
                 <div class="service-item">
                     <h3>整合式心靈整理</h3>
-                    <span>90-120 min · 綜合療癒</span>
-                    <p>結合上述服務找出適合你的客製化心靈陪伴與引導，為迷惘的你提供一個清晰且溫暖的方向 (看您情況安排時間，通常非一次性)。</p>
+                    <span>綜合療癒</span>
+                    <p>結合上述服務找出適合你的客製化心靈陪伴與引導，為迷惘的你提供一個清晰且溫暖的方向 【看您情況安排時間，通常非一次性】。</p>
                 </div>
             </div>
+        </div>
 
-            <div class="btn-container" style="margin-top: 80px;">
-                <a href="intro.html" class="cta-button">讓我陪你慢慢看見自己</a>
-            </div>
+        <!-- 主要 CTA 按鈕 -->
+        <div class="btn-container">
+            <a href="intro.html" class="cta-button">讓我陪你慢慢看見自己</a>
+        </div>
+
+        <!-- 證照底部標籤 -->
+        <div class="credentials-bottom">
+            <div class="badge-small">NGH 國際催眠師證照</div>
+            <div class="badge-small">MBTI® Step I & II 施測師</div>
+            <div class="badge-small">聖火靈氣 I & II 療癒師</div>
         </div>
 
         <footer>
