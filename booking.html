@@ -4,26 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>暮色之間｜事前談心委託</title>
-    <!-- 引入乾淨中規中矩的標準字體：思源黑體 -->
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- 引入思源黑體與思源宋體 -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@300;400;500;600&display=swap" rel="stylesheet">
     
     <style>
-        /* 溫柔奶黃與深木質配色設定 */
-        :root {
-            --bg-color: #F8F6F0;        /* 頁面底色：燕麥奶色 */
-            --paper-bg: #FFFFFF;        /* 主畫布：純白 */
-            --primary-color: #F4E2BB;   /* 柔和奶油黃 */
-            --accent-color: #D4A75A;    /* 質感金黃（用於輸入框點擊時的高光） */
+        html { scroll-behavior: smooth; }
+        
+        :root { 
+            /* 暮色之間專屬配色 */
+            --text-main: #5A4E5D;    /* 稍微調淡的深紫灰，在白底上更溫柔 */
+            --text-light: #9B909D;   /* 靜謐霧灰 */
+            --accent-rose: #826A85;  /* 沉穩深藕紫 */
+            --accent-dawn: #DDA791;  /* 溫暖黎明橘 */
             
-            /* --- 這次更新的棕色按鈕色碼 --- */
-            --btn-color: #5C3A21;       /* 按鈕主色：深焙咖啡/深可可棕 */
-            --btn-hover: #3D2615;       /* 按鈕懸停：更深的黑咖啡棕 */
-            /* ----------------------------- */
-            
-            --text-main: #4A4238;       /* 深茶色（主要文字） */
-            --text-muted: #8E8170;      /* 淺茶色（次要文字） */
-            --divider: #F0EAD6;         /* 分隔線顏色 */
-            --input-bg: #FCFBFC;        /* 輸入框背景（極淡的灰白） */
+            /* 輸入框與邊界設定 */
+            --glass-border: rgba(255, 255, 255, 0.8);
+            --input-bg: rgba(255, 255, 255, 0.6);
         }
 
         * {
@@ -33,120 +29,147 @@
         }
 
         body {
-            background-color: var(--bg-color);
+            /* 底色設為純白 */
+            background-color: #FFFFFF;
             color: var(--text-main);
-            /* 使用乾淨的中性字體，增加字距與行高來創造呼吸感 */
-            font-family: 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+            font-family: "Noto Serif TC", "Songti TC", serif;
             line-height: 2.0; 
             letter-spacing: 0.5px;
-            padding: 50px 20px;
+            padding: 60px 20px;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
         }
 
-        /* 核心畫布：加寬內距(padding)，讓文字不貼邊 */
-        .paper-container {
+        /* ★ 核心魔法：晶瑩剔透的彩虹光澤 (珍珠貝殼光) ★ */
+        .crystal-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            background: #FFFFFF;
+            overflow: hidden;
+        }
+        /* 利用極度模糊的柔彩色塊，在白底上暈染出彩虹透光感 */
+        .crystal-glow {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.4;
+            animation: float 12s infinite alternate ease-in-out;
+        }
+        .glow-pink { background: #FFD1D9; width: 50vw; height: 50vw; top: -10%; left: -10%; animation-delay: 0s; }
+        .glow-peach { background: #FFE4C4; width: 60vw; height: 60vw; bottom: -20%; right: -10%; animation-delay: -4s; }
+        .glow-blue { background: #F0F8FF; width: 40vw; height: 40vw; top: 40%; left: 50%; animation-delay: -8s; }
+        .glow-lavender { background: #E6E6FA; width: 45vw; height: 45vw; top: 10%; right: 10%; animation-delay: -2s; }
+
+        @keyframes float {
+            0% { transform: translate(0px, 0px) scale(1); }
+            100% { transform: translate(30px, 50px) scale(1.05); }
+        }
+
+        /* 核心畫布：透光的水晶玻璃質感 */
+        .glass-container {
             max-width: 620px;
             margin: 0 auto;
-            background-color: var(--paper-bg);
-            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.6); /* 更加透明，讓彩虹光透進來 */
+            backdrop-filter: blur(25px) saturate(120%); /* 模糊並微微加強底層色彩 */
+            border-radius: 24px;
             padding: 60px 50px;
-            box-shadow: 0 10px 40px rgba(92, 82, 69, 0.04);
-            border: 1px solid #FCFAED;
+            box-shadow: 0 10px 40px rgba(130, 106, 133, 0.05), inset 0 0 0 1px rgba(255, 255, 255, 1); /* 水晶倒角反光 */
+            position: relative;
+        }
+
+        /* ★ 核心魔法：文字漸變光芒 ★ */
+        .gradient-text {
+            background: linear-gradient(135deg, var(--accent-rose) 0%, var(--accent-dawn) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent; 
+            display: inline-block;
         }
 
         /* 標頭區塊 */
-        header {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .avatar {
-            font-size: 38px;
-            margin-bottom: 20px;
-        }
-
+        header { text-align: center; margin-bottom: 50px; }
+        .avatar { font-size: 38px; margin-bottom: 15px; }
+        
         header h1 {
-            font-size: 22px;
-            font-weight: 500;
-            letter-spacing: 2px;
-            color: var(--text-main);
+            font-size: 26px;
+            font-weight: 600;
+            letter-spacing: 3px;
             margin-bottom: 12px;
         }
 
         header p {
+            font-family: 'Noto Sans TC', sans-serif;
             font-size: 14px;
-            color: var(--text-muted);
-            font-weight: 300;
-            letter-spacing: 1px;
+            color: var(--text-light);
+            font-weight: 400;
+            letter-spacing: 1.5px;
         }
 
-        /* 說明區塊：大幅增加段落之間的 margin */
-        .info-section {
-            text-align: center;
-        }
+        /* 說明區塊 */
+        .info-section { text-align: center; }
+        .intro-text { font-size: 1.05rem; margin-bottom: 40px; color: var(--text-main); }
 
-        .intro-text {
-            font-size: 15px;
-            margin-bottom: 40px;
-            font-weight: 300;
-            color: var(--text-main);
-        }
-
+        /* 價格標示：改用文字漸變與極淡的背景 */
         .price-highlight {
+            font-family: 'Noto Sans TC', sans-serif;
             font-size: 16px;
-            font-weight: 500;
-            background: linear-gradient(to top, var(--primary-color) 30%, transparent 30%);
+            font-weight: 600;
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(221, 167, 145, 0.3);
+            border-radius: 50px;
             display: inline-block;
             margin-bottom: 40px;
-            padding: 0 8px;
+            padding: 8px 25px;
+            box-shadow: 0 5px 15px rgba(221, 167, 145, 0.08);
         }
 
-        .notice-container {
-            text-align: left;
-            margin-bottom: 20px;
-        }
-
+        .notice-container { text-align: left; margin-bottom: 20px; }
         .notice-text {
-            font-size: 14.5px;
+            font-size: 15px;
             color: var(--text-main);
             margin-bottom: 20px;
             padding-left: 2em;
             text-indent: -2em;
-            font-weight: 300;
+            text-align: justify;
         }
 
-        /* 優雅的分隔線：上下留白加大 */
+        /* 優雅的分隔線 */
         .divider {
             height: 1px;
-            background-color: var(--divider);
+            background: linear-gradient(90deg, transparent, rgba(130, 106, 133, 0.2), transparent);
             border: none;
             margin: 60px 0; 
             position: relative;
         }
-        
         .divider::after {
-            content: '✧';
+            content: '⟡';
             position: absolute;
             left: 50%;
             top: 50%;
             transform: translate(-50%, -50%);
-            background-color: var(--paper-bg);
+            background: transparent;
             padding: 0 20px;
-            color: #D6C4A2;
-            font-size: 14px;
+            color: var(--accent-dawn);
+            font-size: 18px;
         }
 
         /* 表單區域 */
         .info-title {
-            font-size: 13px;
+            font-family: 'Noto Sans TC', sans-serif;
+            font-size: 14px;
             font-weight: 700;
-            color: var(--text-muted);
-            margin-bottom: 25px;
+            margin-bottom: 30px;
             letter-spacing: 2px;
         }
 
-        /* 欄位之間的距離加大，降低填寫壓力 */
         .form-group {
             margin-bottom: 35px;
+            font-family: 'Noto Sans TC', sans-serif;
         }
 
         .form-group.row-2 {
@@ -160,127 +183,147 @@
             font-weight: 500;
             font-size: 14px;
             margin-bottom: 12px;
-            color: var(--text-main);
+            color: var(--accent-rose); /* 標籤套用單一主題色，確保清晰 */
         }
 
         .required::after {
             content: '*';
-            color: #C78B89;
+            color: var(--accent-dawn);
             margin-left: 6px;
         }
 
-        /* 中規中矩的輸入框設計 */
+        /* 晶瑩剔透的輸入框設計 */
         input[type="text"],
         input[type="email"],
         select,
         textarea {
             width: 100%;
-            padding: 15px 18px;
+            padding: 16px 18px;
             background-color: var(--input-bg);
-            border: 1px solid #EBE7E0;
-            border-radius: 8px;
-            font-family: inherit;
+            border: 1px solid rgba(130, 106, 133, 0.15);
+            border-radius: 12px;
+            font-family: 'Noto Sans TC', sans-serif;
             font-size: 15px;
             color: var(--text-main);
             transition: all 0.3s ease;
             outline: none;
             resize: vertical;
         }
+        ::placeholder { color: #BBB0BC; font-weight: 300; }
 
         input:focus, select:focus, textarea:focus {
             background-color: #FFFFFF;
-            border-color: var(--accent-color);
-            box-shadow: 0 0 0 3px rgba(244, 226, 187, 0.4);
+            border-color: var(--accent-dawn);
+            box-shadow: 0 0 0 4px rgba(221, 167, 145, 0.15);
         }
+        textarea { min-height: 140px; line-height: 1.8; }
 
-        textarea {
-            min-height: 140px; 
-            line-height: 1.8;
-        }
-
-        /* 送出按鈕（使用深可可棕色） */
+        /* 水晶按鈕：白底鏤空 + 文字漸層 + 漸層邊框效果 */
         .submit-btn {
             width: 100%;
-            background-color: var(--btn-color);
-            color: #FFFFFF;
-            border: none;
+            background: #FFFFFF;
+            border: 1px solid transparent;
+            /* 利用 padding-box 與 border-box 創造漸層邊框 */
+            background-image: linear-gradient(#FFFFFF, #FFFFFF), linear-gradient(135deg, var(--accent-rose), var(--accent-dawn));
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+            
             padding: 18px;
-            font-size: 15px;
-            font-weight: 500;
+            font-size: 16px;
+            font-weight: 600;
             letter-spacing: 2px;
-            border-radius: 8px;
+            border-radius: 50px;
             cursor: pointer;
-            transition: all 0.3s ease;
-            font-family: inherit;
+            transition: all 0.4s ease;
+            font-family: 'Noto Sans TC', sans-serif;
             margin-top: 20px;
+            box-shadow: 0 5px 20px rgba(130, 106, 133, 0.05);
         }
 
+        /* 按鈕文字本身也要是漸層的 */
+        .submit-btn span {
+            background: linear-gradient(135deg, var(--accent-rose) 0%, var(--accent-dawn) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+            transition: all 0.4s ease;
+        }
+
+        /* Hover 時，按鈕填滿漸層，文字反白 */
         .submit-btn:hover {
-            background-color: var(--btn-hover);
+            background-image: linear-gradient(135deg, var(--accent-rose), var(--accent-dawn)), linear-gradient(135deg, var(--accent-rose), var(--accent-dawn));
+            box-shadow: 0 10px 30px rgba(221, 167, 145, 0.25);
+            transform: translateY(-2px);
+        }
+        .submit-btn:hover span {
+            background: none;
+            -webkit-text-fill-color: #FFFFFF;
+            color: #FFFFFF;
         }
 
-        /* 頁尾 */
         footer {
             text-align: center;
+            font-family: 'Noto Sans TC', sans-serif;
             font-size: 12px;
-            color: var(--text-muted);
+            color: var(--text-light);
             margin-top: 60px;
             letter-spacing: 1px;
         }
 
-        /* 手機板適應 */
         @media (max-width: 500px) {
-            body {
-                padding: 30px 15px;
-            }
-            .paper-container {
-                padding: 50px 30px;
-                border-radius: 16px;
-            }
-            .form-group.row-2 {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
+            body { padding: 30px 15px; }
+            .glass-container { padding: 40px 25px; border-radius: 20px; }
+            .form-group.row-2 { grid-template-columns: 1fr; gap: 30px; }
         }
     </style>
 </head>
 <body>
 
-    <div class="paper-container">
+    <!-- 隱藏在底層的純白彩虹光暈背景 -->
+    <div class="crystal-background">
+        <div class="crystal-glow glow-pink"></div>
+        <div class="crystal-glow glow-peach"></div>
+        <div class="crystal-glow glow-blue"></div>
+        <div class="crystal-glow glow-lavender"></div>
+    </div>
+
+    <div class="glass-container">
         
         <header>
-            <div class="avatar">🪑</div>
-            <h1>談心委託</h1>
+            <div class="avatar">✧</div>
+            <!-- ★ 文字套用漸層 ★ -->
+            <h1 class="gradient-text">談心委託</h1>
             <p>暮色之間 ｜ 聊聊空間</p>
         </header>
 
         <div class="info-section">
             <p class="intro-text">
-                在猶豫是否需要療癒嗎？ 歡迎先來這裡坐坐、聊聊天。<br>
+                在猶豫是否需要療癒嗎？<br> 歡迎先來這裡坐坐、聊聊天。<br>
                 如果你只是想找人跟你說話，也完全可以。<br>
-不用有壓力，讓我們彼此先稍微熟悉。<br>
+                不用有壓力，讓我們彼此先稍微熟悉。
             </p>
             
             <div class="price-highlight">
-                時間 NT$ 480 / 小時
+                <span class="gradient-text">時間 NT$ 600 / 小時</span>
             </div>
 
-            <div class="notice-textt">
-      <p class="price-highlight">這筆費用，之後如要約正式服務可以完全扣抵</p>
-                <p class="notice-text">・ 本時段，主要陪伴您梳理當下的情緒、卡點或困惑，有時候一個離開生活圈的傾訴管道，是能解開自己的困惑。</p>
-<p class="notice-text">・ 或者你只是需要一個窗口聽你說就好，這裡不會有任何對或錯的評論。</p>
-                <p class="notice-text">・ 送出表單後，我將會在 24 小時內與您聯繫確認具體日期與進行方式(以ZOOM為主)。</p>
-                <p class="notice-text">・ 初談結束後，若有您真的需要進一步做深層療育，我會再提供您專屬的正式服務預約管道，完全不強迫。可能我還推薦你去其他更適合你的管道</p>我的服務：感情療癒催眠、官方MBTI施測、靈氣服務</p>
+            <div class="notice-container">
+                <!-- 重點文字套用漸層 -->
+                <p class="notice-text gradient-text" style="font-weight: 600; text-align: center; text-indent: 0; padding-left: 0; display: block;">這筆費用，之後如要約正式服務可以完全扣抵</p>
+                <p class="notice-text">・ 本時段，主要陪伴梳理當下的情緒、卡點或困惑，有時候一個跳脫生活圈的傾訴管道，反而能解開自己的思緒。</p>
+                <p class="notice-text">・ 價值取決於您是不是帶著正視自己的疑問來進行對話的。</p>
+                <p class="notice-text">・ 送出表單後，我將會在 24 小時內與您聯繫確認具體日期與進行方式 (以 ZOOM 為主)。</p>
+                <p class="notice-text">・ 初談結束後，若有您真的需要進一步做深層療癒，我會再提供您專屬的正式服務預約管道，完全不強迫。可能我還會推薦你去其他更適合你的管道。<br><br><span style="color: var(--accent-rose); font-size: 14px;">( 我的服務：感情療癒催眠、官方 MBTI 施測、靈氣服務 )</span></p>
             </div>
         </div>
 
-        <!-- 分隔線 -->
         <hr class="divider">
 
         <div class="form-section">
             <form action="#" method="POST">
                 
-                <h3 class="info-title">CLIENT INFO</h3>
+                <!-- ★ 分類標題套用漸層 ★ -->
+                <h3 class="info-title gradient-text">CLIENT INFO</h3>
 
                 <div class="form-group row-2">
                     <div>
@@ -288,8 +331,8 @@
                         <input type="text" id="name" name="name" placeholder="請輸入您希望我如何稱呼您" required>
                     </div>
                     <div>
-                        <label for="contact" class=>聯絡方式 (LINE / IG)</label>
-                        <input type="text" id="contact" name="contact" placeholder="例如：LINE ID: abc1234" required>
+                        <label for="contact">聯絡方式 (LINE / IG)</label>
+                        <input type="text" id="contact" name="contact" placeholder="例如：LINE ID: abc1234">
                     </div>
                 </div>
 
@@ -298,7 +341,7 @@
                     <input type="email" id="email" name="email" placeholder="example@gmail.com" required>
                 </div>
 
-                <h3 class="info-title" style="margin-top: 50px;">TOPIC & DETAILS</h3>
+                <h3 class="info-title gradient-text" style="margin-top: 50px;">TOPIC & DETAILS</h3>
 
                 <div class="form-group">
                     <label for="topic" class="required">目前最想梳理的方向</label>
@@ -321,13 +364,16 @@
                     <input type="text" id="time" name="time" placeholder="例如：平日晚上 7 點後、週末下午...">
                 </div>
                 
-                <button type="submit" class="submit-btn">送出預約表單</button>
+                <!-- 送出按鈕：白底漸層邊框，內部文字漸層，Hover時填滿 -->
+                <button type="submit" class="submit-btn">
+                    <span>送出預約表單</span>
+                </button>
 
             </form>
         </div>
 
         <footer>
-            © 2026 Hi Threr療癒工作室. All rights reserved.
+            © 2026 Hi There療癒工作室. All rights reserved.
         </footer>
 
     </div>
