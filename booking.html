@@ -29,6 +29,7 @@
         }
 
         body {
+            /* 底色設為純白 */
             background-color: #FFFFFF;
             color: var(--text-main);
             font-family: "Noto Serif TC", "Songti TC", serif;
@@ -40,7 +41,7 @@
             overflow-x: hidden;
         }
 
-        /* 晶瑩剔透的彩虹光澤 (珍珠貝殼光) */
+        /* ★ 核心魔法：晶瑩剔透的彩虹光澤 (珍珠貝殼光) ★ */
         .crystal-background {
             position: fixed;
             top: 0;
@@ -51,6 +52,7 @@
             background: #FFFFFF;
             overflow: hidden;
         }
+        /* 利用極度模糊的柔彩色塊，在白底上暈染出彩虹透光感 */
         .crystal-glow {
             position: absolute;
             border-radius: 50%;
@@ -68,7 +70,7 @@
             100% { transform: translate(30px, 50px) scale(1.05); }
         }
 
-        /* 核心畫布 */
+        /* 核心畫布：透光的水晶玻璃質感 */
         .glass-container {
             max-width: 620px;
             margin: 0 auto;
@@ -90,7 +92,7 @@
         }
 
         /* 標頭區塊 */
-        header { text-align: center; margin-bottom: 40px; }
+        header { text-align: center; margin-bottom: 50px; }
         .avatar { font-size: 38px; margin-bottom: 15px; }
         
         header h1 {
@@ -168,6 +170,7 @@
             text-align: justify;
         }
 
+        /* 優雅的分隔線 */
         .divider {
             height: 1px;
             background: linear-gradient(90deg, transparent, rgba(130, 106, 133, 0.2), transparent);
@@ -221,6 +224,7 @@
             margin-left: 6px;
         }
 
+        /* 晶瑩剔透的輸入框設計 */
         input[type="text"],
         input[type="email"],
         select,
@@ -246,6 +250,7 @@
         }
         textarea { min-height: 140px; line-height: 1.8; }
 
+        /* 水晶按鈕：白底鏤空 + 文字漸層 + 漸層邊框效果 */
         .submit-btn {
             width: 100%;
             background: #FFFFFF;
@@ -302,6 +307,7 @@
 </head>
 <body>
 
+    <!-- 隱藏在底層的純白彩虹光暈背景 -->
     <div class="crystal-background">
         <div class="crystal-glow glow-pink"></div>
         <div class="crystal-glow glow-peach"></div>
@@ -344,7 +350,14 @@
         <hr class="divider">
 
         <div class="form-section">
-            <form action="#" method="POST">
+            <!-- ★ 正確的表單設定在這裡：加入了你的信箱與防迷路跳轉設定 ★ -->
+            <form action="https://formsubmit.co/metasoulinsight.zoe@gmail.com" method="POST">
+                
+                <!-- 隱藏設定：自訂信件標題 -->
+                <input type="hidden" name="_subject" value="【暮色之間】收到新的談心委託！">
+                <!-- 隱藏設定：填完表單後跳轉回首頁 (請將下面網址換成你的實際首頁網址) -->
+                <!-- 這裡換成這頁感謝頁的網址 -->
+                <input type="hidden" name="_next" value="https://metasoulinsight.github.io/Zoe/thanks.html">
                 
                 <h3 class="info-title gradient-text">CLIENT INFO</h3>
 
@@ -394,7 +407,7 @@
             </form>
         </div>
 
-        <!-- ★ 移至底部的複製連結按鈕 ★ -->
+        <!-- 移至底部的複製連結按鈕 -->
         <div style="text-align: center; margin-top: 40px; margin-bottom: 20px;">
             <button type="button" class="copy-link-btn" onclick="copyCustomLink()">
                 <span>⟡ 複製專屬連結</span>
