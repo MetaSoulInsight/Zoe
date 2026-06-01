@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>預約已送出｜暮色之間</title>
+    <!-- 引入思源黑體與思源宋體 -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root { 
+            /* 暮色之間專屬配色 */
+            --text-main: #5A4E5D;    
+            --text-light: #9B909D;   
+            --accent-rose: #826A85;  
+            --accent-dawn: #DDA791;  
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #FFFFFF;
+            color: var(--text-main);
+            font-family: "Noto Serif TC", "Songti TC", serif;
+            line-height: 2.0; 
+            letter-spacing: 0.5px;
+            /* 讓感謝卡片永遠保持在畫面正中央 */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* 晶瑩剔透的彩虹光澤 (珍珠貝殼光) */
+        .crystal-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            background: #FFFFFF;
+        }
+        .crystal-glow {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.4;
+            animation: float 12s infinite alternate ease-in-out;
+        }
+        .glow-pink { background: #FFD1D9; width: 50vw; height: 50vw; top: -10%; left: -10%; animation-delay: 0s; }
+        .glow-peach { background: #FFE4C4; width: 60vw; height: 60vw; bottom: -20%; right: -10%; animation-delay: -4s; }
+        .glow-blue { background: #F0F8FF; width: 40vw; height: 40vw; top: 40%; left: 50%; animation-delay: -8s; }
+        .glow-lavender { background: #E6E6FA; width: 45vw; height: 45vw; top: 10%; right: 10%; animation-delay: -2s; }
+
+        @keyframes float {
+            0% { transform: translate(0px, 0px) scale(1); }
+            100% { transform: translate(30px, 50px) scale(1.05); }
+        }
+
+        /* 核心感謝卡片 */
+        .glass-card {
+            max-width: 520px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.65); 
+            backdrop-filter: blur(25px) saturate(120%); 
+            border-radius: 24px;
+            padding: 70px 50px;
+            box-shadow: 0 15px 50px rgba(130, 106, 133, 0.08), inset 0 0 0 1px rgba(255, 255, 255, 1); 
+            text-align: center;
+            animation: gentlyFadeIn 1.2s ease-out forwards;
+        }
+
+        @keyframes gentlyFadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* 文字漸變光芒 */
+        .gradient-text {
+            background: linear-gradient(135deg, var(--accent-rose) 0%, var(--accent-dawn) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent; 
+            display: inline-block;
+        }
+
+        .icon {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 26px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            margin-bottom: 30px;
+        }
+
+        p {
+            font-size: 16px;
+            color: var(--text-main);
+            margin-bottom: 20px;
+            text-align: justify;
+            text-justify: inter-ideograph;
+            text-align-last: center; /* 讓最後一行置中，看起來更溫柔 */
+        }
+
+        .highlight-text {
+            font-family: 'Noto Sans TC', sans-serif;
+            font-weight: 500;
+            color: var(--accent-rose);
+            font-size: 14px;
+            margin-top: 30px;
+            margin-bottom: 40px;
+        }
+
+        /* 溫柔的返回按鈕 */
+        .back-btn {
+            display: inline-block;
+            background: #FFFFFF;
+            border: 1px solid transparent;
+            background-image: linear-gradient(#FFFFFF, #FFFFFF), linear-gradient(135deg, var(--accent-rose), var(--accent-dawn));
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+            padding: 14px 45px;
+            font-size: 15px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.4s ease;
+            font-family: 'Noto Sans TC', sans-serif;
+            box-shadow: 0 5px 20px rgba(130, 106, 133, 0.05);
+        }
+
+        .back-btn span {
+            background: linear-gradient(135deg, var(--accent-rose) 0%, var(--accent-dawn) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+            transition: all 0.4s ease;
+        }
+
+        .back-btn:hover {
+            background-image: linear-gradient(135deg, var(--accent-rose), var(--accent-dawn)), linear-gradient(135deg, var(--accent-rose), var(--accent-dawn));
+            box-shadow: 0 10px 30px rgba(221, 167, 145, 0.25);
+            transform: translateY(-2px);
+        }
+        .back-btn:hover span {
+            background: none;
+            -webkit-text-fill-color: #FFFFFF;
+            color: #FFFFFF;
+        }
+
+        @media (max-width: 500px) {
+            .glass-card { padding: 50px 30px; }
+            h1 { font-size: 22px; }
+            p { font-size: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 隱藏在底層的純白彩虹光暈背景 -->
+    <div class="crystal-background">
+        <div class="crystal-glow glow-pink"></div>
+        <div class="crystal-glow glow-peach"></div>
+        <div class="crystal-glow glow-blue"></div>
+        <div class="crystal-glow glow-lavender"></div>
+    </div>
+
+    <!-- 置中的感謝卡片 -->
+    <div class="glass-card">
+        <div class="icon">🕊️</div>
+        <h1 class="gradient-text">收到你的委託了</h1>
+        
+        <p>謝謝你願意將你的故事與煩惱交給我。</p>
+        
+        <p>在等待回覆的這段時間裡，請先放下心裡的重擔。</p>
+        
+        <div class="highlight-text">
+            我將會在 24 小時內，透過你留下的聯絡方式與你聯繫。<br>期待在暮色中與你相遇。
+        </div>
+
+        <a href="index.html" class="back-btn">
+            <span>回到首頁</span>
+        </a>
+    </div>
+
+</body>
+</html>
