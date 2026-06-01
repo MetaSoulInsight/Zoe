@@ -51,7 +51,7 @@
             display: inline-block;
         }
 
-        /* 第一段：半透明毛玻璃閱讀框 */
+        /* 閱讀框共用設定 (第一段與搬運過來的中間段) */
         .text-wrapper { 
             max-width: 580px; 
             margin: 0 auto 40px; 
@@ -65,7 +65,34 @@
             text-justify: inter-ideograph; 
         }
 
-        /* 第二段：散文風格框 */
+        /* ★ 核心魔法：從首頁搬過來的鏤空透明底 + 細緻漸變邊線 (Ghost Style) ★ */
+        .ghost-border-box {
+            position: relative;
+            background: transparent !important; /* 徹底去白底 */
+            border: none !important; /* 移除原本的實體邊框 */
+            z-index: 1;
+        }
+        .ghost-border-box::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: inherit; /* 繼承圓角 */
+            padding: 1px; /* 邊線的細緻度 */
+            background: linear-gradient(135deg, var(--accent-rose) 0%, var(--accent-glow) 100%);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0.55; 
+            transition: opacity 0.5s ease, background 0.5s ease;
+        }
+        .ghost-border-box:hover::before {
+            opacity: 1;
+            background: linear-gradient(135deg, var(--accent-glow) 0%, var(--accent-rose) 100%);
+        }
+
+        /* 下半段：散文風格框 */
         .story-box { 
             background: rgba(255, 255, 255, 0.35); 
             backdrop-filter: blur(8px);
@@ -94,7 +121,7 @@
 
         /* 榮格名言專用樣式 */
         .jung-quote {
-            font-family: "Noto Sans TC", sans-serif; /* 英文與現代感排版用黑體 */
+            font-family: "Noto Sans TC", sans-serif; 
             font-size: 1rem;
             color: var(--accent-rose);
             background: rgba(255, 255, 255, 0.2);
@@ -164,7 +191,36 @@
             <p>In relationships where you give too much, gradually, even your own contours blur. 那些委屈並不是脆弱，那些掙扎，其實是成長留下來的痕跡。</p>
         </div>
 
-        <!-- 第二段：暮色理念與榮格 -->
+        <!-- ★ 新增搬運區塊：理念長文 (套用透明底與漸變框) ★ -->
+        <div class="text-wrapper ghost-border-box">
+            <h3 style="text-align: center; font-weight: 500; margin-bottom: 30px; line-height: 1.8; font-size: 1.55rem; letter-spacing: 0.05em; background: linear-gradient(135deg, var(--accent-glow) 0%, #D88B73 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; color: transparent;">
+                在這裡，不需要急著往前走<br>也不需要假裝自己沒事
+            </h3>
+            
+            <p style="text-align: center; font-weight: 500; color: var(--accent-rose); font-size: 1.15rem;">你可以很清醒的知道自己暫時還做不到。</p>
+            
+            <p>做療癒的人很多，談自我成長的人更多。<br>
+            而我更希望真正把焦點放在：「在理解與行動之間卡住斷裂，感到辛苦的人」。<br>
+            你可以脆弱，同時擁有某種洞察，這些並不衝突，這都是你。<br>
+            那些掙扎的痕跡、成長的代價，也是你的一部分。</p>
+            
+            <p>我不急著帶你走向黎明，只是想提著一盞燈，陪你待在暮色與黎明交界之間。<br>用人與人彼此真實的共感，安靜地聽你說；<br>
+            也透過心理學的視角，輕輕梳理那些片段。<br>
+            讓那個總是過度付出、卻仍渴望找回自己的你，可以不苛責自己。</p>
+            
+            <div class="quote-block">
+                我知道那種「明明知道，卻暫時做不到」的拉扯與疲憊。
+            </div>
+            
+            <p>作為一名陪伴的引導者，我會運用 MBTI 的理性架構，幫助你理解自己；<br>
+            也透過深層療癒的感性流動，陪你慢慢看見內在需要的是什麼。</p>
+            
+            <p>在這裡，你不需要證明自己已經好起來。<br>
+            你只需要，慢慢地，允許自己如實地存在。<br>
+            我不會推著你前進，只是提著一盞燈，陪你一起，<br>看清那些隱藏在暮色與黎明之間的真實輪廓。</p>
+        </div>
+
+        <!-- 第三段：暮色理念與榮格 -->
         <div class="story-box">
             <h2>我會把這樣的狀態稱為「暮色」</h2>
             
