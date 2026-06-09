@@ -109,7 +109,7 @@
         .target-list li { margin-bottom: 8px; color: var(--text-main); } /* 鎖定清單字體顏色 */
 
         /* 個人簡介區塊 */
-        .profile-section { text-align: center; margin: 80px 0; }
+        .profile-section { text-align: center; margin: 40px 0 10px; } 
         .profile-img { 
             width: 100%; max-width: 500px; height: 350px; 
             margin: 0 auto 30px; 
@@ -142,8 +142,8 @@
         .service-item span { display: block; font-size: 0.85rem; color: var(--accent-dawn); margin-bottom: 15px; font-family: "Noto Sans TC", sans-serif; letter-spacing: 0.05em; }
         .service-item p { color: var(--text-main); font-size: 0.95rem; margin: 0; line-height: 1.8; text-align: justify; }
         
-        /* 底部低調證照標籤 */
-        .credentials-bottom { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-top: 40px; margin-bottom: 10px; }
+        /* 證照標籤排版 */
+        .credentials-bottom { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-top: -15px; margin-bottom: 60px; }
         .badge-small { font-family: "Noto Sans TC", sans-serif; font-size: 0.75rem; color: var(--text-light); border: 1px solid rgba(232, 220, 232, 0.8); padding: 5px 14px; border-radius: 50px; background: transparent; letter-spacing: 0.05em; }
 
         /* 按鈕 */
@@ -176,30 +176,37 @@
             </h1>
         </header>
         
-        <div style="height: 150px;"></div>
-        
-        
-        <!-- 共鳴區塊 -->
-        <div style="text-align: center; margin-bottom: 60px;">
-             <h2>你是否也有這樣的感覺？</h2><span style="color: var(--accent-dawn); margin-right: 8px;">☽</span> 
+        <!-- 1. 療癒師介紹 -->
+        <div class="profile-section">
+            <img src="LINE_ALBUM_Ai_260522_2.jpg" alt="療癒師照片" class="profile-img">
+            
+            <div class="text-wrapper" style="background: transparent; box-shadow: none; border: none; padding-top: 10px; margin-bottom: 0;">
+                <h3 style="color: var(--accent-rose); margin-bottom: 20px;">Hi there ~ 我是 Zoe</h3>
+                <p style="text-align: center; font-weight: 500; margin-bottom: 30px;">我會透過催眠與深層心理探索，協助你理解情緒、關係與重複困境背後的原因</p>
+                <p style="text-align: center; font-weight: 500; color: var(--text-main);">任何療癒方式，都是用來照亮 這一張理解自己生命地圖的手電筒<br>真正重要的是，能不能看清楚地圖上沒被照亮到的深層模式、慣性與核心</p>
+                <div style="margin-top: 25px; font-family: 'Noto Sans TC'; font-size: 0.9rem; color: var(--accent-dawn); letter-spacing: 0.05em; font-weight: 500;">
+                    比起解決問題 我更多會傾向「看清」「理解」「解除誤會」「找出形成原因」
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. 共鳴區塊 -->
+        <div style="text-align: center; margin-top: 40px; margin-bottom: 40px;">
+             <h2>你是否也有這樣的感覺？</h2> <span style="color: var(--accent-dawn); margin-right: 8px;">☽</span> 
             <p style="font-size: 1.1rem; line-height: 2;">
                 明明知道問題在哪裡，卻總是無法真正改變<br>
                 在關係裡習慣付出太多，卻忘了自己真正需要什麼<br>
             </p>
-        </div>
-        
-       
-        <div style="height: 50px;"></div>
-        
-         <!-- 痛點區塊 (套用透明底與漸變框) -->
-       <div style="text-align: center; margin-bottom: 60px;">
-           <h2>你可能正在經歷</h2><span style="color: var(--accent-dawn); margin-right: 8px;">☽</span>
-            
             <div class="pain-point-item">
                 <p style="font-weight: 1000; color: var(--accent-rose); text-align: center; margin-bottom: 5px;">已經懂很多心理學內容，卻還是卡住</p>
                  <p style="font-weight: 1000; color: var(--accent-rose); text-align: center; margin-bottom: 5px;">常常懷疑自己的感受是不是太敏感</p>
                 <hr>
             </div>
+        </div>
+        
+        <!-- 3. 痛點區塊 -->
+       <div style="text-align: center; margin-bottom: 60px;">
+           <h2>你可能正在經歷</h2><span style="color: var(--accent-dawn); margin-right: 8px;">☽</span>
             
             <div class="pain-point-item">
                 <p style="font-weight: 1000; color: var(--accent-rose); text-align: center; margin-bottom: 5px;">關係中的反覆內耗</p>
@@ -216,10 +223,17 @@
             <div class="pain-point-item" style="margin-bottom: 35px;">
                 <p style="font-weight: 1000; color: var(--accent-rose); text-align: center; margin-bottom: 5px;">明明知道卻做不到</p>
                 <p style="font-size: 0.95rem; text-align: center; margin: 0;">理解了很多道理，現實卻沒有改變</p><br><span style="color: var(--accent-rose); margin-right: 8px;">☽</span>
+            </div>
+            
+            <!-- 內嵌重點小框 (套用透明底與漸變框) -->
+            <div>
+               <p style="font-weight: 500; color: var(--accent-rose); text-align: center; margin-bottom: 5px;"></p>
+            
+            </div>
         </div>
 
-        <!-- 品牌定位宣告 (套用透明底與漸變框) -->
-        <div class="concept-box ghost-border-box">
+        <!-- 4. Hi there 品牌定位宣告小方格 -->
+        <div class="concept-box ghost-border-box" style="margin-top: 50px; margin-bottom: 40px;">
             <h4>Hi there，</h4>
             <p style="font-weight: 500; font-size: 1.15rem; margin-bottom: 25px;">一個陪你慢慢看見自己的地方</p>
             <p style="font-size: 1rem;">透過 MBTI、人格理解與深度陪伴<br>協助你看見那些卡住自己的情緒模式與關係慣性</p>
@@ -228,21 +242,15 @@
             </div>
         </div>
 
-        <!-- 療癒師介紹 (此區塊純文字，不加上邊框) -->
-        <div class="profile-section">
-            <img src="LINE_ALBUM_Ai_260522_2.jpg" alt="療癒師照片" class="profile-img">
-            
-            <div class="text-wrapper" style="background: transparent; box-shadow: none; border: none; padding-top: 10px; margin-bottom: 0;">
-                <h3 style="color: var(--accent-rose); margin-bottom: 20px;">Hi there ~ 我是 Zoe</h3>
-                <p style="text-align: center; font-weight: 500; margin-bottom: 30px;">我陪伴那些已經知道自己卡住，卻暫時走不出去的人</p>
-
-                <p style="text-align: center;">我不是單純在分析人格類型，MBTI 對我來說，更像是一張理解自己的地圖</p>
-                <p style="text-align: center; font-weight: 500; color: var(--text-main);">真正重要的，是那些藏在性格背後的情緒模式、關係慣性與內在拉扯</p>
-            </div>
+        <!-- 5. 三張證照標籤 -->
+        <div class="credentials-bottom">
+            <div class="badge-small">NGH 國際催眠師證照</div>
+            <div class="badge-small">MBTI® Step I & II 施測師</div>
+            <div class="badge-small">聖火靈氣 I & II 療癒師</div>
         </div>
 
-        <!-- 我能陪你整理什麼 -->
-        <div style="margin-top: 80px; margin-bottom: 80px;">
+        <!-- 6. 我能陪你整理什麼 -->
+        <div style="margin-top: 40px; margin-bottom: 80px;">
             <h2 class="services-header">我能陪你整理什麼</h2>
             
             <div class="services-list">
@@ -277,7 +285,7 @@
             </ul>
         </div>
 
-        <!-- 預約按鈕 (移至上方) -->
+        <!-- 預約按鈕 -->
         <div class="btn-container" style="margin-top: 0; margin-bottom: 80px;">
             <a href="intro.html" class="cta-button">讓我陪你慢慢看見自己</a>
         </div>
@@ -289,41 +297,33 @@
             <div class="services-list">
                 <!-- 服務卡片 (套用透明底與漸變框) -->
                 <div class="service-item ghost-border-box">
-                    <h3>MBTI 性格解析</h3>
+                    <h3>官方MBTI® 測驗</h3>
                     <span>自我關係</span>
-                    <p>使用官方正版題本，不僅是測出四個字母，更深入探討你的認知功能發展，在關係中會產生的反應模式。</p>
+                    
+                    <p>。一對一，線上 & 線下都可<br>。使用官方正版題本<br>。了解自己的思考方式、決策方式<br>。自己與他人互動傾向<br>。常被廣泛運用在職涯探索、團隊溝通、人際理解。因為報告可以提供一個看待差異的客觀框架
+<br></p>
                 </div>
                 
                 <div class="service-item ghost-border-box">
                     <h3>深層療癒引導</h3>
                     <span>潛意識重塑</span>
-                    <p>在深層放鬆的狀態下，透過引導去看見與梳理自我情緒的原因，或療癒自己的內在小孩。</p>
+                    <p>。一對一，線下療癒 (線上需評估)<br>。重點針對悲傷釋放，情緒問題，找出是否有固定模式，進行療癒
+<br>。情感關係、家族關係等的情緒療傷<br>。療癒的內在小孩<br>。回朔過去(or前世)的糾結，透過看見來釋放，焦慮<br>。會透過催眠或NLP神經語言科學的方式，引導案主深入自己的潛意識中尋找解答
+</p>
                 </div>  
                 
-                <div class="service-item ghost-border-box">
-                    <h3>靈氣服務</h3>
-                    <span>50-60 min · 身體情緒釋放</span>
-                    <p>情緒不只存在於腦海中，它也會以能量的阻滯形式儲存在身體裡。</p>
-                </div>
                 
                 <div class="service-item ghost-border-box">
-                    <h3>整合式心靈整理</h3>
+                    <h3>客製化心靈陪伴</h3>
                     <span>綜合療癒</span>
-                    <p>結合上述服務找出適合你的客製化心靈陪伴與引導，為迷惘的你提供一個清晰且溫暖的方向 【看您情況安排時間，通常非一次性】。</p>
+                    <p>結合上述服務找出適合你的客製化心靈陪伴與引導。也會包含靈氣的療癒與祝福 <br>【看您情況安排時間，通常非一次性】</p>
                 </div>
             </div>
         </div>
 
-        <!-- 理念閱讀按鈕 (移至下方) -->
+        <!-- 理念閱讀按鈕 -->
         <div class="btn-container">
             <a href="about.html" class="cta-button" style="background: transparent; border: 1px solid var(--accent-rose); color: var(--accent-rose); box-shadow: none;">閱讀關於暮色與我的完整理念</a>
-        </div>
-
-        <!-- 證照底部標籤 -->
-        <div class="credentials-bottom">
-            <div class="badge-small">NGH 國際催眠師證照</div>
-            <div class="badge-small">MBTI® Step I & II 施測師</div>
-            <div class="badge-small">聖火靈氣 I & II 療癒師</div>
         </div>
 
         <footer>
