@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
+    <!-- ★ LINE / FB 網頁分享預覽設定 (已幫妳補上) ★ -->
+    <meta property="og:title" content="Hi There｜暮色之間 遇見真實的自己">
+    <meta property="og:description" content="一個陪你慢慢看見自己的地方。透過 MBTI、人格理解與深度陪伴，協助你看見那些卡住自己的情緒模式。">
+    <meta property="og:image" content="https://metasoulinsight.github.io/Zoe/logo.jpg_2.png">
+    <meta property="og:type" content="website">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Hi There｜暮色之間 遇見真實的自己">
+    <meta name="twitter:description" content="一個陪你慢慢看見自己的地方。透過 MBTI、人格理解與深度陪伴，協助你看見那些卡住自己的情緒模式。">
+    <meta name="twitter:image" content="https://metasoulinsight.github.io/Zoe/logo.jpg_2.png">
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>暮色之間｜事前談心委託</title>
@@ -155,12 +166,12 @@
             border: 1px solid rgba(221, 167, 145, 0.3);
             border-radius: 50px;
             display: inline-block;
-            margin-bottom: 40px;
+            margin-bottom: 15px; /* 稍微縮減間距 */
             padding: 8px 25px;
             box-shadow: 0 5px 15px rgba(221, 167, 145, 0.08);
         }
 
-        .notice-container { text-align: left; margin-bottom: 20px; }
+        .notice-container { text-align: left; margin-top: 25px; margin-bottom: 20px; }
         .notice-text {
             font-size: 15px;
             color: var(--text-main);
@@ -250,6 +261,25 @@
         }
         textarea { min-height: 140px; line-height: 1.8; }
 
+        /* ★ 新增：動態方案顯示框的樣式 ★ */
+        .dynamic-summary {
+            display: none; /* 預設隱藏 */
+            background: rgba(255, 255, 255, 0.85);
+            border: 1px dashed var(--accent-dawn);
+            border-radius: 12px;
+            padding: 18px 20px;
+            text-align: center;
+            margin-top: -15px; /* 把它往上拉近選單 */
+            margin-bottom: 35px;
+            font-family: 'Noto Sans TC', sans-serif;
+            animation: fadeIn 0.4s ease;
+            box-shadow: 0 5px 15px rgba(221, 167, 145, 0.08);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         /* 水晶按鈕：白底鏤空 + 文字漸層 + 漸層邊框效果 */
         .submit-btn {
             width: 100%;
@@ -334,28 +364,31 @@
             </p>
             
             <div class="price-highlight">
-                <span class="gradient-text">時間 NT$ 600 / 小時</span>
+                <span class="gradient-text">簡單對談 NT$ 600 / 半時</span>
+            </div>
+            <br>
+            <div class="price-highlight" style="margin-bottom: 0;">
+                <span class="gradient-text">深度對談 NT$ 1380 / 小時</span>
             </div>
 
             <div class="notice-container">
-                <p class="notice-text gradient-text" style="font-weight: 600; text-align: center; text-indent: 0; padding-left: 0; display: block;">這筆費用，之後如要約正式服務可以完全扣抵</p>
-                <p class="notice-text">・ 主要陪伴梳理當下的情緒、卡點或困惑，有時候一個跳脫生活圈的傾訴管道，反而能解開自己的思緒。</p>
+                <p class="notice-text gradient-text" style="font-weight: 600; text-align: center; text-indent: 0; padding-left: 0; display: block;">初次深度對談費用，後續如再預約「第一次正式療癒服務」可以完全扣抵<br>(僅限一次) </p>
+                <p class="notice-text">・ 主要陪伴看見當下的卡點、重複模式或情緒，有時候一個跳脫固有生活圈的傾訴管道，反而能解開打結的問題。</p>
                 <p class="notice-text">・ 價值取決於您對自己卡住的問題有多重視。</p>
-                <p class="notice-text">・ 送出表單後，我將會在 24 小時內與您聯繫確認具體日期與進行方式 (以 ZOOM 為主)。</p>
-                <p class="notice-text">・ 目的不是說服你選擇某個服務，而是陪你更清楚地看見自己目前需要的是什麼。</p>
-                <p class="notice-text">・ 初談結束後，若您想要進一步找我做療癒服務，我會再提供您專屬的正式服務預約管道，完全不強迫。<br>如果有更適合你的資源，我也會誠實告知。<br><br><span style="color: var(--accent-rose); font-size: 14px;">( 我的服務：感情療癒催眠、官方 MBTI 施測、靈氣服務 )</span></p>
+                <p class="notice-text">・ 送出表單後，我將會在 24 小時內與您聯繫確認具體日期與進行方式 (以Google Meet為主)。</p>
+                <p class="notice-text">・ 對談目的不是說服你選擇某個服務，而是經過跟療癒工作者聊聊，協助你或是讓你更清楚自己目前需要的方向，讓你沒有壓力的自己比較。</p>
+                <p class="notice-text">・ 初談結束後，若您想要進一步找我做療癒服務，我會再提供您專屬的正式服務預約管道，完全不強迫。如果有更適合你的資源，我也會誠實告知。<br><br><span style="color: var(--accent-rose); font-size: 12px;">【我的服務：催眠引導與自我探索，針對感情、關係類、安全感、情緒內耗相關療癒】</span></p>
             </div>
         </div>
 
         <hr class="divider">
 
         <div class="form-section">
-            <!-- ★ 正確的表單設定在這裡：加入了你的信箱與防迷路跳轉設定 ★ -->
+            <!-- 表單設定 -->
             <form action="https://formsubmit.co/metasoulinsight.zoe@gmail.com" method="POST">
                 <input type="hidden" name="_next" value="https://metasoulinsight.github.io/Zoe/thanks.html">
                 <input type="hidden" name="_subject" value="【暮色之間】收到新的談心委託！">
               
-                
                 <h3 class="info-title gradient-text">CLIENT INFO</h3>
 
                 <div class="form-group row-2">
@@ -375,6 +408,22 @@
                 </div>
 
                 <h3 class="info-title gradient-text" style="margin-top: 50px;">TOPIC & DETAILS</h3>
+
+                <!-- ★ 新增：選擇對談方案區塊 ★ -->
+                <div class="form-group">
+                    <label for="plan" class="required">欲預約的對談方案</label>
+                    <!-- onchange 會觸發下方的 JavaScript 來顯示金額 -->
+                    <select id="plan" name="plan" required onchange="showPlanDetails()">
+                        <option value="" disabled selected>請選擇您需要的時間與方案</option>
+                        <option value="簡單對談 (NT$600/半小時)">簡單對談 (半小時)</option>
+                        <option value="深度對談 (NT$1380/一小時)">深度對談 (一小時)</option>
+                    </select>
+                </div>
+
+                <!-- ★ 新增：動態顯示的確認小框框 ★ -->
+                <div id="plan-summary" class="dynamic-summary">
+                    <span id="plan-text" style="font-weight: 500; color: var(--accent-rose); line-height: 1.8;"></span>
+                </div>
 
                 <div class="form-group">
                     <label for="topic" class="required">目前最想梳理的方向</label>
@@ -417,7 +466,7 @@
 
     </div>
 
-    <!-- 觸發複製功能的 JavaScript -->
+    <!-- 觸發複製功能與動態顯示的 JavaScript -->
     <script>
         function copyCustomLink() {
             const currentUrl = window.location.href;
@@ -429,6 +478,23 @@
                 console.error("複製失敗:", err);
                 alert("複製失敗，請手動複製網址喔！");
             });
+        }
+
+        // ★ 新增：用來動態顯示所選方案價格的魔法指令 ★
+        function showPlanDetails() {
+            const planSelect = document.getElementById("plan");
+            const summaryDiv = document.getElementById("plan-summary");
+            const planText = document.getElementById("plan-text");
+
+            if (planSelect.value.includes("簡單對談")) {
+                planText.innerHTML = "✨ 已選擇：簡單對談<br><span style='color: var(--accent-dawn); font-weight: 600; font-size: 16px;'>費用：NT$ 600 / 半小時</span>";
+                summaryDiv.style.display = "block"; // 顯示框框
+            } else if (planSelect.value.includes("深度對談")) {
+                planText.innerHTML = "✨ 已選擇：深度對談<br><span style='color: var(--accent-dawn); font-weight: 600; font-size: 16px;'>費用：NT$ 1380 / 一小時</span><br><span style='font-size: 13px; color: var(--text-light); font-weight: 400;'>(本方案可完全扣抵後續「第一次正式療癒」費用)</span>";
+                summaryDiv.style.display = "block"; // 顯示框框
+            } else {
+                summaryDiv.style.display = "none"; // 如果沒選，就藏起來
+            }
         }
     </script>
 
