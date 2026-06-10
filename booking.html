@@ -81,7 +81,7 @@
 
         /* 核心畫布：透光的水晶玻璃質感 */
         .glass-container {
-            max-width: 620px;
+            max-width: 665px;
             margin: 0 auto;
             background: rgba(255, 255, 255, 0.6); 
             backdrop-filter: blur(25px) saturate(120%); 
@@ -168,7 +168,38 @@
             padding: 8px 25px;
             box-shadow: 0 5px 15px rgba(221, 167, 145, 0.08);
         }
+/* 方案卡片設計 */
+        .plan-card {
+            background: rgba(255, 255, 255, 0.5);
+            border: 1px solid rgba(221, 167, 145, 0.3);
+            border-radius: 16px;
+            padding: 18px 20px;
+            margin-bottom: 16px;
+            text-align: center ;
+            transition: all 0.3s ease;
+        }
+        
+        .plan-card:hover {
+            background: rgba(255, 255, 255, 0.8);
+            border-color: var(--accent-dawn);
+            box-shadow: 0 5px 15px rgba(221, 167, 145, 0.08);
+            transform: translateY(-2px);
+        }
 
+        .plan-title {
+            font-family: 'Noto Sans TC', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .plan-desc {
+            font-size: 13.5px;
+            color: var(--text-main);
+            font-weight: 400;
+            letter-spacing: 1px;
+            opacity: 0.85;
+        }
         .notice-container { text-align: left; margin-top: 25px; margin-bottom: 20px; }
         .notice-text {
             font-size: 15px;
@@ -364,35 +395,69 @@
             <p>暮色之間 ｜ 聊聊空間</p>
         </header>
 
-        <div class="info-section">
+        <div class="notice-container">
             <p class="intro-text">
-                在猶豫是否需要療癒嗎？<br> 歡迎先來這裡坐坐、聊聊天<br><br>
-                這不是免費初談<br>
-                也不是正式療癒服務<br>
-                如果你正處於迷惘、卡關或方向不明的階段<br>
-                想先有人陪你一起整理思緒<br>
+                在猶豫是否需要療癒嗎？<br> 這裡可以先坐下來，聊聊你正在經歷的狀態<br><br>
+                這不是免費初談，也不是正式療癒服務<br>
+                如果你正處於迷惘、卡關或方向不明的階段，想先有人陪你一起整理思緒<br>
                 這個委託是為此而存在的<br>
+                <br>
+                這是一場以自我探索與整理思緒為目的的對談<br>
+                我會以陪伴者、傾聽者與引導者的角色，陪你一起梳理目前的困擾、情緒或關係議題<br>
+                不需要準備完美的問題，也不需要急著找到答案<br>
+                有時候，我們需要的只是有人陪著把事情看清楚<br>
             </p>
             
-            <div class="price-highlight">
-                <span class="gradient-text">簡單對談 NT$ 600 / 半時</span>
+            <!-- 新增的標題與方案卡片區 -->
+          <div style="text-align: left;">
+    <h3 class="info-title gradient-text" style="margin-top: 10px; margin-bottom: 25px;">對談方案</h3>
+</div>
+
+            <div class="plan-card">
+                <div class="plan-title">
+                    <span class="gradient-text">簡單對談 NT$ 600 / 半時</span>
+                </div>
+                <div class="plan-desc">適合單一議題整理</div>
+            </div>
+
+            <div class="plan-card">
+                <div class="plan-title">
+                    <span class="gradient-text">深度對談 NT$ 1380 / 小時</span>
+                </div>
+                <div class="plan-desc">適合較複雜或長期困擾的議題</div>
+            </div>
+  <div style="text-align: left;">
+    <h3 class="info-title gradient-text" style="margin-top: 10px; margin-bottom: 25px;">對談中你可能獲得</h3>
+</div>
+
+ <div style="text-align: left;">
+                 <div class="plan-desc"><span style="color: var(--accent-dawn); margin-right: 8px;">⟡</span>  更清楚自己真正困擾的是什麼</div>
+                 <div class="plan-desc"><span style="color: var(--accent-dawn); margin-right: 8px;">⟡</span> 看見重複出現的人際或關係模式</div>
+                 <div class="plan-desc"><span style="color: var(--accent-dawn); margin-right: 8px;">⟡</span> 整理混亂的情緒與思緒</div>
+                 <div class="plan-desc"><span style="color: var(--accent-dawn); margin-right: 8px;">⟡</span> 理解自己目前真正需要的是什麼</div>
+                 <div class="plan-desc"><span style="color: var(--accent-dawn); margin-right: 8px;">⟡</span> 更清楚下一步的方向</div>
+           </div>
+
+           <div class="notice-container">
+                <p class="notice-text gradient-text" style="font-weight: 600; text-align: center; text-indent: 0; padding-left: 0; display: block;">初次深度對談費用，可於後續首次正式療癒服務中全額折抵一次 </p><br>
+                <p class="notice-text">・透過對談陪伴你看見目前的卡點、重複出現的關係模式與情緒困擾。有時候，當事情被說出來並重新整理後，問題就開始鬆動了。</p>
+                <p class="notice-text">・這場對談並非銷售或推銷服務。目的在於協助你整理現況、看見自己的需要，以及評估目前適合自己的方向。<span style="color: var(--accent-rose); font-size: 12px;"></span></p>
+                <p class="notice-text">・對談結束後，若有適合的後續服務或其他資源，我會提供資訊供你自行評估，不會有任何推銷壓力。</p>
+                <p class="notice-text">・送出表單後，我將在 24 小時內與您聯繫確認具體日期與進行方式，還有匯款帳號 (以Google Meet為主)。</p>
             </div>
             <br>
-            <div class="price-highlight" style="margin-bottom: 0;">
-                <span class="gradient-text">深度對談 NT$ 1380 / 小時</span>
-            </div>
-
-            <div class="notice-container">
-                <p class="notice-text gradient-text" style="font-weight: 600; text-align: center; text-indent: 0; padding-left: 0; display: block;">初次深度對談費用，後續如再預約「第一次正式療癒服務」可以完全扣抵<br>(僅限一次) </p>
-                <p class="notice-text">・ 主要陪伴看見當下的卡點、重複模式或情緒，有時候一個跳脫固有生活圈的傾訴管道，反而能解開打結的問題。</p>
-                <p class="notice-text">・ 簡單對談&深度對談，專業度不會縮水，會偏向您對於要對談的事情大小，選擇適合您的時間。<span style="color: var(--accent-rose); font-size: 12px;">【對於現場比較偏好的「深度對談」可以線下】</span></p>
-                <p class="notice-text">・ 送出表單後，我將在 24 小時內與您聯繫確認具體日期與進行方式，還有匯款帳號 (以Google Meet為主)。</p>
-                <p class="notice-text">・ 對談目的不是說服你選擇某個服務，而是經過跟療癒工作者聊聊，協助你或是讓你更清楚自己目前需要的方向，讓你沒有壓力的自己比較。</p>
-                <p class="notice-text">・ 初談結束後，若您想要進一步找我做療癒服務，我會再提供您專屬的正式服務預約管道，完全不強迫。如果有更適合你的資源，我也會誠實告知。<br><br><span style="color: var(--accent-rose); font-size: 12px;">【我的服務：催眠引導與自我探索，針對感情、關係類、安全感、情緒內耗相關療癒】</span></p>
-            </div>
-
+ <div style="text-align: left;">
+    <h3 class="info-title gradient-text" style="margin-top: 10px; margin-bottom: 25px;">服務範圍說明</h3><br>
+    <span style="color: var(--accent-rose); font-size:12px;">【我的服務：催眠引導與自我探索，針對感情、關係類、安全感、情緒內耗相關療癒】</span><br>
+    <span style="color: var(--accent-rose); font-size:9px;">我提供的是陪伴、整理與自我探索的空間。
+我不會替你做決定， 我相信每個人都有自己的答案，而我的工作是陪你更靠近它。</span>
+</div>
+<br>
+ <div style="text-align: left;">
+    <h3 class="info-title gradient-text" style="margin-top: 10px; margin-bottom: 25px;">法律與服務邊界</h3>
+</div>
             <div class="disclaimer-text">
-                本服務以自我探索、個人成長及覺察為目的，不屬於醫療、心理治療或心理諮商服務，亦不提供任何疾病診斷或治療。如有相關需求，請尋求合格醫療或心理專業人員協助。
+               本服務非醫療行為，亦非心理治療或心理諮商服務，不提供疾病診斷或治療建議。如有身心相關需求，建議尋求合格醫療或心理專業協助。
             </div>
         </div>
 
